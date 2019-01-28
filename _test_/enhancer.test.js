@@ -27,6 +27,14 @@ describe('Testing enchanting system', () => {
    describe('fail() method', () => {
       const original = {
          originalName: 'Excaliber',
+         name: '[+5] Excaliber',
+         type: 'weapon',
+         durability: 80,
+         level: 5,
+      };
+
+      const weapon = {
+         originalName: 'Excaliber',
          name: '[+10] Excaliber',
          type: 'weapon',
          durability: 80,
@@ -42,9 +50,8 @@ describe('Testing enchanting system', () => {
       };
 
       it('should fail an enchancement', () => {
-         const item = enhancer.fail(original);
-         // expect(item).toEqual(expected);
-         expect(item).toThrow();
+         expect(enhancer.fail(weapon)).toEqual(expected);
+         expect(() => enhancer.fail(original)).toThrow(); // When using toThrow(), expect parameter needs to be a function
       });
    });
 
