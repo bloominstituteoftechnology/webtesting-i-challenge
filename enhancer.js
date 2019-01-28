@@ -4,23 +4,19 @@ module.exports = {
    repair,
 };
 
-// The enhancement level of an item starts at 0.
-// The maximun enhancement possible is PEN.
-// Enhacing an armor up to 5 cannot fail.
-// Enhacing a weapon up to 7 cannot fail.
-// Enhancement level is display as a string with a plus sign ( + ) before the number for levels 1 to 15.
-// Enhancement level of 0 is not displayed.
-// when an item is enhanced, the name should be modified to include the enhancement level between square brackets before the item's name. Example: the new name of a "Elven Sword" enhanced to 7 would be "[+7] Elven Sword", at DUO would be "[DUO] Elven Sword".
-// From +0 to +15 the enhacement is displayed using Arabic Numerals.
-// After +15 the display for the enhancing level follows the table below:
-// Level	Display
-// 16	PRI
-// 17	DUO
-// 18	TRI
-// 19	TET
-// 20	PEN
-
 function success(item) {
+   if (item.durability < 25 && item.level <= 14) {
+      throw new Error(
+         `The ${item.type}'s durability is too low to be enhanced.`
+      );
+   }
+
+   if (item.durability < 10 && item.level >= 15) {
+      throw new Error(
+         `The ${item.type}'s durability is too low to be enhanced.`
+      );
+   }
+
    if (item.level >= 0 && item.level < 15) {
       item.level++;
       item.name = `[+${item.level}] ${item.name}`;
@@ -43,6 +39,36 @@ function success(item) {
    return item;
 }
 
-function fail(item) {}
+function fail(item) {
+   if (item.type == 'weapon' && item.level <= 7) {
+      throw new Error('A weapon level 7 and under cannot fail an enhancement.');
+   }
 
-function repair(item) {}
+   if (item.type == 'armor' && item.level <= 5) {
+      throw new Error('An armor level 5 and under cannot fail an enhancement.');
+   }
+
+   if (item.level >= 0 && item.level <= 14) {
+      item.durability -= 5;
+   } else if (item.level >= 15 && item.level <= 16) {
+      item.durability -= 10;
+   } else if (item.level === 17) {
+      item.level--;
+      item.durability -= 10;
+      item.name = `PRI ${item.name}`;
+   } else if (item.level === 18) {
+      item.level--;
+      item.durability -= 10;
+      item.name = `DUO ${item.name}`;
+   } else if (item.level === 19) {
+      item.level--;
+      item.durability -= 10;
+      item.name = `TRI ${item.name}`;
+   }
+   return item;
+}
+
+function repair(item) {
+   item.durability = 100;
+   return item;
+}
