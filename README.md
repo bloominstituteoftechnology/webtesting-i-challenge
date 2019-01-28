@@ -71,7 +71,7 @@ The following sections list information provided by the client about `items` and
 - Enhancement level is display as a string with a plus sign ( + ) before the number for levels 1 to 15.
 - Enhancement level of 0 is not displayed.
 - when an item is enhanced, the `name` should be modified to include the enhancement level between square brackets before the item's `name`. Example: the new name of a "Elven Sword" enhanced to 7 would be _"[+7] Elven Sword"_, at DUO would be _"[DUO] Elven Sword"_.
-- From +0 to +15 the enhacement is displayed using roman numerals.
+- From +0 to +15 the enhacement is displayed using Arabic Numerals.
 - After +15 the display for the enhancing level follows the table below:
 
 | Level | Display |
