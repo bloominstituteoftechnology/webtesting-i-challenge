@@ -1,0 +1,23 @@
+{
+  "name": "testing-i",
+  "version": "1.0.0",
+  "description": "In this project, you will demonstrate proficiency by writing unit tests and production code to satisfy the Minimum Viable Product described below.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lidiia92/testing-i.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lidiia92/testing-i/issues"
+  },
+  "homepage": "https://github.com/Lidiia92/testing-i#readme",
+  "devDependencies": {
+    "jest": "^24.0.0"
+  }
+}
