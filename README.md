@@ -1,8 +1,8 @@
 # Testing I
 
-In this project, you will demonstrate proficiency by writing unit tests and production code to satisfy the Minimum Viable Product described below.
+In this project, you will demonstrate proficiency by writing unit tests and production code to satisfy the _Minimum Viable Product_ described below.
 
-Some of the topics covered were
+Some of the topics covered were:
 
 - introduction to automated testing.
 - using `Jest` as a test runner.
@@ -13,7 +13,7 @@ Some of the topics covered were
 
 **Read these requirements carefully. Understand exactly what is expected _before_ starting.**
 
-You are allowed, and encouraged, to collaborate with your peers while working on this assignment. Remember to follow the twenty-minute rule and post questions to your cohort's help channel before seeking support from your PM and Instructor.
+You are allowed, and encouraged, to collaborate with your peers while working on this assignment. Remember to follow the _twenty-minute rule_ and post questions to your cohort's help channel before seeking support from your PM and Instructor.
 
 ## Commits
 
@@ -21,7 +21,7 @@ Please push your code often and use descriptive commit messages, this helps you 
 
 ## Project Description
 
-In this project, you will **write unit tests and the implementation code** for a module that helps gamers see the results of a _success_ or _failure_ when trying to enhance their in-game items. The requirements are listed under the _Minimum Viable Product_ heading.
+In this project, you will **write unit tests and the implementation code** for a module that helps gamers see the results of a _success_ or _failure_ when trying to enhance their in-game items. The requirements are listed under the _Minimum Viable Product_ section below.
 
 ## Project Set Up
 
@@ -55,7 +55,7 @@ The following sections list information provided by the client about `items` and
 ### Items.
 
 - Items have `name`, `type`, `durability` and `enhancement`. Add any other properties you need to implement the client's requirements.
-- The item's `type` can be _weapon_, _armor_.
+- The item's `type` can be _weapon_ or _armor_.
 - The maximum _durability_ of an item is 100.
 - The durability of an item starts at 100.
 - The enhancement level of an item starts at 0 and can reach a maximum of PEN.
@@ -68,7 +68,7 @@ The following sections list information provided by the client about `items` and
 - The maximun enhancement possible is PEN.
 - Enhacing an armor up to 5 cannot fail.
 - Enhacing a weapon up to 7 cannot fail.
-- Enhancement level is display as a string with a plus sign ( + ) before the number for levels 1 to 15.
+- Enhancement level is displayed as a string with a plus sign ( + ) before the number for levels 1 to 15.
 - Enhancement level of 0 is not displayed.
 - when an item is enhanced, the `name` should be modified to include the enhancement level between square brackets before the item's `name`. Example: the new name of a "Elven Sword" enhanced to 7 would be _"[+7] Elven Sword"_, at DUO would be _"[DUO] Elven Sword"_.
 - From +0 to +15 the enhacement is displayed using Arabic Numerals.
