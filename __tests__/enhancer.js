@@ -12,7 +12,7 @@ describe('Enchanting system', () => {
 
     const testItem2 = {
         originalName: "Levin Sword", 
-        name: '[PRI] Cool Shield',
+        name: '[+16] Cool Shield',
         type: "armor",
         durability: 20,
         enhancement: 16
@@ -43,9 +43,21 @@ describe('Enchanting system', () => {
         });
     });
 
-    // describe('fail() method', () => {
-    
-    // });
+    describe('fail() method', () => {
+        const result1 = enhancer.fail(testItem1);
+        const result2 = enhancer.fail(testItem2);
+        const result3 = enhancer.fail(testItem3);
+
+        it("running fail test, no idea what it's doing", () => {
+            expect(result1).toEqual({
+                originalName: "Cool Shield", 
+                name: '[+5] Cool Shield',
+                type: "armor",
+                durability: 45,
+                enhancement: 5
+            });
+        });   
+    });
 
     describe('repair() method', () => {
 
@@ -70,7 +82,7 @@ describe('Enchanting system', () => {
 
             expect(result2).toEqual({
                 originalName: "Levin Sword", 
-                name: '[PRI] Cool Shield',
+                name: '[+16] Cool Shield',
                 type: "armor",
                 durability: 100,
                 enhancement: 16

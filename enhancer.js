@@ -17,8 +17,33 @@ function success(item) {
     };
 }
 
-function fail() {
+function fail(item) {
+    const itemEnhancement = item.enhancement;
+    const itemDurability = item.durability;
+    let newDurability = itemDurability;
+    let newEnhacement = itemEnhancement;
+    const newName = item.originalName;
 
+    if(itemEnhancement > -1 && itemEnhancement < 15 ) {
+        newDurability = itemDurability - 5;
+    } else if(itemEnhancement > 14) {
+        newDurability = itemDurability - 10;
+    } else if(itemEnhancement > 16) {
+        newEnhacement = itemEnhancement - 1;
+    }
+
+    if(newEnhacement <= 14 && newDurability < 25)
+        return 'Failed to enhance';
+
+    if(newEnhacement >=15 && newDurability < 10)
+        return 'Failed to enhance';
+
+    return {
+        ...item, 
+        name: `[+${newEnhacement}] ${newName}`,
+        durability: newDurability,
+        enhancement: newEnhacement,
+    }
 }
 
 function repair(item) {
