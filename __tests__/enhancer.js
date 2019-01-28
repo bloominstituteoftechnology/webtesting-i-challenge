@@ -20,17 +20,28 @@ describe('Enchanting system', () => {
 
     const testItem3 = {
         originalName: "Sharp Dagger", 
-        name: '[+8] Cool Shield',
+        name: '[+8] Sharp Dagger',
         type: "weapon",
-        durability: 13,
+        durability: 25,
         enhancement: 8
     }
 
-    // describe('success() method', () => {
-    //     it('should add 1 to enhacement', () => {
-    //         expect(enhancer.success(item)).toEqual(expected)
-    //     });
-    // });
+    describe('success() method', () => {
+        const result1 = enhancer.success(testItem1);
+        const result2 = enhancer.success(testItem2);
+        const result3 = enhancer.success(testItem3);
+
+
+        it('should add 1 to enhacement', () => {
+            expect(result1).toEqual({
+                originalName: "Cool Shield", 
+                name: '[+6] Cool Shield',
+                type: "armor",
+                durability: 50,
+                enhancement: 6
+            });
+        });
+    });
 
     // describe('fail() method', () => {
     
@@ -67,7 +78,7 @@ describe('Enchanting system', () => {
 
             expect(result3).toEqual({
                 originalName: "Sharp Dagger", 
-                name: '[+8] Cool Shield',
+                name: '[+8] Sharp Dagger',
                 type: "weapon",
                 durability: 100,
                 enhancement: 8
