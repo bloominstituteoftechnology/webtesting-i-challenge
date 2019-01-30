@@ -53,4 +53,13 @@ describe('repair function', () => {
         expect(swordRepaired.durability).toBe(100);
         expect(shieldRepaired.durability).toBe(100);
     });
+
+    test('does not modify other object properties', () => {
+        expect(swordRepaired.name).toBe(swordDamaged.name);
+        expect(shieldRepaired.name).toBe(shieldDamaged.name);
+        expect(swordRepaired.type).toBe(swordDamaged.type);
+        expect(shieldRepaired.type).toBe(shieldDamaged.type);
+        expect(swordRepaired.enhancement).toBe(swordDamaged.enhancement);
+        expect(shieldRepaired.enhancement).toBe(shieldDamaged.enhancement);
+    })
 })
