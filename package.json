@@ -1,0 +1,14 @@
+{
+  "name": "testing-i",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/cpdis/testing-i.git",
+  "author": "Colin Dismuke <colin.dismuke@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "devDependencies": {
+    "jest": "^24.0.0"
+  }
+}
