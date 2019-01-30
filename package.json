@@ -1,0 +1,11 @@
+{
+  "name": "testing-i",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/LeviApp/testing-i.git",
+  "author": "Levi Appenfelder <levi.appenfelder@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^24.0.0"
+  }
+}
