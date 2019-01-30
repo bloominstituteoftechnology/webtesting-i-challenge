@@ -1,0 +1,14 @@
+{
+  "name": "testing-i",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "repository": "https://github.com/kmonique/testing-i.git",
+  "author": "Kendra Williams <kmonique.williams@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^24.0.0"
+  }
+}
