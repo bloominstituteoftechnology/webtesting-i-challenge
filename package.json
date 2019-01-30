@@ -1,0 +1,11 @@
+{
+  "name": "testing-i",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/BrendonKootz/testing-i",
+  "author": "BrendonKootz <brendonkootz@gmail.com>",
+  "license": "MIT"
+  "scripts": {
+	"test": "jest enhancer.js"
+  }
+}
