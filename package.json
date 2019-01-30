@@ -1,0 +1,14 @@
+{
+  "name": "testing-i",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/rlmclaughlin/testing-i.git",
+  "author": "rlmclaughlin <rlmclaughlin@yahoo.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^24.0.0"
+  },
+  "scripts": {
+    "test": "jest --watch"
+  }
+}
