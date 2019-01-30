@@ -1,0 +1,14 @@
+{
+  "name": "testing-i",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch",
+  },
+  "repository": "git@github.com:leelichtsinn/testing-i.git",
+  "author": "Lee Lichtsinn <lee.lichtsinn@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^24.0.0"
+  }
+}
