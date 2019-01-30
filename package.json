@@ -1,0 +1,14 @@
+{
+  "name": "testing-i",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/marcusbass323/testing-i.git",
+  "author": "marcusbass323 <marcus@bassconsultantgroup.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "dependencies": {
+    "jest": "^24.0.0"
+  }
+}
