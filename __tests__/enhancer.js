@@ -5,21 +5,21 @@ const item1 = {
   name: '[TRI] Longsword',
   type: 'weapon',
   durability: 100,
-  enhancement: 'TRI'
+  enhancement: 18
 }
 
 const item2 = {
-  name: '[+0] Dagger',
+  name: 'Dagger',
   type: 'weapon',
   durability: 20,
   enhancement: 0
 }
 
 const item3 = {
-  name: '[20] Leather Armor',
+  name: '[PEN] Leather Armor',
   type: 'armor',
   durability: 40,
-  enhancement: 0
+  enhancement: 20
 }
 
 describe('The Enhancer Module', () => {
