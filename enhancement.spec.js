@@ -1,22 +1,30 @@
-// Arrange
-const item = {
-  name: "longsword",
-  type: "weapon",
-  durability: "PEN",
-  enhancement: 1
-};
+const enhance = require("./enhancementHandler");
 
-// Act
-const enhancedItem = success(item);
+describe("GAME TEST SUITE", () => {
+  describe("SUCCESS METHOD", () => {});
+  describe("FAIL METHOD", () => {});
+  describe("REPAIR METHOD", () => {});
+});
 
-// Assert
-expect(enhancedItem.enhancement).toBe("PEN");
+// // Arrange
+// const item = {
+//     name: "longsword",
+//     type: "weapon",
+//     durability: "PEN",
+//     enhancement: 1
+//   };
 
-// Arrange
-const items = [{}, {}, []];
+//   // Act
+//   const enhancedItem = success(item);
 
-// Act
-const enhancedItems = items.map(success);
+//   // Assert
+//   expect(enhancedItem.enhancement).toBe("PEN");
 
-// Assert
-expect(enhancedItems[0]).toBe();
+//   // Arrange
+//   const items = [{}, {}, []];
+
+//   // Act
+//   const enhancedItems = items.map(success);
+
+//   // Assert
+//   expect(enhancedItems[0]).toBe();
