@@ -15,7 +15,7 @@ module.exports = {
             name: item.name,
             type: item.type,
             durability: 100,
-            enhancement: item.enhancement
+            enhancement: item.enhancement,
         };
         return obj;
     }
