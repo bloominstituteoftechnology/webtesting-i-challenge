@@ -23,7 +23,7 @@ Please push your code often and use descriptive commit messages, this helps you 
 
 In this project, you will **write unit tests and the implementation code** for a module that helps gamers see the results of a _success_ or _failure_ when trying to enhance their in-game items. The requirements are listed under the _Minimum Viable Product_ section below.
 
-## Project Set Up
+## Project Set Up 
 
 Follow these steps to setup your git _fork_ and _branch_.
 
