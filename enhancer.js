@@ -30,9 +30,8 @@
 //name is updated to reflect new EL
 
 //item cannot be enhanced if (EL is <14 && durability <25) || (EL >15 && durability <10)
-const success = (item, clientSuccessRules) => {
+const success = (item) => {
     
-    return clientSuccessRules(item);
 }
 
 //accepts an item and returns a new item that is modified according to the client rules for failure
@@ -43,15 +42,23 @@ const success = (item, clientSuccessRules) => {
 
 
 
-const fail = (item, clientFailRules) => {
+const fail = (item) => {
 
-    return clientFailRules(item);
 }
 
 
-//accepts an item and returns a new itme with the durability restored to 100
+//accepts an item and returns a new item with the durability restored to 100
 const repair = (item) => {
 
+    let newItem = {
+        name: item.name,
+        type: item.type,
+        durability: 100,
+        enhancement: item.enhancement
+
+    }
+
+    return newItem
 }
 
 

@@ -2,7 +2,7 @@
 const battleAxe = {
     name: '[12] Battle Axe',
     type: 'weapon',
-    durability: 100,
+    durability: 15,
     enhancement: 12
 }
 
