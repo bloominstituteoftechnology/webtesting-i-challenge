@@ -5,11 +5,22 @@ module.exports = {
         if (item.enhancement === 0) {
             return true;
         }
+        if (item.type = 'weapon' || 'armor') {
+            return true;
+        }
+        if (item.durability >= 100) {
+            return true;
+        }
     },
 
     //a fail(item) method that accepts an item object and returns a new item object modified according to the rules defined by the client for enhancement failure.
-    fail: () => {
-
+    fail: (item) => {
+        if (item.type != 'weapon' || 'armor') {
+            return false;
+        }
+        if (item.durability > 100) {
+            return false;
+        }
     },
     //a repair(item) method that accepts an item object and returns a new item with the durability restored to 100.
     repair: (item) => {
