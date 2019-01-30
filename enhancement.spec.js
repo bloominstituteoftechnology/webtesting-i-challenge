@@ -34,7 +34,7 @@ const {
 describe("GAME TEST SUITE", () => {
   describe("SUCCESS METHOD", () => {
     const expectedArmor = {
-      name: "EOD",
+      name: "[+1] EOD",
       type: "armor",
       durability: 100,
       enhancement: 1
@@ -44,8 +44,19 @@ describe("GAME TEST SUITE", () => {
       expect(enhance.success(EOD)).toEqual(expectedArmor);
     });
 
+    const expectedArmorAbove15 = {
+      name: "[TRI] EVA",
+      type: "armor",
+      durability: 100,
+      enhancement: 18
+    };
+
+    test("Increase armor enhancement by 1 above 15", () => {
+      expect(enhance.success(EVA)).toEqual(expectedArmorAbove15);
+    });
+
     const expectedWeapon = {
-      name: "energy_sword",
+      name: "[+1] energy_sword",
       type: "weapon",
       durability: 100,
       enhancement: 1
@@ -60,6 +71,7 @@ describe("GAME TEST SUITE", () => {
 
   describe("REPAIR METHOD", () => {
     const repairedArmor = {
+      origName: "CQB",
       name: "CQB",
       type: "armor",
       durability: 100,
@@ -71,6 +83,7 @@ describe("GAME TEST SUITE", () => {
     });
 
     const repairedWeapon = {
+      origName: "needler",
       name: "needler",
       type: "weapon",
       durability: 100,

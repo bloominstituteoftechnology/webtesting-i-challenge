@@ -1,4 +1,5 @@
 const needler = {
+  origName: "needler",
   name: "needler",
   type: "weapon",
   durability: 100,
@@ -6,6 +7,7 @@ const needler = {
 };
 
 const sniper_rifle = {
+  origName: "sniper_rifle",
   name: "sniper_rifle",
   type: "weapon",
   durability: 100,
@@ -13,6 +15,7 @@ const sniper_rifle = {
 };
 
 const plasma_pistol = {
+  origName: "plasma_pistol",
   name: "plasma_pistol",
   type: "weapon",
   durability: 100,
@@ -20,6 +23,7 @@ const plasma_pistol = {
 };
 
 const sticky_grendade = {
+  origName: "sticky_grendade",
   name: "sticky_grendade",
   type: "weapon",
   durability: 100,
@@ -27,6 +31,7 @@ const sticky_grendade = {
 };
 
 const energy_sword = {
+  origName: "energy_sword",
   name: "energy_sword",
   type: "weapon",
   durability: 100,
@@ -34,6 +39,7 @@ const energy_sword = {
 };
 
 const battle_rifle = {
+  origName: "battle_rifle",
   name: "battle_rifle",
   type: "weapon",
   durability: 100,
@@ -41,6 +47,7 @@ const battle_rifle = {
 };
 
 const halo_ce_pistol = {
+  origName: "halo_ce_pistol",
   name: "halo_ce_pistol",
   type: "weapon",
   durability: 100,
