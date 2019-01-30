@@ -26,13 +26,27 @@ describe('The Enhancer Module', () => {
 
   describe('The Success Method', () => {
 
+    test('', () => {
+
+    })
+
   })
 
   describe('The Fail Method', () => {
 
+    test('', () => {
+
+    })
+
   })
 
   describe('The Repair Method', () => {
+
+    const repairedItem = enhancer.repair(item1);
+
+    test('Returns item with durability restored to 100', () => {
+      expect(repairedItem.durability).toBe(100);
+    })
 
   })
 
