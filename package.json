@@ -4,8 +4,11 @@
   "main": "index.js",
   "repository": "https://github.com/BrendonKootz/testing-i",
   "author": "BrendonKootz <brendonkootz@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
   "scripts": {
-	"test": "jest enhancer.js"
+    "test": "jest enhancer.js"
+  },
+  "dependencies": {
+    "jest": "^24.0.0"
   }
 }
