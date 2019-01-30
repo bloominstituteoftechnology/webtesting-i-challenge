@@ -1,11 +1,11 @@
-const enhacer = require('./enhancer');
+const { success, fail, repair } = require('./enhancer');
 
 //Arrange - Mock Items
 const sword = {
     name: 'Broadsword',
-    type: 'weapon', // weapon || armor
-    durability: 100, //starts at 100, cannot be < 20 if enhancement is 0-14, cannot be < 0 if enhancement is 15-TET
-    enhancement: 0 //starts at 0, range 0-PEN
+    type: 'weapon',
+    durability: 100,
+    enhancement: 0
 };
 
 const shield = {
@@ -15,17 +15,42 @@ const shield = {
     enhancement: 0
 };
 
+const swordDamaged = {
+    name: 'Broadsword',
+    type: 'weapon',
+    durability: 50,
+    enhancement: 0
+};
+
+const shieldDamaged = {
+    name: 'Shield',
+    type: 'armor',
+    durability: 70,
+    enhancement: 0
+};
+
 //Act
+    //Success function
+
+    //Fail function
+
+    //Repair function -- a `repair(item)` method that accepts an `item` object and returns a new `item` with the durability restored to 100.
+    const swordRepaired = repair(swordDamaged);
+    const shieldRepaired = repair(shieldDamaged);
+
 
 //Assert
-test('success function testing', () => {
+describe('success function', () => {
 
 });
 
-test('fail function testing', () => {
+describe('fail function', () => {
 
 });
 
-test('repair function testing', () => {
-    
+describe('repair function', () => {
+    test('durability to be 100', () => {
+        expect(swordRepaired.durability).toBe(100);
+        expect(shieldRepaired.durability).toBe(100);
+    });
 })
