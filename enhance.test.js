@@ -83,7 +83,7 @@ describe("success function", () => {
             type: "weapon",
             durability: 100,
             enhancement: 20
-        })).toReturnWith({error: "Cannot enhance an item above level 20 (PEN)"});
+        })).toEqual({error: "Cannot enhance an item above level 20 (PEN)"});
     });
 
     test("Errors on malformed item", () => {
@@ -92,21 +92,21 @@ describe("success function", () => {
             type: "not a real type",
             durability: 100,
             enhancement: 19
-        })).toReturnWith({error: "Malformed item data"});
+        })).toEqual({error: "Malformed item data"});
         
         expect(enhance.success({
             name: "[TET] Ethereal Blades",
             type: "weapon",
             durability: "one hundred",
             enhancement: 19
-        })).toReturnWith({error: "Malformed item data"});
+        })).toEqual({error: "Malformed item data"});
 
         expect(enhance.success({
             name: "[TET] Ethereal Blades",
             type: "weapon",
             durability: 100,
             enhancement: "TET"
-        })).toReturnWith({error: "Malformed item data"});
+        })).toEqual({error: "Malformed item data"});
     });
 });
 
@@ -183,21 +183,21 @@ describe("fail function", () => {
             type: "not a real type",
             durability: 100,
             enhancement: 19
-        })).toReturnWith({error: "Malformed item data"});
+        })).toEqual({error: "Malformed item data"});
         
         expect(enhance.fail({
             name: "[TET] Ethereal Blades",
             type: "weapon",
             durability: "one hundred",
             enhancement: 19
-        })).toReturnWith({error: "Malformed item data"});
+        })).toEqual({error: "Malformed item data"});
 
         expect(enhance.fail({
             name: "[TET] Ethereal Blades",
             type: "weapon",
             durability: 100,
             enhancement: "TET"
-        })).toReturnWith({error: "Malformed item data"});
+        })).toEqual({error: "Malformed item data"});
     });
 });
 
@@ -246,7 +246,7 @@ describe("repair function", () => {
             type: "weapon",
             durability: 100,
             enhancement: 16
-        })).toReturnWith({error: "Item already fully repaired"});
+        })).toEqual({error: "Item already fully repaired"});
     });
 
     test("Errors on malformed item", () => {
@@ -255,20 +255,20 @@ describe("repair function", () => {
             type: "not a real type",
             durability: 100,
             enhancement: 19
-        })).toReturnWith({error: "Malformed item data"});
+        })).toEqual({error: "Malformed item data"});
         
         expect(enhance.repair({
             name: "[TET] Ethereal Blades",
             type: "weapon",
             durability: "one hundred",
             enhancement: 19
-        })).toReturnWith({error: "Malformed item data"});
+        })).toEqual({error: "Malformed item data"});
 
         expect(enhance.repair({
             name: "[TET] Ethereal Blades",
             type: "weapon",
             durability: 100,
             enhancement: "TET"
-        })).toReturnWith({error: "Malformed item data"});
+        })).toEqual({error: "Malformed item data"});
     });
 });
