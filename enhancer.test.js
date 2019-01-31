@@ -1,0 +1,1 @@
+const enhancer = require('./enhancer');
