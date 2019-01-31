@@ -2,7 +2,7 @@
   "name": "testing-i",
   "version": "1.0.0",
   "main": "index.js",
-  "script": {
+  "scripts": {
     "test": "jest --watch"
   },
   "repository": "https://github.com/FreeKeyBoy/testing-i.git",
