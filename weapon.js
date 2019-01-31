@@ -40,10 +40,10 @@ const energy_sword = {
 
 const battle_rifle = {
   origName: "battle_rifle",
-  name: "battle_rifle",
+  name: "[TRI] battle_rifle",
   type: "weapon",
   durability: 100,
-  enhancement: 0
+  enhancement: 18
 };
 
 const halo_ce_pistol = {

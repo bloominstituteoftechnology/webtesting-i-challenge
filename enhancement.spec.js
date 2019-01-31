@@ -68,6 +68,18 @@ describe("GAME TEST SUITE", () => {
     test("Increase weapon enhancement by 1", () => {
       expect(enhance.success(energy_sword)).toEqual(expectedWeapon);
     });
+
+    const expectedWeaponAbove15 = {
+      origName: "battle_rifle",
+      name: "[TET] battle_rifle",
+      type: "weapon",
+      durability: 100,
+      enhancement: 19
+    };
+
+    test("Increase weapon enhancement by 1 above 15", () => {
+      expect(enhance.success(battle_rifle)).toEqual(expectedWeaponAbove15);
+    });
   });
 
   describe("FAIL METHOD", () => {});

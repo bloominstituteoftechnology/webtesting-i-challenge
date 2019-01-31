@@ -4,8 +4,6 @@
  * name = updatedName ✅
  * IF enhancement > 15 THEN use enhancementLevels
  */
-const enhancementLevels = ["PRI", "DUO", "TRI", "TET", "PEN"];
-
 function success(item) {
   if (item.enhancement >= 0 && item.enhancement <= 15) {
     item.enhancement += 1;
@@ -27,6 +25,13 @@ function success(item) {
     item.name = `[PEN] ${item.origName}`;
   }
 
+  if (
+    (item.enhancement <= 14 && item.durability < 25) ||
+    (item.enhancement >= 15 && item.durability < 10)
+  ) {
+    throw new Error("Failed to enhance due to low durability.");
+  }
+
   return item;
 }
 
@@ -39,22 +44,30 @@ function success(item) {
  * IF (enhancement >= 15 AND durability < 10) THEN fail ✅
  */
 function fail(item) {
-  const origEnhancement = item.enhancement;
-  const origDurability = item.durability;
-  const enhancedName = item.origName;
-  let enhanced = origEnhancement;
-  let durabled = origDurability;
-
-  if (origEnhancement > -1 && origEnhancement < 15) {
-    durabled = origDurability - 5;
-  } else if (origEnhancement > 14) {
-    durabled = origDurability - 10;
-  } else if (origEnhancement > 15) {
-    enhanced = origEnhancement - 1;
+  if (item.enhancement >= 0 && item.enhancement <= 14) {
+    item.durability -= 5;
+  } else if (item.enhancement > 14 && item.enhancement <= 16) {
+    item.durability = -10;
+  } else if (item.enhancement === 17) {
+    item.enhancement -= 1;
+    item.name = `[PRI] ${item.origName}`;
+  } else if (item.enhancement === 18) {
+    item.enhancement -= 1;
+    item.name = `[DUO] ${item.origName}`;
+  } else if (item.enhancement === 19) {
+    item.enhancement -= 1;
+    item.name = `[TRI] ${item.origName}`;
+  } else if (item.enhancement === 20) {
+    item.enhancement -= 1;
+    item.name = `[TET] ${item.origName}`;
   }
 
-  if ((enhanced <= 14 && durabled < 25) || (enhanced >= 15 && durabled < 10)) {
-    return "Failed to enhance.";
+  if (item.type === "armor" && item.enhancement <= 5) {
+    throw new Error("Armor below enhancement level 5 cannot fail.");
+  }
+
+  if (item.type === "weapon" && item.enhancement <= 7) {
+    throw new Error("Weapons below enhancement level 7 cannot fail.");
   }
 
   return {
