@@ -1,7 +1,7 @@
 const sword = {
     name: 'Sword',
     type: 'weapon',
-    durability: 100,
+    durability: 80,
     enhancement: 13
 }
 
@@ -15,7 +15,7 @@ const chain = {
 const electricSword = {
     name: 'Electric Sword',
     type: 'weapon',
-    durability: 100,
+    durability: 80,
     enhancement: 'TRI'
 }
 
