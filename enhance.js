@@ -50,8 +50,6 @@ const fail = item => {
         || item.durability < 0
         || (item.type !== "weapon" && item.type !== "armor")) {
         return {error: "Malformed item data"}
-    } else if (item.enhancement === 20) {
-        return {error: "Cannot enhance an item above level 20 (PEN)"}
     }
 
     let newItem = item;
