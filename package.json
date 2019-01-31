@@ -1,0 +1,8 @@
+{
+  "name": "testing-i",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/louislee7/testing-i.git",
+  "author": "louislee7 <7.louislee@gmail.com>",
+  "license": "MIT"
+}
