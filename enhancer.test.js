@@ -42,3 +42,8 @@ test('Enhance fails',   ()  =>  {
     expect(failedItem2.durability).toBe(60);
     expect(failedItem2.name).toBe('[TRI] Longsword')
 })
+
+test('Enhance repair',  ()  =>  {
+    expect(repairedItem2.durability).toBe(100);
+    expect(repairedItem3.durability).toBe(100);
+})
