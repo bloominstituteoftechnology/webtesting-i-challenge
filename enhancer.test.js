@@ -29,8 +29,16 @@ const repairedItem2 = repair(item2);
 const repairedItem3 = repair(item3)
 
 test('Enhance succeeds',    ()  =>  {
-        expect(enhancedItem1.enhancement).toBe(1);
-        expect(enhancedItem1.name).toBe('[+1] Longsword');
-        expect(enhancedItem2.name).toBe('[PEN] Longsword');
-        expect(enhancedItem2.enhancement).toBe(20);
+    expect(enhancedItem1.enhancement).toBe(1);
+    expect(enhancedItem1.name).toBe('[+1] Longsword');
+    expect(enhancedItem2.name).toBe('[PEN] Longsword');
+    expect(enhancedItem2.enhancement).toBe(20);
+})
+
+test('Enhance fails',   ()  =>  {
+    expect(failedItem1.enhancement).toBe(0);
+    expect(failedItem1.durability).toBe(95);
+    expect(failedItem2.enhancement).toBe(18);
+    expect(failedItem2.durability).toBe(60);
+    expect(failedItem2.name).toBe('[TRI] Longsword')
 })
