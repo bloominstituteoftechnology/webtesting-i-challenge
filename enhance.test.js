@@ -112,19 +112,92 @@ describe("success function", () => {
 
 describe("fail function", () => {
     test("Decrease durability by 5 if level 0 - 14", () => {
+        expect(enhance.success({
+            name: "Elven Sword",
+            type: "weapon",
+            durability: 95,
+            enhancement: 0
+        })).toEqual({
+            name: "Elven Sword",
+            type: "weapon",
+            durability: 90,
+            enhancement: 0
+        });
 
+        expect(enhance.success({
+            name: "[+4] Dwarvish Helmet",
+            type: "armor",
+            durability: 70,
+            enhancement: 4
+        })).toEqual({
+            name: "[+4] Dwarvish Helmet",
+            type: "armor",
+            durability: 65,
+            enhancement: 4
+        });
     });
     
-    test("Decrease durability by 10 if level 14 - 19", () => {
-
+    test("Decrease durability by 10 if level 14 - 20", () => {
+        expect(enhance.success({
+            name: "[+14] Ethereal Blades",
+            type: "weapon",
+            durability: 100,
+            enhancement: 14
+        })).toEqual({
+            name: "[+14] Ethereal Blades",
+            type: "weapon",
+            durability: 90,
+            enhancement: 14
+        });
     });
 
     test("Decrease enhancement level if above level 16", () => {
+        expect(enhance.success({
+            name: "[DUO] Ethereal Blades",
+            type: "weapon",
+            durability: 100,
+            enhancement: 17
+        })).toEqual({
+            name: "[PRI] Ethereal Blades",
+            type: "weapon",
+            durability: 90,
+            enhancement: 16
+        });
 
+        expect(enhance.success({
+            name: "[TET] Ethereal Blades",
+            type: "weapon",
+            durability: 100,
+            enhancement: 19
+        })).toEqual({
+            name: "[TRI] Ethereal Blades",
+            type: "weapon",
+            durability: 90,
+            enhancement: 18
+        });
     });
 
     test("Errors on malformed item", () => {
+        expect(enhance.fail({
+            name: "[TET] Ethereal Blades",
+            type: "not a real type",
+            durability: 100,
+            enhancement: 19
+        })).toReturnWith({error: "Malformed item data"});
+        
+        expect(enhance.fail({
+            name: "[TET] Ethereal Blades",
+            type: "weapon",
+            durability: "one hundred",
+            enhancement: 19
+        })).toReturnWith({error: "Malformed item data"});
 
+        expect(enhance.fail({
+            name: "[TET] Ethereal Blades",
+            type: "weapon",
+            durability: 100,
+            enhancement: "TET"
+        })).toReturnWith({error: "Malformed item data"});
     });
 });
 
