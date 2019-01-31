@@ -1,8 +1,20 @@
+const value = require("./display");
+
 module.exports = {
    //The item's enhancement increases by 1.
    //The name is updated to reflect the new enhancement level.
    success: (item) => {
-
+      // if(item.type === "weapon" || item.type === "armor"){
+      //    if(item.enhancement < 15){
+      //       item.enhancement = ++item.enhancement;
+      //    } else {
+      //       item.enhancement = display
+      //    }
+         
+      //    return item
+      // } else {
+      //    return "Invalid Item Type"
+      // }
    },
 
    //The durability of the item is decreased by 5 if the item's enhancement is between 0 and 14.
@@ -17,6 +29,7 @@ module.exports = {
 
    //durability restored to 100
    repair: (item) => {
-
+      item.durability = 100;
+      return item;
    }
 }

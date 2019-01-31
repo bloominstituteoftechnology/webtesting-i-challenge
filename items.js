@@ -36,18 +36,4 @@ const items = [
       durability: 20,
       enhancement: 14,
    },
-   {
-      name: "enchanted armor",
-      type: "armor",
-      durability: 10,
-      enhancement: "PEN",
-   },
-   {
-      name: "goddess cloak",
-      type: "armor",
-      durability: -5,
-      enhancement: "PEN"
-   },
 ]
-
-module.exports = items;
