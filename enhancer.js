@@ -38,6 +38,7 @@ module.exports = {
   },
 
   fail: (item) => {
+    const itemName = item.unenhancedName;
     if (item.type === 'armor' && item.enhancement <= 5) {
       throw new Error('Armor enhancement is level 5 or under, cannot fail');
     }
@@ -53,19 +54,19 @@ module.exports = {
     } else if (item.enhancement === 17) {
       item.enhancement -= 1;
       item.durability -= 10;
-      item.name = `[PRI] ${item.name}`
+      item.name = `[PRI] ${itemName}`
     } else if (item.enhancement === 18) {
       item.enhancement -= 1;
       item.durability -= 10;
-      item.name = `[DUO] ${item.name}`
+      item.name = `[DUO] ${itemName}`
     } else if (item.enhancement === 19) {
       item.enhancement -= 1;
       item.durability -= 10;
-      item.name = `[TRI] ${item.name}`
+      item.name = `[TRI] ${itemName}`
     } else if (item.enhancement === 20) {
       item.enhancement -= 1;
       item.durability -= 10;
-      item.name = `[TET] ${item.name}`
+      item.name = `[TET] ${itemName}`
     }
     return item;
   },
