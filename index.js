@@ -1,15 +1,26 @@
 'use strict';
 
-const enhancer = {
-    success: function(item) {
+class enhancer {
+    constructor(item) {
+        this.item = item
+    }
 
-    },
-    fail: function(item) {
+    enhance(amt) {
+        this.item.enhancement.val += amt;
+        return this.item;
+    }
 
-    },
-    repair: function(item) {
+    success() {
+        return item;
+    };
+
+    fail() {
+
+    };
+
+    repair() {
 
     }
-};
+}
 
 module.exports = enhancer;
