@@ -7,13 +7,26 @@ describe('Enhancement Suite', function () {
         const itemMock = {
             name: "Omnipotent Blunt Weapon",
             type: "Weapon",
-            durability: 10,
+            durability: 100,
             enhancement: {val: 0}
         };
 
         let enhancer = new Enhancer(itemMock);
 
         expect(enhancer.enhance(5).enhancement.val).toBeLessThan(21);
+    });
+
+    it('enhancing an item with durability less than 20 when enhancement level is between 0 and 14 should fail', () => {
+        const itemMock = {
+            name: "Omnipotent Blunt Weapon",
+            type: "Weapon",
+            durability: 19,
+            enhancement: {val: 1}
+        };
+
+        let enhancer = new Enhancer(itemMock);
+
+        expect(enhancer.enhance(8).fail).toBe(true);
     });
 
 
@@ -27,7 +40,7 @@ describe('Enhancement Suite', function () {
 
         let enhancer = new Enhancer(itemMock);
 
-        expect(enhancer.enhance(10).fail).not.toBe(true);
+        expect(enhancer.enhance(5).fail).not.toBe(true);
     });
 });
 
