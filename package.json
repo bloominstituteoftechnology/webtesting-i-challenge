@@ -1,0 +1,14 @@
+{
+  "name": "testing-i",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": "https://github.com/TheGameFreak720/testing-i.git",
+  "author": "TheGameFreak720 <luis.alvarez@commithub.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^24.0.0"
+  }
+}
