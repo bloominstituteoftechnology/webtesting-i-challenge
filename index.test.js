@@ -13,7 +13,7 @@ describe('Enhancement Suite', function () {
 
         let enhancer = new Enhancer(itemMock);
 
-        expect(enhancer.enhance(5).enhancement.val).toBeLessThan(21);
+        expect(enhancer.enhance(99999).enhancement.val).toBeLessThan(21);
     });
 
     it('enhancing an item with durability less than 20 when enhancement level is between 0 and 14 should fail', () => {
@@ -55,5 +55,6 @@ describe('Enhancement Suite', function () {
 
         expect(enhancer.enhance(5).fail).not.toBe(true);
     });
+
 });
 

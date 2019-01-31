@@ -8,6 +8,10 @@ class Enhancer {
     enhance(amt) {
         this.item.enhancement.val += amt;
 
+        if (this.item.enhancement.val > 20) {
+            this.item.enhancement.val -= this.item.enhancement.val - 20;
+        }
+
         if (this.item.durability < 20 && this.item.enhancement.val >= 0 && this.item.enhancement.val <= 14) {
             return this.fail(amt);
         }
