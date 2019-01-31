@@ -32,4 +32,5 @@ test('Enhance succeeds',    ()  =>  {
         expect(enhancedItem1.enhancement).toBe(1);
         expect(enhancedItem1.name).toBe('[+1] Longsword');
         expect(enhancedItem2.name).toBe('[PEN] Longsword');
+        expect(enhancedItem2.enhancement).toBe(20);
 })
