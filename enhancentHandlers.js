@@ -7,15 +7,19 @@ module.exports = {
     fail: (item) => {
 
     },
+
+    repair: (item) => {
+
+    },
 }
 
-const items = [
-    {},
-    {},
-    {},
-    {}
-];
+// const items = [
+//     {},
+//     {},
+//     {},
+//     {}
+// ];
 
-const enhancedItems = items.map(success);
+// const enhancedItems = items.map(success);
 
-expect(enhancedItems[0]).toBe();
+// expect(enhancedItems[0]).toBe();
