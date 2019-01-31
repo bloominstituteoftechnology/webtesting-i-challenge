@@ -1,5 +1,13 @@
 'use strict';
 
+const labels = {
+    16: 'PRI',
+    17: 'DUO',
+    18: 'TRI',
+    19: 'TET',
+    20: 'PEN'
+};
+
 class Enhancer {
     constructor(item) {
         this.item = item;
@@ -10,6 +18,10 @@ class Enhancer {
 
         if (this.item.enhancement.val > 20) {
             this.item.enhancement.val -= this.item.enhancement.val - 20;
+        }
+
+        if (this.item.enhancement.val > 15) {
+            this.item.enhancement.label = labels[this.item.enhancement.val];
         }
 
         if (this.item.durability < 20 && this.item.enhancement.val >= 0 && this.item.enhancement.val <= 14) {

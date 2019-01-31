@@ -56,5 +56,18 @@ describe('Enhancement Suite', function () {
         expect(enhancer.enhance(5).fail).not.toBe(true);
     });
 
+    it('should have a label if enhancement is above 15', () => {
+        const itemMock = {
+            name: "Omnipotent Blunt Weapon",
+            type: "Weapon",
+            durability: 10,
+            enhancement: {val: 0, label: null}
+        };
+
+        let enhancer = new Enhancer(itemMock);
+
+        expect(enhancer.enhance(9999).enhancement.label).not.toBeNull();
+    });
+
 });
 
