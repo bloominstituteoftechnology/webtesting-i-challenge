@@ -1,4 +1,4 @@
-const {success, fail, repair} = require('./index');
+const index = require('./index');
 
 describe('test outcomes', () => {
     describe('success outcome', () => {
@@ -24,5 +24,5 @@ describe('test outcomes', () => {
             expect(item.type).toBe('weapon' || 'armor')
         });
     });
-    
+
 });
