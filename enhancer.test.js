@@ -1,45 +1,43 @@
 const { success, fail, repair } = require('./enhancer');
 
-const regex = '\++[1-15]|\b(\w*PRI\w*)\b|\b(\w*DUO\w*)\b|\b(\w*TRI\w*)\b|\b(\w*TET\w*)\b|\b(\w*PEN\w*)\b';
+const regex = /\++[1-15]|\b(\w*PRI\w*)\b|\b(\w*DUO\w*)\b|\b(\w*TRI\w*)\b|\b(\w*TET\w*)\b|\b(\w*PEN\w*)\b/;
 
 //Arrange - Mock Items
 const sword = {
     name: 'Broadsword',
     type: 'weapon',
     durability: 100,
-    enhancement: 0,
+    enhancement: '+0',
+    enhancementNumber: 0
 };
 
 const shield = {
     name: 'Shield',
     type: 'armor',
     durability: 100,
-    enhancement: 0,
+    enhancement: '+0',
+    enhancementNumber: 0
 };
 
 const swordDamaged = {
     name: 'Broadsword',
     type: 'weapon',
     durability: 50,
-    enhancement: 0,
+    enhancement: '+0',
+    enhancementNumber: 0
 };
 
 const shieldDamaged = {
     name: 'Shield',
     type: 'armor',
     durability: 70,
-    enhancement: 0,
+    enhancement: '+0',
+    enhancementNumber: 0
 };
 
 //Act
     //Success function
-
-    //Fail function
-
-    //Repair function -- a `repair(item)` method that accepts an `item` object and returns a new `item` with the durability restored to 100.
-    const swordRepaired = repair(swordDamaged);
-    const shieldRepaired = repair(shieldDamaged);
-    const swordEnchanced = success(sword);
+    const swordEnhanced = success(sword);
     const shieldEnhanced = success(shield);
     const swordOne = success(sword);
     const swordTwo = success(swordOne);
@@ -62,6 +60,13 @@ const shieldDamaged = {
     const swordTET = success(swordTRI);
     const swordPEN = success(swordTET);
     const swordMAX = success(swordPEN);
+
+    //Fail function
+
+    //Repair function -- a `repair(item)` method that accepts an `item` object and returns a new `item` with the durability restored to 100.
+    const swordRepaired = repair(swordDamaged);
+    const shieldRepaired = repair(shieldDamaged);
+
  
 
 
@@ -69,40 +74,40 @@ const shieldDamaged = {
 //Assert
 describe('success function', () => {
     test('enhancement level not 0', () => {
-        expect(swordEnchanced.enhacement).not.toBe(0);
+        expect(swordEnhanced.enhacement).not.toBe(0);
         expect(shieldEnhanced.enhacement).not.toBe(0);
     });
 
     test('enhancement level is a string containing + and value or display value', () => {
-        expect(swordEnchanced).stringMatching(regex);
-        expect(shieldEnhanced).stringMatching(regex);
+        expect(swordEnhanced.enhancement).toMatch(regex);
+        expect(shieldEnhanced.enhancement).toMatch(regex);
     });
 
     test('ensure correct enhancement incrementing', () => {
-        expect(swordOne.enhacement).toBe('+1');
-        expect(swordTwo.enhacement).toBe('+2');
-        expect(swordThree.enhacement).toBe('+3');
-        expect(swordFour.enhacement).toBe('+4');
-        expect(swordFive.enhacement).toBe('+5');
-        expect(swordSix.enhacement).toBe('+6');
-        expect(swordSeven.enhacement).toBe('+7');
-        expect(swordEight.enhacement).toBe('+8');
-        expect(swordNine.enhacement).toBe('+9');
-        expect(swordTen.enhacement).toBe('+10');
-        expect(swordEleven.enhacement).toBe('+11');
-        expect(swordTwelve.enhacement).toBe('+12');
-        expect(swordThirteen.enhacement).toBe('+13');
-        expect(swordFourteen.enhacement).toBe('+14');
-        expect(swordFifteen.enhacement).toBe('+15');
-        expect(swordPRI.enhacement).toBe('PRI');
-        expect(swordDUO.enhacement).toBe('DUO');
-        expect(swordTRI.enhacement).toBe('TRI');
-        expect(swordTET.enhacement).toBe('TET');
-        expect(swordPEN.enhacement).toBe('PRI');
+        expect(swordOne.enhancement).toBe('+1');
+        expect(swordTwo.enhancement).toBe('+2');
+        expect(swordThree.enhancement).toBe('+3');
+        expect(swordFour.enhancement).toBe('+4');
+        expect(swordFive.enhancement).toBe('+5');
+        expect(swordSix.enhancement).toBe('+6');
+        expect(swordSeven.enhancement).toBe('+7');
+        expect(swordEight.enhancement).toBe('+8');
+        expect(swordNine.enhancement).toBe('+9');
+        expect(swordTen.enhancement).toBe('+10');
+        expect(swordEleven.enhancement).toBe('+11');
+        expect(swordTwelve.enhancement).toBe('+12');
+        expect(swordThirteen.enhancement).toBe('+13');
+        expect(swordFourteen.enhancement).toBe('+14');
+        expect(swordFifteen.enhancement).toBe('+15');
+        expect(swordPRI.enhancement).toBe('PRI');
+        expect(swordDUO.enhancement).toBe('DUO');
+        expect(swordTRI.enhancement).toBe('TRI');
+        expect(swordTET.enhancement).toBe('TET');
+        expect(swordPEN.enhancement).toBe('PEN');
     });
 
     test('ensure PEN is max enhancement', () => {
-        expect(swordMax.enhacement).toBe(swordPEN.enhacement);
+        expect(swordMAX.enhacement).toBe(swordPEN.enhacement);
     });
 
     test('name to increment correctly', () => {
@@ -130,6 +135,8 @@ describe('repair function', () => {
         expect(shieldRepaired.type).toBe(shieldDamaged.type);
         expect(swordRepaired.enhancement).toBe(swordDamaged.enhancement);
         expect(shieldRepaired.enhancement).toBe(shieldDamaged.enhancement);
+        expect(swordRepaired.enhancementNumber).toBe(swordDamaged.enhancementNumber);
+        expect(shieldRepaired.enhancementNumber).toBe(shieldDamaged.enhancementNumber);
 
     })
 })
