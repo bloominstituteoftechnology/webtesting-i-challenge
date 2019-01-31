@@ -29,7 +29,11 @@ module.exports = {
 
    //durability restored to 100
    repair: (item) => {
-      item.durability = 100;
-      return item;
+      if(typeof item.durability === "number"){
+         item.durability = 100;
+         return item;
+      } else {
+         throw new Error('invalid argument');
+      }
    }
 }

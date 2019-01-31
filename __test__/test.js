@@ -26,8 +26,8 @@ const items = [
    {
       name: "goddess cloak",
       type: "bloop",
-      durability: -5,
-      enhancement: "PRI"
+      durability: "bloop",
+      enhancement: "XXX"
    },
    {
       name: "spear",
@@ -46,19 +46,26 @@ const items = [
 const gameplay = require("../index");
 
 //ACT
-const enhancedItem = gameplay.success(items[0]);
-const enhancedItem2 = gameplay.success(items[1]);
-const enhancedItem3 = gameplay.success(items[2]);
-const enhancedItem4 = gameplay.success(items[3]);
+const enhancedItem0 = gameplay.success(items[0]);
+const enhancedItem1 = gameplay.success(items[1]);
+const enhancedItem2 = gameplay.success(items[2]);
+const enhancedItem3 = gameplay.success(items[3]);
 
-const repairItem = gameplay.repair(items[3]);
+const repairItem2 = gameplay.repair(items[2]);
+const repairItem3 = gameplay.repair(items[3]);
 
 //ASSERT: add descriptions for each test case
 describe("repair test case", () => {
    test("durability restored to 100", () => {
-      expect(repairItem.durability).toEqual(100);
+      expect(repairItem2.durability).toEqual(100);
+   })
+   test("invalid input", () => {
+      expect(() => {
+         repairItem3.durability
+      }).toThrow()
    })
 })
+
 //test item type equal to weapon or armor
 //test enhancement display
 // describe("item tests", () => {
