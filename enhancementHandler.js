@@ -7,23 +7,27 @@
 const enhancementLevels = ["PRI", "DUO", "TRI", "TET", "PEN"];
 
 function success(item) {
-  let enhanced = item.enhancement;
-
-  if (item.enhancement <= 15) {
-    enhanced = item.enhancement + 1;
-  } else {
-    enhanced = enhancementLevels[item.enhancement - 15]; // TODO: return this as an object
+  if (item.enhancement >= 0 && item.enhancement <= 15) {
+    item.enhancement += 1;
+    item.name = `[+${item.enhancement}] ${item.origName}`;
+  } else if (item.enhancement === 15) {
+    item.enhancement += 1;
+    item.name = `[PRI] ${item.origName}`;
+  } else if (item.enhancement === 16) {
+    item.enhancement += 1;
+    item.name = `[DUO] ${item.origName}`;
+  } else if (item.enhancement === 17) {
+    item.enhancement += 1;
+    item.name = `[TRI] ${item.origName}`;
+  } else if (item.enhancement === 18) {
+    item.enhancement += 1;
+    item.name = `[TET] ${item.origName}`;
+  } else if (item.enhancement === 19) {
+    item.enhancement += 1;
+    item.name = `[PEN] ${item.origName}`;
   }
-  const enhancedName = item.origName;
 
-  let successItem = {
-    name: `[+${enhanced}] ${enhancedName}`,
-    type: item.type,
-    durability: 100,
-    enhancement: enhanced
-  };
-
-  return successItem;
+  return item;
 }
 
 /**
