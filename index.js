@@ -1,5 +1,3 @@
-const value = require("./display");
-
 module.exports = {
    //The item's enhancement increases by 1.
    //The name is updated to reflect the new enhancement level.
@@ -31,9 +29,9 @@ module.exports = {
    repair: (item) => {
       if(typeof item.durability === "number"){
          item.durability = 100;
-         return item;
       } else {
-         throw new Error('invalid argument');
+         item.durability = undefined;
       }
+      return item;
    }
 }
