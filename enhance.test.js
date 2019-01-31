@@ -112,7 +112,7 @@ describe("success function", () => {
 
 describe("fail function", () => {
     test("Decrease durability by 5 if level 0 - 14", () => {
-        expect(enhance.success({
+        expect(enhance.fail({
             name: "Elven Sword",
             type: "weapon",
             durability: 95,
@@ -124,7 +124,7 @@ describe("fail function", () => {
             enhancement: 0
         });
 
-        expect(enhance.success({
+        expect(enhance.fail({
             name: "[+4] Dwarvish Helmet",
             type: "armor",
             durability: 70,
@@ -137,22 +137,22 @@ describe("fail function", () => {
         });
     });
     
-    test("Decrease durability by 10 if level 14 - 20", () => {
-        expect(enhance.success({
-            name: "[+14] Ethereal Blades",
+    test("Decrease durability by 10 if level 15 - 20", () => {
+        expect(enhance.fail({
+            name: "[+15] Ethereal Blades",
             type: "weapon",
             durability: 100,
-            enhancement: 14
+            enhancement: 15
         })).toEqual({
-            name: "[+14] Ethereal Blades",
+            name: "[+15] Ethereal Blades",
             type: "weapon",
             durability: 90,
-            enhancement: 14
+            enhancement: 15
         });
     });
 
     test("Decrease enhancement level if above level 16", () => {
-        expect(enhance.success({
+        expect(enhance.fail({
             name: "[DUO] Ethereal Blades",
             type: "weapon",
             durability: 100,
@@ -164,7 +164,7 @@ describe("fail function", () => {
             enhancement: 16
         });
 
-        expect(enhance.success({
+        expect(enhance.fail({
             name: "[TET] Ethereal Blades",
             type: "weapon",
             durability: 100,
