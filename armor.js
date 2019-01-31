@@ -17,10 +17,10 @@ const success = (item) => {
   // name should be modified with ehnancement levsls "Eleven Sword" would be [+7]Eleven Sword
   // when succeeds enhancement is +1
 }
-const newDurability = (item) => {
+const newDurability = (value) => {
   let newValue = null;
-  let oldValue = item.durability;
-  if (item.enhancement <= 14) {
+  let oldValue = value
+  if (oldValue <= 14) {
     newValue = oldValue - 5
   } else {
     newValue = oldValue - 10;
@@ -29,15 +29,17 @@ const newDurability = (item) => {
 }
 const fail = (item) => {
   const newObj = item;
-  const durability = newDurability(newObj.durability);
+  var oldDurability = newObj.durability
+  const durability = newDurability(oldDurability);
   let enhancementValues = Object.values(levels);
   let newEnhancement = enhancementValues[newObj.enhancement -1];
   let modObject = {
-    name: `${modObject.name} +${newEnhancement}`,
-    type: modObject.style,
+    name: `${newObj.name} +${newEnhancement}`,
+    type: newObj.style,
     durability: durability,
     enhancement: newEnhancement
   }
+  return modObject;
 
   // if enhancement is >=0 && < 14 then durability is decreased by 5
   // if enhancement > 14 then durability is decreased by 10 
