@@ -130,14 +130,72 @@ describe("fail function", () => {
 
 describe("repair function", () => {
     test("Restores durability to 100", () => {
+        expect(enhance.repair({
+            name: "[TET] Ethereal Blades",
+            type: "weapon",
+            durability: 50,
+            enhancement: 20
+        })).toEqual({
+            name: "[TET] Ethereal Blades",
+            type: "weapon",
+            durability: 100,
+            enhancement: 20
+        });
+
+        expect(enhance.repair({
+            name: "[DUO] Dwarvish Helmet",
+            type: "armor",
+            durability: 70,
+            enhancement: 17
+        })).toEqual({
+            name: "[DUO] Dwarvish Helmet",
+            type: "armor",
+            durability: 100,
+            enhancement: 17
+        });
         
+        expect(enhance.repair({
+            name: "[PRI] Elven Sword",
+            type: "weapon",
+            durability: 0,
+            enhancement: 16
+        })).toEqual({
+            name: "[PRI] Elven Sword",
+            type: "weapon",
+            durability: 100,
+            enhancement: 16
+        });
     });
 
     test("Does nothing for fully-repaired items", () => {
-        
+        expect(enhance.repair({
+            name: "[PRI] Elven Sword",
+            type: "weapon",
+            durability: 100,
+            enhancement: 16
+        })).toReturnWith({error: "Item already fully repaired"});
     });
 
     test("Errors on malformed item", () => {
+        expect(enhance.repair({
+            name: "[TET] Ethereal Blades",
+            type: "not a real type",
+            durability: 100,
+            enhancement: 19
+        })).toReturnWith({error: "Malformed item data"});
         
+        expect(enhance.repair({
+            name: "[TET] Ethereal Blades",
+            type: "weapon",
+            durability: "one hundred",
+            enhancement: 19
+        })).toReturnWith({error: "Malformed item data"});
+
+        expect(enhance.repair({
+            name: "[TET] Ethereal Blades",
+            type: "weapon",
+            durability: 100,
+            enhancement: "TET"
+        })).toReturnWith({error: "Malformed item data"});
     });
 });
