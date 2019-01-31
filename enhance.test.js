@@ -45,3 +45,13 @@ describe('Testing for enhancement failure', () => {
         expect(sword.name).toEqual(`[${sword.prefix}] ${sword.baseName}`);
     })
 });
+
+describe('Testing enhance.repair', () => {
+    test('Testing that enhance.repair returns an item object', () => {
+        expect(enhance.repair(sword)).toEqual(sword);
+    });
+    test('Testing that enhance.repair sets the durabilty to 100.', () => {
+        expect(sword.durability).toEqual(100);
+    });
+});
+
