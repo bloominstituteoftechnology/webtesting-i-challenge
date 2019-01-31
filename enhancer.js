@@ -32,6 +32,7 @@ module.exports =   {
         },
 
         repair: (item)  =>  {
+            item.durability = 100;
             return item;
         },
 }
