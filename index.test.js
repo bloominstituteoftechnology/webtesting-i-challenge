@@ -29,6 +29,19 @@ describe('Enhancement Suite', function () {
         expect(enhancer.enhance(8).fail).toBe(true);
     });
 
+    it('enhancing an item with durability less than 0 when enhancement level is between 15 and 20 (TET) should fail', () => {
+        const itemMock = {
+            name: "Omnipotent Blunt Weapon",
+            type: "Weapon",
+            durability: -1,
+            enhancement: {val: 10}
+        };
+
+        let enhancer = new Enhancer(itemMock);
+
+        expect(enhancer.enhance(8).fail).toBe(true);
+    });
+
 
     it('enhancing armor up to 5 cannot fail', () => {
         const itemMock = {
