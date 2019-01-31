@@ -1,7 +1,7 @@
 const enhancer = require('../enhancer');
 
 // Arrange
-const item1 = {
+const weapon1 = {
   unenhancedName: 'Longsword',
   name: '[TRI] Longsword',
   type: 'weapon',
@@ -9,7 +9,7 @@ const item1 = {
   enhancement: 18
 }
 
-const itemSuccess1 = {
+const weaponSuccess1 = {
   unenhancedName: 'Longsword',
   name: '[TET] Longsword',
   type: 'weapon',
@@ -17,7 +17,7 @@ const itemSuccess1 = {
   enhancement: 19
 }
 
-const item2 = {
+const weapon2 = {
   unenhancedName: 'Dagger',
   name: 'Dagger',
   type: 'weapon',
@@ -25,15 +25,23 @@ const item2 = {
   enhancement: 0
 }
 
-const itemSuccess2 = {
-  unenhancedName: 'Dagger',
-  name: '+1 Dagger',
+const weapon3 = {
+  unenhancedName: 'Shortsword',
+  name: 'Shortsword',
   type: 'weapon',
-  durability: 20,
+  durability: 50,
+  enhancement: 0
+}
+
+const weaponSuccess3 = {
+  unenhancedName: 'Shortsword',
+  name: '[+1] Shortsword',
+  type: 'weapon',
+  durability: 50,
   enhancement: 1
 }
 
-const item3 = {
+const armor1 = {
   unenhancedName: 'Leather Armor',
   name: '[PEN] Leather Armor',
   type: 'armor',
@@ -46,8 +54,22 @@ describe('The Enhancer Module', () => {
   describe('The Success Method', () => {
 
     test('Should increase the enhancement of the item by 1', () => {
-      const enhancedItem = enhancer.success(item1);
-      expect(enhancedItem).toEqual(itemSuccess1);
+      const enhancedItem = enhancer.success(weapon1);
+      const enhancedItem3 = enhancer.success(weapon3);
+      expect(enhancedItem).toEqual(weaponSuccess1);
+      expect(enhancedItem3).toEqual(weaponSuccess3);
+    })
+
+    test('Throws error if durability is below 25 and item enhancement is less than or equal to 14', () => {
+      expect(() => {
+        enhancer.success(weapon2)
+      }).toThrow();
+    })
+
+    test('Throws error if item enhancement is already 20', () => {
+      expect(() => {
+        enhancer.success(armor1)
+      }).toThrow();
     })
 
   })
@@ -62,7 +84,7 @@ describe('The Enhancer Module', () => {
 
   describe('The Repair Method', () => {
 
-    const repairedItem = enhancer.repair(item1);
+    const repairedItem = enhancer.repair(weapon1);
 
     test('Returns item with durability restored to 100', () => {
       expect(repairedItem.durability).toBe(100);

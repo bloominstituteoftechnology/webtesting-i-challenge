@@ -17,7 +17,7 @@ module.exports = {
 
     if (item.enhancement >= 0 && item.enhancement < 15) {
       item.enhancement += 1;
-      item.name = `[+${item.enhancement} ${itemName}]`
+      item.name = `[+${item.enhancement}] ${itemName}`
     } else if (item.enhancement === 15) {
       item.enhancement += 1;
       item.name = `[PRI] ${itemName}`
