@@ -1,6 +1,8 @@
 module.exports = {
   
   success: (item) => {
+    const itemName = item.unenhancedName;
+
     if (item.enhancement <= 14 && item.durability < 25) {
       throw new Error('Durability is below 25; item cannot be enhanced');
     }
@@ -9,24 +11,28 @@ module.exports = {
       throw new Error('Durability is below 10; item cannot be enhanced');
     }
 
+    if (item.enhancement === 20) {
+      throw new Error('Item enhancement is maxed out');
+    }
+
     if (item.enhancement >= 0 && item.enhancement < 15) {
       item.enhancement += 1;
-      item.name = `[+${item.enhancement} ${item.name}]`
+      item.name = `[+${item.enhancement} ${itemName}]`
     } else if (item.enhancement === 15) {
       item.enhancement += 1;
-      item.name = `[PRI] ${item.name}`
+      item.name = `[PRI] ${itemName}`
     } else if (item.enhancement === 16) {
       item.enhancement += 1;
-      item.name = `[DUO] ${item.name}`
+      item.name = `[DUO] ${itemName}`
     } else if (item.enhancement === 17) {
       item.enhancement += 1;
-      item.name = `[TRI] ${item.name}`
+      item.name = `[TRI] ${itemName}`
     } else if (item.enhancement === 18) {
       item.enhancement += 1;
-      item.name = `[TET] ${item.name}`
+      item.name = `[TET] ${itemName}`
     } else if (item.enhancement === 19) {
       item.enhancement += 1;
-      item.name = `[PEN] ${item.name}`
+      item.name = `[PEN] ${itemName}`
     }
     return item;
   },
