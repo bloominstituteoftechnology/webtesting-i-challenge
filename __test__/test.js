@@ -9,19 +9,18 @@ const items = [
       type: 'weapon',
       durability: 99,
       enhancement: 0,
-      displayName: ""
    },
    {
       name: "sword",
       type: "weapon",
       durability: 100,
-      enhancement: "PEN",
+      enhancement: 15,
    },
    {
       name: "enchanted armor",
       type: "armor",
       durability: 10,
-      enhancement: "15",
+      enhancement: "PEN",
    },
    {
       name: "goddess cloak",
@@ -87,17 +86,17 @@ describe("item tests", () => {
    })
 })
 
-// describe("successful enhancement", () => {
-//    describe("enhancement level increase", () => {
-//       test("increments enhancement by one", () => {
-//          expect(enhancedItem.enhancement).toBe(1);
-//          expect(enhancedItem2.enhancement).toBe('PRI');
-//          expect(enhancedItem3.enhancement).toBe('PEN');
-//       })
-//    })
+describe("successful enhancement", () => {
+   describe("enhancement level increase", () => {
+      test("increments enhancement by one", () => {
+         expect(enhancedItem0.enhancement).toBe(1);
+         expect(enhancedItem1.enhancement).toBe('PRI');
+         expect(enhancedItem2.enhancement).toBe('PEN');
+      })
+   })
 //    describe("displays new name string '[enhancement level] item name'", () => {
 //       test("enhancement level increased display", () => {
 //          expect(enhancedItem.name).toBe(`+[${enhancedItem.enhancement}] ${enhancedItem.name}`);
 //       })
 //    })
-// });
+});

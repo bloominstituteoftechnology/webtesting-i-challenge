@@ -16,7 +16,7 @@ module.exports = {
                item.enhancement = "TET"
             } else if (item.enhancement === "TET"){
                item.enhancement = "PEN"
-            } else {item.enhancement = "PEN"}
+            }
          }
       } else {
          item.type = undefined;
