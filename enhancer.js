@@ -30,16 +30,49 @@
 //name is updated to reflect new EL
 
 //item cannot be enhanced if (EL is <14 && durability <25) || (EL >15 && durability <10)
+
+
+
 const success = (item) => {
+    let splitName = [item.name];
     
-}
+        if(item.enhancement !== 0){
+          let split = item.name.split(' ');
+          let eLSplit = split[0].split('').splice(1,3).join('')
+          splitName = [eLSplit, split[1]]
+        }
+  
+      let enhanceLevels = [0, '+1', '+2', '+3', '+4', '+5', '+6', '+7', '+8', '+9', '+10', '+11', '+12', '+13', '+14', '+15', 'PRI', 'DUO', 'TRI', 'TET', 'PEN']
+  
+      if((item.enhancement <= 14 && item.durability < 25) || (item.enhancement >= 15 && item.durability <10) || (item.enhancement === 'PEN') ){
+          throw new Error('Cannot enhance this item')
+      }
+  
+      let newEL = '';
+  
+      for(i=0; i<enhanceLevels.length; i++){
+          if(item.enhancement === enhanceLevels[i]){
+          newEL = i+1;
+          }
+      }
+  
+      item.enhancement = `${enhanceLevels[newEL]}`;
+  
+      if(newEL === 1){
+          item.name = '[' + `${enhanceLevels[newEL]}` + '] ' + `${splitName}` 
+      } else {
+        item.name = '[' + `${enhanceLevels[newEL]}` + '] ' + `${splitName[1]}`
+      }
+  
+    return item;
+  }
+
 
 //accepts an item and returns a new item that is modified according to the client rules for failure
 //durability is decreased by 5 if enhancement level is between 0-14
 //decreased by 10 if EL is 14 || 15
 //if >16, decreases by 1
 //update name after failure
-
 
 
 const fail = (item) => {
@@ -55,7 +88,6 @@ const repair = (item) => {
         type: item.type,
         durability: 100,
         enhancement: item.enhancement
-
     }
 
     return newItem
