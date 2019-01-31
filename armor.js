@@ -1,15 +1,17 @@
 module.exports = {
   success: (item) => {
-    const levels = {
-      16: "PRI",
-      17: "DUO",
-      18: "TRI",
-      19: "TET",
-      20: "PEN"
+    let modObject = item;
+    let enhancementValues = Object.values(levels);
+    let modObject = {
+    name: `${modObject.name} +${newLevel}`,
+    type: modObject.style,
+    durability: modObject.durability,
+    enhancement: enhancementValues[modObject.enhancement + 1];
     }
-    // if enhancemnet is < 6 automatic success
-    // enhancing a weapon < 8 is automatic success
-    // enhancement of zero is not displayed
+    var levels ={0:null,1:1,2:2,3:3,4:4,5:5,6:6,7:7,8:8,9:9,10:10,11:11,12:12,13:13,14:14,15:15,16:"PRI",17:"DUO",18:"TRI",19:"TET",20:"PEN"}
+     
+    
+      // enhancement of zero is not displayed
     // 16 - 20 has an named level that needs displayed 0-15 is Arabic Numerals
     // name should be modified with ehnancement levsls "Eleven Sword" would be [+7]Eleven Sword
     // when succeeds enhancement is +1
