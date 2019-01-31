@@ -19,6 +19,22 @@ const shield = {
     enhancementNumber: 0
 };
 
+const swordFail = {
+    name: 'Broadsword',
+    type: 'weapon',
+    durability: 100,
+    enhancement: '+5',
+    enhancementNumber: 5
+};
+
+const shieldFail = {
+    name: 'Shield',
+    type: 'armor',
+    durability: 100,
+    enhancement: '+15',
+    enhancementNumber: 15
+};
+
 const swordDamaged = {
     name: 'Broadsword',
     type: 'weapon',
@@ -62,6 +78,10 @@ const shieldDamaged = {
     const swordMAX = success(swordPEN);
 
     //Fail function
+    const swordFailure = fail(swordFail);
+    const shieldFailure = fail(shieldFail);
+    const swordDUOFail = fail(swordDUO);
+    const swordTwoFail = fail(swordTwo);
 
     //Repair function -- a `repair(item)` method that accepts an `item` object and returns a new `item` with the durability restored to 100.
     const swordRepaired = repair(swordDamaged);
@@ -119,6 +139,18 @@ describe('success function', () => {
 });
 
 describe('fail function', () => {
+    test('durability decrease based on enhancement', () => {
+        expect(swordFailure.durability).toBe(95);
+        expect(shieldFailure.durability).toBe(90);
+    });
+
+    test('failure triggers -1 enhancement', () => {
+        expect(swordDUOFail.enhancement).toBe('PRI');
+    });
+
+    test('failure updates name', () => {
+        expect(swordTwoFail.name).toBe('[+1] Broadsword');
+    })
 
 });
 
@@ -141,9 +173,3 @@ describe('repair function', () => {
     })
 })
 
-
-//- Enhacing an armor up to 5 cannot fail.
-//- Enhacing a weapon up to 7 cannot fail.
-// - when an item is enhanced, the `name` should be modified to include the enhancement level between square brackets before the item's `name`. Example: the new name of a "Elven Sword" enhanced to 7 would be _"[+7] Elven Sword"_, at DUO would be _"[DUO] Elven Sword"_.
-
-// - The name is updated to reflect the new enhancement level.
