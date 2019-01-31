@@ -1,0 +1,15 @@
+{
+  "name": "testing-i",
+  "version": "1.0.0",
+  "description": "First project on testing",
+  "main": "index.js",
+  "repository": "https://github.com/Ryntak94/testing-i.git",
+  "author": "Ryntak94 <ryan.matthews.professional@gmail.com>",
+  "scripts": {
+      "test": "jest --watch"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^24.0.0"
+  }
+}
