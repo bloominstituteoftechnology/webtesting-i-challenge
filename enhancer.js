@@ -8,6 +8,16 @@ incrementNumber = (num) => {
     return newNumber;
 }
 
+decrementNumber = (num) => {
+    let newNumber = 0;
+    if (num > 0) {
+        newNumber = num - 1;
+    } else {
+        newNumber = num;
+    }
+    return newNumber;
+}
+
 enhanceLevel = (num) => {
     let eLevel = '';
     if (num <16) {
@@ -25,6 +35,18 @@ enhanceLevel = (num) => {
     }
     return eLevel;
 }
+
+decDur = (dur, enh) => {
+    let newDur = 0;
+    if (enh < 15) {
+        newDur = dur - 5;
+    } else {
+        newDur = dur - 10;
+    }
+    return newDur;
+}
+
+
 
 module.exports = {
     //returns new item object modified according to enhancement success rules
@@ -48,6 +70,23 @@ module.exports = {
 
     //returns new item object according to enhancement failure rules
     fail: (item) => {
+        let enhancementNumber = decrementNumber(item.enhancementNumber);
+        let enhance = enhanceLevel(enhancementNumber);
+        let splitName = item.name.split(' ');
+        let base = splitName.pop();
+        let newName = `[${enhance}] ${base}`;
+        let durNum = decDur(item.durability, item.enhancementNumber);
+
+        
+        let obj = {
+           name: newName,
+           type: item.type,
+           durability: durNum,
+           enhancementNumber: enhancementNumber,
+           enhancement: enhance,
+       };
+       
+       return obj;
 
     },
 
