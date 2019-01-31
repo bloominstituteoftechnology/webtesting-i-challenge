@@ -1,21 +1,41 @@
 'use strict';
 
-class enhancer {
+class Enhancer {
     constructor(item) {
-        this.item = item
+        this.item = item;
     }
 
     enhance(amt) {
+        console.log(this.item, amt);
         this.item.enhancement.val += amt;
-        return this.item;
+        if (this.item.durability < 20 && this.item.enhancement.val >= 0 && this.item.enhancement.val <= 14) {
+            return this.fail(amt);
+        }
+
+        if (this.item.durability < 0 && this.item.enhancement.val >= 15 && this.item.enhancement.val <= 20) {
+            return this.fail(amt);
+        }
+
+        return this.success();
     }
 
     success() {
-        return item;
+        return this.item;
     };
 
-    fail() {
+    fail(amt) {
+        if (this.item.type === 'Armor') {
+            if (amt > 5) {
+                this.item.fail = true;
+            }
+        }
+        if (this.item.type === 'Weapon') {
+            if (amt > 7) {
+                this.item.fail = true;
+            }
+        }
 
+        return this.item;
     };
 
     repair() {
@@ -23,4 +43,4 @@ class enhancer {
     }
 }
 
-module.exports = enhancer;
+module.exports = Enhancer;
