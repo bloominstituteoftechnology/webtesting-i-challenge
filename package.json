@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "start": "nodemon"
   },
   "repository": "https://github.com/kmonique/testing-i.git",
   "author": "Kendra Williams <kmonique.williams@gmail.com>",
