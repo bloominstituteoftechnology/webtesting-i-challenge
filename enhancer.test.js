@@ -1,4 +1,5 @@
-const enhancer = require('.enhancer');
+const enhancer = require('./enhancer');
+const { hammer } = require('./weapons');
 
 const repairedWeapon = {
     name: 'Hammer',
@@ -9,6 +10,6 @@ const repairedWeapon = {
 
 describe('weapon repair', () => {
     test('restore durability to 100', () => {
-        expect()
+        expect(enhancer.repair(hammer)).toEqual(repairedWeapon)
     })
 })
