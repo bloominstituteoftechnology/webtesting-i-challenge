@@ -2,7 +2,7 @@ const sword = {
     name: 'Sword',
     type: 'weapon',
     durability: 80,
-    enhancement: 13
+    enhancement: '+13'
 }
 
 const chain = {
@@ -15,7 +15,7 @@ const chain = {
 const electricSword = {
     name: 'Electric Sword',
     type: 'weapon',
-    durability: 80,
+    durability: 9,
     enhancement: 'TRI'
 }
 
@@ -29,8 +29,8 @@ const laser = {
 const poisonDart = {
     name: 'Poison Dart',
     type: 'weapon',
-    durability: 100,
-    enhancement: 1
+    durability: 22,
+    enhancement: '+1'
 }
 
 module.exports = {
