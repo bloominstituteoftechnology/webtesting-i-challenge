@@ -5,7 +5,7 @@ const success = (item) => {
   let modObject = item;
   let enhancementValues = Object.values(levels);
   let newEnhancement = enhancementValues[modObject.enhancement + 1]
-  let modObject = {
+  modObject = {
     name: `${modObject.name} +${newEnhancement}`,
     type: modObject.type,
     durability: modObject.durability,
@@ -45,7 +45,7 @@ const fail = (item) => {
   // updated name reflects new level
   //If the item's enhancement is 14 or lower, the item cannot be enhanced if the durability is below 25.
   // If the item's enhancement is 15 or higher, the item cannot be enhanced if the durability is below 10.
-},
+};
 const repair = (item) => {
   newObj = item;
   let newObj = {
