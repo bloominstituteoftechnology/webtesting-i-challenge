@@ -2,7 +2,10 @@
 module.exports = {
     success: (item) => {
         return {
-            name: item.name
+            name: item.name,
+            type: item.type,
+            durability: item.durability,
+            enhancement: item.enhancement
         }
     },
 
