@@ -20,13 +20,13 @@ const item3 = {
     durability: 80,
     enhancement: 20
 }
-
-const enhancedItem1 = sucess(item1);
-const failedItem1   =   failure(item1);
-const enhancedItem2 = sucess(item2);
-const failedItem2   =   failure(item2);
-const repairedItem2 = repair(item2);
-const repairedItem3 = repair(item3)
+console.log(enhancer);
+const enhancedItem1 = enhancer.success(item1);
+const failedItem1   =   enhancer.failure(item1);
+const enhancedItem2 = enhancer.success(item2);
+const failedItem2   =   enhancer.failure(item2);
+const repairedItem2 = enhancer.repair(item2);
+const repairedItem3 = enhancer.repair(item3)
 
 test('Enhance succeeds',    ()  =>  {
     expect(enhancedItem1.enhancement).toBe(1);
