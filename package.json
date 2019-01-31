@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "jest"
+    "start": "jest --watch"
   },
   "devDependencies": {
     "jest": "^24.0.0"
