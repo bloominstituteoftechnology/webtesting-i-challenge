@@ -1,39 +1,46 @@
 
 const chainMail = {
-    name: '[TRI] Chain Mail',
+    name: '[+4] Chainmail',
     type: 'armor',
     durability: 100,
-    enhancement: 'TRI'
+    enhancement: '+4'
+}
+
+const successChainMail = {
+    name: '[+5] Chainmail',
+    type: 'armor',
+    durability: 100,
+    enhancement: '+5'
 }
 
 const helm = {
-    name: '[+13] Helm',
+    name: '[+9] Helm',
     type: 'armor',
-    durability: 100,
-    enhancement: '+13'
+    durability: 23,
+    enhancement: '+9'
 }
 
 const gorget = {
-    name: 'Gorget',
+    name: '[+14] Gorget',
     type: 'armor',
-    durability: 100,
-    enhancement: 0
+    durability: 29,
+    enhancement: '+14'
 }
 
 const gauntlet = {
     name: '[PEN] Gauntlet',
     type: 'armor',
-    durability: 100,
+    durability: 0,
     enhancement: 'PEN'
 }
 
 const greave = {
-    name: '[+1] Greave',
+    name: '[+15] Greave',
     type: 'armor',
-    durability: 100,
-    enhancement: '+1'
+    durability: 9,
+    enhancement: '+15'
 }
 
 module.exports = {
-    chainMail, helm, gorget, gauntlet, greave
+    chainMail, successChainMail, helm, gorget, gauntlet, greave
 }

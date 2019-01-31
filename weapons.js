@@ -1,15 +1,8 @@
 
 const battleAxe = {
-    name: '[+12] Battle Axe',
+    name: '[+12] Battleaxe',
     type: 'weapon',
     durability: 15,
-    enhancement: '+12'
-}
-
-const repairedBattleAxe = {
-    name: '[+12] Battle Axe',
-    type: 'weapon',
-    durability: 100,
     enhancement: '+12'
 }
 
@@ -63,7 +56,7 @@ const rapier = {
 }
 
 const warHammer = {
-    name: '[PEN] War Hammer',
+    name: '[PEN] WarHmmer',
     type: 'weapon',
     durability: 100,
     enhancement: 'PEN'
@@ -84,12 +77,57 @@ const successLongbow = {
 }
 
 const shuriken = {
-    name: '[+9] Shuriken',
+    name: '[+15] Shuriken',
     type: 'weapon',
-    durability: 100,
-    enhancement: '+9'
+    durability: 10,
+    enhancement: '+15'
 }
 
+const flail = {
+    name: '[TET] Flail',
+    type: 'weapon',
+    durability: 20,
+    enhancement: 'TET'
+}
+
+const failFlail = {
+    name: '[TRI] Flail',
+    type: 'weapon',
+    durability: 10,
+    enhancement: 'TRI'
+}
+
+const caltrops = {
+    name: '[+7] Caltrops',
+    type: 'weapon',
+    durability: 60,
+    enhancement: '+7'
+}
+
+const succesCaltrops = {
+    name: '[+8] Caltrops',
+    type: 'weapon',
+    durability: 60,
+    enhancement: '+8'
+}
+
+const spear = {
+    name: 'Spear',
+    type: 'weapon',
+    durability: 60,
+    enhancement: 0
+}
+
+const failSpear = {
+    name: '[+1] Spear',
+    type: 'weapon',
+    durability: 60,
+    enhancement: '+1'
+}
+
+
+
+
 module.exports = {
-    battleAxe, repairedBattleAxe, successDagger, dagger, successMace, mace, falchion, saber, rapier, warHammer, longbow, successLongbow, shuriken
+    battleAxe, successDagger, dagger, successMace, mace, falchion, saber, rapier, warHammer, longbow, successLongbow, shuriken, flail, failFlail, caltrops, succesCaltrops, spear, failSpear
 }
