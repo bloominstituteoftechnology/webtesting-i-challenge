@@ -82,7 +82,32 @@ describe("GAME TEST SUITE", () => {
     });
   });
 
-  describe("FAIL METHOD", () => {});
+  describe("FAIL METHOD", () => {
+    test("Failed weapon below 14", () => {
+      expect(enhance.fail()).toEqual();
+    });
+    test("Failed weapon equal to or less than 16", () => {
+      expect(enhance.fail()).toEqual();
+    });
+    test("Failed weapon above 16", () => {
+      expect(enhance.fail()).toEqual();
+    });
+    test("Failed armor below 14", () => {
+      expect(enhance.fail()).toEqual();
+    });
+    test("Failed armor equal to or less than 16", () => {
+      expect(enhance.fail()).toEqual();
+    });
+    test("Failed armor above 16", () => {
+      expect(enhance.fail()).toEqual();
+    });
+    test("Armor enhancement level equal to or less than 5", () => {
+      expect(enhance.fail()).toEqual();
+    });
+    test("Weapon enhancement level equal to or less than 7", () => {
+      expect(enhance.fail()).toEqual();
+    });
+  });
 
   describe("REPAIR METHOD", () => {
     const repairedArmor = {
