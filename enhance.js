@@ -7,9 +7,9 @@ const success = item => {
         || item.durability > 100
         || item.durability < 0
         || (item.type !== "weapon" && item.type !== "armor")) {
-        return {error: "Malformed item data"}
+        return {error: "Malformed item data"};
     } else if (item.enhancement === 20) {
-        return {error: "Cannot enhance an item above level 20 (PEN)"}
+        return {error: "Cannot enhance an item above level 20 (PEN)"};
     }
 
     let newItem = item;
@@ -49,7 +49,7 @@ const fail = item => {
         || item.durability > 100
         || item.durability < 0
         || (item.type !== "weapon" && item.type !== "armor")) {
-        return {error: "Malformed item data"}
+        return {error: "Malformed item data"};
     }
 
     let newItem = item;
@@ -93,7 +93,24 @@ const fail = item => {
 };
 
 const repair = item => {
+    if (typeof item.name !== "string"
+        || typeof item.durability !== "number"
+        || typeof item.enhancement !== "number"
+        || item.enhancement > 20
+        || item.enhancement < 0
+        || item.durability > 100
+        || item.durability < 0
+        || (item.type !== "weapon" && item.type !== "armor")) {
+        return {error: "Malformed item data"};
+    } else if (item.durability === 100) {
+        return {error: "Item already fully repaired"};
+    }
 
+    let newItem = item;
+    
+    newItem.durability = 100;
+
+    return newItem;
 };
 
 module.exports = {
