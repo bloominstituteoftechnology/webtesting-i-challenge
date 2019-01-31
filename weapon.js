@@ -11,7 +11,7 @@ const sniper_rifle = {
   name: "sniper_rifle",
   type: "weapon",
   durability: 100,
-  enhancement: 0
+  enhancement: 11
 };
 
 const plasma_pistol = {
@@ -19,15 +19,15 @@ const plasma_pistol = {
   name: "plasma_pistol",
   type: "weapon",
   durability: 100,
-  enhancement: 0
+  enhancement: 15
 };
 
 const sticky_grendade = {
   origName: "sticky_grendade",
-  name: "sticky_grendade",
+  name: "[TET] sticky_grendade",
   type: "weapon",
   durability: 100,
-  enhancement: 0
+  enhancement: 19
 };
 
 const energy_sword = {
@@ -51,7 +51,7 @@ const halo_ce_pistol = {
   name: "halo_ce_pistol",
   type: "weapon",
   durability: 100,
-  enhancement: 0
+  enhancement: 6
 };
 
 module.exports = {

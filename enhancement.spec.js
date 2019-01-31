@@ -83,29 +83,104 @@ describe("GAME TEST SUITE", () => {
   });
 
   describe("FAIL METHOD", () => {
+    const failedWeaponBelow14 = {
+      origName: "sniper_rifle",
+      name: "sniper_rifle",
+      type: "weapon",
+      durability: 95,
+      enhancement: 11
+    };
+
     test("Failed weapon below 14", () => {
-      expect(enhance.fail()).toEqual();
+      expect(enhance.fail(sniper_rifle)).toEqual(failedWeaponBelow14);
     });
+
+    const failedWeaponBelow16 = {
+      origName: "plasma_pistol",
+      name: "plasma_pistol",
+      type: "weapon",
+      durability: 90,
+      enhancement: 15
+    };
+
     test("Failed weapon equal to or less than 16", () => {
-      expect(enhance.fail()).toEqual();
+      expect(enhance.fail(plasma_pistol)).toEqual(failedWeaponBelow16);
     });
+
+    const failedWeaponAbove16 = {
+      origName: "sticky_grendade",
+      name: "[TRI] sticky_grendade",
+      type: "weapon",
+      durability: 100,
+      enhancement: 18
+    };
+
     test("Failed weapon above 16", () => {
-      expect(enhance.fail()).toEqual();
+      expect(enhance.fail(sticky_grendade)).toEqual(failedWeaponAbove16);
     });
+
+    const failedArmorBelow14 = {
+      origName: "Hayabusa",
+      name: "Hayabusa",
+      type: "armor",
+      durability: 95,
+      enhancement: 8
+    };
+
     test("Failed armor below 14", () => {
-      expect(enhance.fail()).toEqual();
+      expect(enhance.fail(Hayabusa)).toEqual(failedArmorBelow14);
     });
+
+    const failedArmorBelow16 = {
+      origName: "Bungie",
+      name: "Bungie",
+      type: "armor",
+      durability: 90,
+      enhancement: 15
+    };
+
     test("Failed armor equal to or less than 16", () => {
-      expect(enhance.fail()).toEqual();
+      expect(enhance.fail(Bungie)).toEqual(failedArmorBelow16);
     });
+
+    const failedArmorAbove16 = {
+      origName: "Commando",
+      name: "[PRI] Commando",
+      type: "armor",
+      durability: 100,
+      enhancement: 16
+    };
+
     test("Failed armor above 16", () => {
-      expect(enhance.fail()).toEqual();
+      expect(enhance.fail(Commando)).toEqual(failedArmorAbove16);
     });
+
+    const lowArmorEnhancement = {
+      origName: "Ascetic",
+      name: "Ascetic",
+      type: "armor",
+      durability: 100,
+      enhancement: 3
+    };
+
     test("Armor enhancement level equal to or less than 5", () => {
-      expect(enhance.fail()).toEqual();
+      expect(enhance.fail(Ascetic)).toBe(
+        "Armor below enhancement level 5 cannot fail."
+      );
     });
+
+    const lowWeaponEnhancement = {
+      origName: "halo_ce_pistol",
+      name: "halo_ce_pistol",
+      type: "weapon",
+      durability: 100,
+      enhancement: 19
+    };
+
     test("Weapon enhancement level equal to or less than 7", () => {
-      expect(enhance.fail()).toEqual();
+      expect(enhance.fail(halo_ce_pistol)).toEqual(
+        "Weapons below enhancement level 7 cannot fail."
+      );
     });
   });
 

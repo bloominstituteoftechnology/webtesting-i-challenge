@@ -35,7 +35,7 @@ Hayabusa = {
   name: "Hayabusa",
   type: "armor",
   durability: 100,
-  enhancement: 0
+  enhancement: 8
 };
 
 Katana = {
@@ -51,7 +51,7 @@ Bungie = {
   name: "Bungie",
   type: "armor",
   durability: 100,
-  enhancement: 0
+  enhancement: 15
 };
 
 Security = {
@@ -131,15 +131,15 @@ Ascetic = {
   name: "Ascetic",
   type: "armor",
   durability: 100,
-  enhancement: 0
+  enhancement: 3
 };
 
 Commando = {
   origName: "Commando",
-  name: "Commando",
+  name: "[DUO] Commando",
   type: "armor",
   durability: 100,
-  enhancement: 0
+  enhancement: 17
 };
 
 module.exports = {
