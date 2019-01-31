@@ -44,7 +44,25 @@ const shieldDamaged = {
     const swordOne = success(sword);
     const swordTwo = success(swordOne);
     const swordThree = success(swordTwo);
-    //complete
+    const swordFour = success(swordThree);
+    const swordFive = success(swordFour);
+    const swordSix = success(swordFive);
+    const swordSeven = success(swordSix);
+    const swordEight = success(swordSeven);
+    const swordNine = success(swordEight);
+    const swordTen = success(swordNine);
+    const swordEleven = success(swordTen);
+    const swordTwelve = success(swordEleven);
+    const swordThirteen = success(swordTwelve);
+    const swordFourteen = success(swordThirteen);
+    const swordFifteen = success(swordFourteen);
+    const swordPRI = success(swordFifteen);
+    const swordDUO = success(swordPRI);
+    const swordTRI = success(swordDUO);
+    const swordTET = success(swordTRI);
+    const swordPEN = success(swordTET);
+    const swordMAX = success(swordPEN);
+ 
 
 
 
@@ -62,11 +80,35 @@ describe('success function', () => {
 
     test('ensure correct enhancement incrementing', () => {
         expect(swordOne.enhacement).toBe('+1');
-        //complete
+        expect(swordTwo.enhacement).toBe('+2');
+        expect(swordThree.enhacement).toBe('+3');
+        expect(swordFour.enhacement).toBe('+4');
+        expect(swordFive.enhacement).toBe('+5');
+        expect(swordSix.enhacement).toBe('+6');
+        expect(swordSeven.enhacement).toBe('+7');
+        expect(swordEight.enhacement).toBe('+8');
+        expect(swordNine.enhacement).toBe('+9');
+        expect(swordTen.enhacement).toBe('+10');
+        expect(swordEleven.enhacement).toBe('+11');
+        expect(swordTwelve.enhacement).toBe('+12');
+        expect(swordThirteen.enhacement).toBe('+13');
+        expect(swordFourteen.enhacement).toBe('+14');
+        expect(swordFifteen.enhacement).toBe('+15');
+        expect(swordPRI.enhacement).toBe('PRI');
+        expect(swordDUO.enhacement).toBe('DUO');
+        expect(swordTRI.enhacement).toBe('TRI');
+        expect(swordTET.enhacement).toBe('TET');
+        expect(swordPEN.enhacement).toBe('PRI');
     });
 
     test('ensure PEN is max enhancement', () => {
         expect(swordMax.enhacement).toBe(swordPEN.enhacement);
+    });
+
+    test('name to increment correctly', () => {
+        expect(swordOne.name).toBe('[+1] Broadsword');
+        expect(swordPRI.name).toBe('[PRI] Broadsword');
+        expect(swordMAX.name).toBe('[PEN] Broadsword');
     })
 
 });
@@ -93,8 +135,8 @@ describe('repair function', () => {
 })
 
 
-- Enhacing an armor up to 5 cannot fail.
-- Enhacing a weapon up to 7 cannot fail.
-- when an item is enhanced, the `name` should be modified to include the enhancement level between square brackets before the item's `name`. Example: the new name of a "Elven Sword" enhanced to 7 would be _"[+7] Elven Sword"_, at DUO would be _"[DUO] Elven Sword"_.
+//- Enhacing an armor up to 5 cannot fail.
+//- Enhacing a weapon up to 7 cannot fail.
+// - when an item is enhanced, the `name` should be modified to include the enhancement level between square brackets before the item's `name`. Example: the new name of a "Elven Sword" enhanced to 7 would be _"[+7] Elven Sword"_, at DUO would be _"[DUO] Elven Sword"_.
 
-- The name is updated to reflect the new enhancement level.
+// - The name is updated to reflect the new enhancement level.
