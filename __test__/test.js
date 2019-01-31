@@ -72,22 +72,20 @@ describe("repair test case", () => {
 
 //test item type equal to weapon or armor
 //test enhancement display
-// describe("item tests", () => {
-//    test("takes in only weapon or armor", () => {
-//       expect(enhancedItem.type).toBe("weapon");
-//    })
-//    test("throw error for invalid type", () => {
-//       expect(() => {
-//          enhancedItem2
-//       }).toThrow();
-//    })
-//    test("max durability of 100", () => {
-//       expect(enhancedItem.durability).toBeLessThanOrEqual(100);
-//    })
-//    test("enhancement level 0 should not display", () => {
-//       expect(enhancedItem.enhancement).toBe("longsword");
-//    })
-// })
+describe("item tests", () => {
+   test("takes in only weapon or armor", () => {
+      expect(enhancedItem0.type).toBe("weapon");
+   })
+   test("invalid item type", () => {
+      expect(enhancedItem3.type).toBe(undefined);
+   })
+   test("max durability of 100", () => {
+      expect(enhancedItem0.durability).toBeLessThanOrEqual(100);
+   })
+   test("enhancement level 0 should not display", () => {
+      expect(enhancedItem0.name).toBe("longsword");
+   })
+})
 
 // describe("successful enhancement", () => {
 //    describe("enhancement level increase", () => {

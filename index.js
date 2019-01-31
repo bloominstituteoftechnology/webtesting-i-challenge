@@ -2,17 +2,26 @@ module.exports = {
    //The item's enhancement increases by 1.
    //The name is updated to reflect the new enhancement level.
    success: (item) => {
-      // if(item.type === "weapon" || item.type === "armor"){
-      //    if(item.enhancement < 15){
-      //       item.enhancement = ++item.enhancement;
-      //    } else {
-      //       item.enhancement = display
-      //    }
-         
-      //    return item
-      // } else {
-      //    return "Invalid Item Type"
-      // }
+      if(item.type === "weapon" || item.type === "armor"){
+         if(item.enhancement < 15){
+            item.enhancement = ++item.enhancement;
+         } else {
+            if(item.enhancement === 15) {
+               item.enhancement = "PRI";
+            } else if (item.enhancement === "PRI"){
+               item.enhancement = "DUO"
+            } else if (item.enhancement === "DUO"){
+               item.enhancement = "TRI"
+            } else if (item.enhancement === "TRI"){
+               item.enhancement = "TET"
+            } else if (item.enhancement === "TET"){
+               item.enhancement = "PEN"
+            } else {item.enhancement = "PEN"}
+         }
+      } else {
+         item.type = undefined;
+      }
+      return item;
    },
 
    //The durability of the item is decreased by 5 if the item's enhancement is between 0 and 14.
