@@ -5,20 +5,15 @@
         name: 'sword',
         type: 'weapon',
         durability: 100,
-        enhancement: 1
+        enhancement: '+6'
     }
     const upgraded_sword = {
         name: 'upgraded_sword',
         type: 'weapon',
         durability: 100,
-        enhancement: 2
+        enhancement: '+7'
     }
-    const mace = {
-        name: 'mace',
-        type: 'weapon',
-        durability: 70,
-        enhancement: 14
-    }
+  
     
     const nunchucks = {
         name: 'nunchucks',
@@ -28,16 +23,28 @@
     }
 
 
-    const standard_shield = {
-        name: 'standard_shield',
-        type: 'armor',
-        durability: 45,
-        enhancement: 12
-    }
-
+    
     const gloves = {
         name: 'gloves',
         type: 'armor',
-        durability: 20,
+        durability: 15,
+        enhancement: '+10'
+    }
+
+    const goggles = {
+        name: 'goggles',
+        type : 'armor',
+        durability: -1,
+        enhancement: 'TRI'
+    }
+
+    const shin_guards = {
+        name: 'shin_guards',
+        type : 'armor',
+        durability: 21,
         enhancement: 10
+    }
+
+    module.exports = {
+        sword, upgraded_sword, nunchucks, gloves, goggles, shin_guards
     }
