@@ -3,48 +3,48 @@
 
     const sword = {
         name: 'sword',
+        newName: '',
         type: 'weapon',
         durability: 100,
-        enhancement: '+6'
+        enhancement: 6
     }
-    const upgraded_sword = {
-        name: 'upgraded_sword',
-        type: 'weapon',
-        durability: 100,
-        enhancement: '+7'
-    }
+   
   
     
     const nunchucks = {
         name: 'nunchucks',
+        newName: '',
         type: 'weapon',
         durability: 50,
-        enhancement: 'PEN'
+        enhancement: 17
     }
 
 
     
     const gloves = {
         name: 'gloves',
+        newName: '',
         type: 'armor',
         durability: 15,
-        enhancement: '+10'
+        enhancement: 10
     }
 
     const goggles = {
         name: 'goggles',
+        newName: '',
         type : 'armor',
         durability: -1,
-        enhancement: 'TRI'
+        enhancement: 18
     }
 
     const shin_guards = {
         name: 'shin_guards',
+        newName: '',
         type : 'armor',
         durability: 21,
         enhancement: 10
     }
 
     module.exports = {
-        sword, upgraded_sword, nunchucks, gloves, goggles, shin_guards
+        sword,  nunchucks, gloves, goggles, shin_guards
     }
