@@ -1,6 +1,6 @@
 const enhancer = require('./enhancer');
 const {laser, electricSword, poisonDart, sword, chain} = require('./weapon')
-const {forceField, invisibleShield} = require('./armor')
+const {forceField, invisibleShield, kneePads, shield, chestGuard } = require('./armor')
 
 const repairedSword = {
     name: 'Sword',
@@ -49,5 +49,27 @@ describe('the success function', () => {
         expect(() => {
             enhancer.success(electricSword)
         })
+    })
+})
+
+
+describe('the fail function', () => {
+
+    test('error message when enhancement = 14 and durability = 29', () => {
+        expect(() => {
+            enhancer.fail(shield)
+        }).toThrow()
+    })
+
+    test('error message when enhancement = PEN & durability = 0', () => {
+        expect(() => {
+            enhancer.fail(chestGuard)
+        }).toThrow()
+    })
+
+    test('error message when enhancment = 9 & durability = 23', () => {
+        expect(() => {
+            enhancer.fail(kneePads)
+        }).toThrow()
     })
 })

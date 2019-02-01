@@ -1,15 +1,15 @@
-const success = (item) => {
+let enhanceLevels = [
+    0, '+1', '+2', '+3', '+4', '+5', '+6', '+7', '+8', '+9', '+10', 
+    '+11', '+12', '+13', '+14', '+15', 'PRI', 'DUO', 'TRI', 'TET', 'PEN']
 
-    let enhanceLevels = [
-        0, '+1', '+2', '+3', '+4', '+5', '+6', '+7', '+8', '+9', '+10', 
-        '+11', '+12', '+13', '+14', '+15', 'PRI', 'DUO', 'TRI', 'TET', 'PEN']
+const success = (item) => {
 
     let updateName = [item.name];
 
     if(item.enhancement !== 0){
         let split = item.name.split(' ');
         let enhanceSplit = split[0].split('').splice(1,3).join('')
-        splitName = [enhanceSplit, split[1]]
+        updateName = [enhanceSplit, split[1]]
       }
 
     if((item.enhancement <= 14 && item.durability < 25) || (item.enhancement >= 15 && item.durability <10) || (item.enhancement === 'PEN') ){
@@ -35,7 +35,48 @@ const success = (item) => {
 }
 
 const fail = (item) => {
+    let updateName = [item.name];
+       
+    if(item.enhancement !== 0){
+        let split = item.name.split(' ');
+        let enhanceSplit = split[0].split('').splice(1,3).join('')
+        updateName = [enhanceSplit, split[1]]
+      }
+        
+        let enhancementUpdate = '';
 
+        for(i=0; i<enhanceLevels.length; i++){
+            if(item.enhancement === enhanceLevels[i]){
+            enhancementUpdate = i;
+            }
+        }
+  
+        if ((item.type === 'weapon' && enhancementUpdate < 8) || (item.type === 'armor' && enhancementUpdate <6 )){
+          enhancementUpdate = (enhancementUpdate++);
+        } 
+  
+        else if( ((enhancementUpdate < 14) && (item.durability - 5) > 19)){
+            item.durability = (item.durability - 5)
+        } else if( enhancementUpdate === 14 && (item.durability -10) > 19){
+            item.durability = (item.durability - 10)
+        } else if( enhancementUpdate === 15 && (item.durability -10) >= 0){
+            item.durability = (item.durability - 10)
+        } else if( enhancementUpdate > 15 && (item.durability -10) >= 0) {
+            item.durability = (item.durability -10);
+            enhancementUpdate = enhancementUpdate-1;
+        } else {
+            throw new Error('The item has failed.')
+        }
+  
+        item.enhancement = `${enhanceLevels[enhancementUpdate]}`;
+  
+        if(enhancementUpdate === 1){
+            item.name = '[' + `${enhanceLevels[enhancementUpdate]}` + '] ' + `${updateName}` 
+        } else {
+          item.name = '[' + `${enhanceLevels[enhancementUpdate]}` + '] ' + `${updateName[1]}`
+        }
+  
+      return item;
 }
 
 const repair = (item) => {

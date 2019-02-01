@@ -1,8 +1,8 @@
 const shield = {
     name: 'Shield',
     type: 'armor',
-    durability: 100,
-    enhancement: '+7'
+    durability: 29,
+    enhancement: '+14'
 }
 
 const forceField = {
@@ -22,15 +22,15 @@ const invisibleShield = {
 const kneePads = {
     name: 'Knee Pads',
     type: 'armor',
-    durability: 100,
-    enhancement: '+2'
+    durability: 23,
+    enhancement: '+9'
 }
 
 const chestGuard = {
     name: 'Chest Guard',
     type: 'armor',
-    durability: 100,
-    enhancement: '+5'
+    durability: 0,
+    enhancement: 'PEN'
 }
 
 module.exports = {
