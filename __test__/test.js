@@ -33,6 +33,18 @@ const items = [
       type: "armor",
       durability: 10,
       enhancement: 6,
+   },
+   {
+      name: 'delux longsword',
+      type: 'weapon',
+      durability: 99,
+      enhancement: "PEN",
+   },
+   {
+      name: 'delux sword',
+      type: 'weapon',
+      durability: 99,
+      enhancement: 0,
    }
 ]
 //import index.js for the test to run against
@@ -46,10 +58,11 @@ const enhancedItem3 = gameplay.success(items[3]);
 
 const repairItem2 = gameplay.repair(items[2]);
 const repairItem3 = gameplay.repair(items[3]);
+const repairItem6 = gameplay.repair(items[6]);
 
 const failedItem0 = gameplay.fail(items[0]);
 const failedItem1 = gameplay.fail(items[1]);
-const failedItem4 = gameplay.fail(items[4]);
+const failedItem5 = gameplay.fail(items[5]);
 
 //ASSERT: add descriptions for each test case
 describe("repair test case", () => {
@@ -79,9 +92,9 @@ describe("item tests", () => {
    test("max durability of 100", () => {
       expect(enhancedItem0.durability).toBeLessThanOrEqual(100);
    })
-   // test("enhancement level 0 should not display", () => {
-   //    expect(enhancedItem0.name).toBe("longsword");
-   // })
+   test("enhancement 0 does not display", () => {
+      expect(repairItem6.name).toBe("delux sword");
+   })
 })
 
 describe("successful enhancement", () => {
@@ -111,5 +124,8 @@ describe("failed enhancement", () => {
    })
    test("durability decrease by 10", () => {
       expect(failedItem1.durability).toBe(90);
+   })
+   test("decreases enhancement level by one if greater than 16", () => {
+      expect(failedItem5.enhancement).toBe("TET")
    })
 })
