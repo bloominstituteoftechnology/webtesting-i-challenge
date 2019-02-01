@@ -18,6 +18,7 @@ module.exports = {
                item.enhancement = "PEN"
             }
          }
+         item.name = `+[${item.enhancement}] ${item.name}`;
       } else {
          item.type = undefined;
       }
@@ -31,7 +32,62 @@ module.exports = {
    // If the item's enhancement is 14 or lower, the item cannot be enhanced if the durability is below 25.
    // If the item's enhancement is 15 or higher, the item cannot be enhanced if the durability is below 10.
    fail: (item) => {
-
+      if(item.type === "weapon" || item.type === "armor"){
+         if((item.enhancement < 15 && item.durability < 25) || ((item.enhancement == 15 || typeof item.enhancement === "string") && item.durability < 10)){
+            return "durability too low"
+         }
+            if(item.type === "armor" && (item.enhancement > 5 || typeof item.enhancement === "string")) {
+               if(item.enhancement < 15) {
+                  item.durability = item.durability - 5;
+               } else {
+                  item.durability = item.durability - 10;
+                  if(typeof item.enhancement === "string" && item.enhancement === "PEN") {
+                     item.enhancement = "TET"
+                  }
+                  if(typeof item.enhancement === "string" && item.enhancement === "TET") {
+                     item.enhancement = "TRI"
+                  }
+                  if(typeof item.enhancement === "string" && item.enhancement === "TRI") {
+                     item.enhancement = "DUO"
+                  }
+                  if(typeof item.enhancement === "string" && item.enhancement === "DUO") {
+                     item.enhancement = "PRI"
+                  }
+                  if(typeof item.enhancement === "string" && item.enhancement === "PRI") {
+                     item.enhancement = 15
+                  }
+               }
+            }
+            if(item.type === "weapon" && (item.enhancement > 7 || typeof item.enhancement === "string")) {
+               if(item.enhancement < 15) {
+                  item.durability = item.durability - 5;
+               } else {
+                  item.durability = item.durability - 10;
+                  if(typeof item.enhancement === "string" && item.enhancement === "PEN") {
+                     item.enhancement = "TET"
+                  }
+                  if(typeof item.enhancement === "string" && item.enhancement === "TET") {
+                     item.enhancement = "TRI"
+                  }
+                  if(typeof item.enhancement === "string" && item.enhancement === "TRI") {
+                     item.enhancement = "DUO"
+                  }
+                  if(typeof item.enhancement === "string" && item.enhancement === "DUO") {
+                     item.enhancement = "PRI"
+                  }
+                  if(typeof item.enhancement === "string" && item.enhancement === "PRI") {
+                     item.enhancement = 15
+                  }
+               }
+            }
+            if(item.enhancement <= 0) {
+               item.enhancement = 0;
+               item.name = `+[${item.enhancement}] ${item.name}`;
+            }
+      } else {
+         item.type = undefined;
+      }
+      return item;
    },
 
    //durability restored to 100

@@ -8,7 +8,7 @@ const items = [
       name: 'longsword',
       type: 'weapon',
       durability: 99,
-      enhancement: 0,
+      enhancement: 8,
    },
    {
       name: "sword",
@@ -29,17 +29,11 @@ const items = [
       enhancement: "XXX"
    },
    {
-      name: "spear",
-      type: "weapon",
-      durability: 50,
-      enhancement: "TET"
-   },
-   {
-      name: "lance",
-      type: "weapon",
-      durability: 20,
-      enhancement: 14,
-   },
+      name: "enchanted armor",
+      type: "armor",
+      durability: 10,
+      enhancement: 6,
+   }
 ]
 //import index.js for the test to run against
 const gameplay = require("../index");
@@ -52,6 +46,10 @@ const enhancedItem3 = gameplay.success(items[3]);
 
 const repairItem2 = gameplay.repair(items[2]);
 const repairItem3 = gameplay.repair(items[3]);
+
+const failedItem0 = gameplay.fail(items[0]);
+const failedItem1 = gameplay.fail(items[1]);
+const failedItem4 = gameplay.fail(items[4]);
 
 //ASSERT: add descriptions for each test case
 describe("repair test case", () => {
@@ -81,22 +79,37 @@ describe("item tests", () => {
    test("max durability of 100", () => {
       expect(enhancedItem0.durability).toBeLessThanOrEqual(100);
    })
-   test("enhancement level 0 should not display", () => {
-      expect(enhancedItem0.name).toBe("longsword");
-   })
+   // test("enhancement level 0 should not display", () => {
+   //    expect(enhancedItem0.name).toBe("longsword");
+   // })
 })
 
 describe("successful enhancement", () => {
    describe("enhancement level increase", () => {
       test("increments enhancement by one", () => {
-         expect(enhancedItem0.enhancement).toBe(1);
+         expect(enhancedItem0.enhancement).toBe(9);
          expect(enhancedItem1.enhancement).toBe('PRI');
          expect(enhancedItem2.enhancement).toBe('PEN');
       })
    })
-//    describe("displays new name string '[enhancement level] item name'", () => {
-//       test("enhancement level increased display", () => {
-//          expect(enhancedItem.name).toBe(`+[${enhancedItem.enhancement}] ${enhancedItem.name}`);
-//       })
-//    })
+   describe("displays new name string '[enhancement level] item name'", () => {
+      test("enhancement level increased display", () => {
+         expect(enhancedItem1.name).toBe(`+[PRI] sword`);
+      })
+   })
 });
+
+describe("failed enhancement", () => {
+   // test("armor enhanment can not fail 5", () => {
+   //    expect(failedItem4).toBe(undefined);
+   // })
+   // test("weapon enhancement can not fail 7", () => {
+   //    expect(failedItem0).toBe(undefined);
+   // })
+   test("durability decrease by 5", () => {
+      expect(failedItem0.durability).toBe(94);
+   })
+   test("durability decrease by 10", () => {
+      expect(failedItem1.durability).toBe(90);
+   })
+})
