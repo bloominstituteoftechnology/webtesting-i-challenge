@@ -33,18 +33,54 @@ const {
   
 // Act
 describe("GAME TEST SUITE", () => {
-    describe("SUCCESS METHOD", () => {});
+    describe("SUCCESS METHOD", () => {
+        const expectedArmor = {
+            name: "EOD",
+            type: "armor",
+            durability: 100,
+            enhancement: 1
+          };
+    
+    test("Increase armor enhancement by 1", () => {
+        expect(enhance.success(EOD)).toEqual(expectedArmor);
+        });
+
+    const expectedWeapon = {
+        name: "energy_sword",
+        type: "weapon",
+        durability: 100,
+        enhancement: 1
+        };
+        
+    test("Increase weapon enhancement by 1", () => {
+        expect(enhance.success(energy_sword)).toEqual(expectedWeapon);
+        });
+    });
+
     describe("FAIL METHOD", () => {});
+    
     describe("REPAIR METHOD", () => {
-        const repaired = {
+        const repairedArmor = {
             name: "CQB",
             type: "armor",
             durability: 100,
-            enhancement: "0"
-          }
-          test("Repair CQB armor", () => {
-            expect(enhance.repair(CQB)).toEqual(repaired);
-          });
+            enhancement: 0
+        }
+        
+        test("Repair CQB armor", () => {
+            expect(enhance.repair(CQB)).toEqual(repairedArmor);
+        });
+
+        const repairedWeapon = {
+            name: "needler",
+            type: "weapon",
+            durability: 100,
+            enhancement: 0
+        };
+        
+        test("Repair needler weapon", () => {
+            expect(enhance.repair(needler)).toEqual(repairedWeapon);
+        });        
     });
 });
   
