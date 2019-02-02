@@ -1,4 +1,23 @@
-
+const enhance = require("./enhancementHandler");
+  
+// Act
+describe("GAME TEST SUITE", () => {
+    describe("SUCCESS METHOD", () => {});
+    describe("FAIL METHOD", () => {});
+    describe("REPAIR METHOD", () => {});
+});
+  
+// Assert
+expect(enhancedItem.enhancement).toBe("PEN");
+  
+// Arrange
+const items = [{}, {}, []];
+  
+// Act
+const enhancedItems = items.map(success);
+  
+// Assert
+expect(enhancedItems[0]).toBe();
 
 
 //The enhancement level of an item starts at 0.
