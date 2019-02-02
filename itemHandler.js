@@ -1,6 +1,24 @@
+const numtable = {16:'PRI', 17:'DUO', 18:'TRI', 19:'TET', 20:'PEN'}
+
+
 module.exports ={
     success: (item) =>{
+        item.enhancement = item.enhancement+1;
 
+
+        
+            if(item.enhancement>15){
+                item.display = `[${numtable[item.enhancement]}] ${item.name}`
+            }else {
+                item.display = `[${item.enhancement}] ${item.name}`
+            }
+
+        
+
+
+        
+
+        return item;
     },
 
     fail: (item) =>{
@@ -11,12 +29,29 @@ module.exports ={
             item.durability = item.durability-10;
         }
 
+        if(item.enhancement>15){
+            item.enhancement-=1;
+            if(item.enhancement>15){
+                item.display = `[${numtable[item.enhancement]}] ${item.name}`
+            }
+
+        }
+
+        if(item.enhancement<16){
+            item.display = `[${item.enhancement}] ${item.name}`
+        }
+        
+
+
+
         return item;
 
     },
 
     repair: (item) =>{
+        item.durability = 100;
 
+        return item;
     },
 
 
