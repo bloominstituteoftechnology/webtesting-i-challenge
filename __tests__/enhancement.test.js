@@ -1,10 +1,51 @@
 const enhance = require("./enhancementHandler");
+
+const {
+    needler,
+    sniper_rifle,
+    plasma_pistol,
+    sticky_grendade,
+    energy_sword,
+    battle_rifle,
+    halo_ce_pistol
+} = require("./weapon");
+  
+   const {
+    Mark_VI,
+    CQB,
+    EVA,
+    EOD,
+    Hayabusa,
+    Katana,
+    Bungie,
+    Security,
+    Recon,
+    Scout,
+    ODST,
+    Mark,
+    Rogue,
+    Combat,
+    Assault,
+    Flight,
+    Ascetic,
+    Commando
+} = require("./armor");
   
 // Act
 describe("GAME TEST SUITE", () => {
     describe("SUCCESS METHOD", () => {});
     describe("FAIL METHOD", () => {});
-    describe("REPAIR METHOD", () => {});
+    describe("REPAIR METHOD", () => {
+        const repaired = {
+            name: "CQB",
+            type: "armor",
+            durability: 100,
+            enhancement: "0"
+          }
+          test("Repair CQB armor", () => {
+            expect(enhance.repair(CQB)).toEqual(repaired);
+          });
+    });
 });
   
 // Assert
