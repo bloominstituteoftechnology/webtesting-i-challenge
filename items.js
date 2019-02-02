@@ -16,7 +16,7 @@
         newName: '',
         type: 'weapon',
         durability: 50,
-        enhancement: 17
+        enhancement: 20
     }
 
 

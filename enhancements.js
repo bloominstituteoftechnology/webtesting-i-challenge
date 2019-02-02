@@ -56,40 +56,37 @@
 
 
  const fail = (item) =>{
-     if((item.type === 'armor' && item.durability < 5) || (item.type === 'weapon' && item.durability < 7)){
-         success(item);
-     }else{
+   
         if(item.enhancement >= 0 && item.enhancement <= 14){
-            item.durability -= 5;
+            item.durability =  item.durability - 5;
         }else if(item.enhancement > 14){
             item.durability -= 10;
             if(item.enhancement === 17){
                 item.enhancement -= 1;
                 item.newName === `[PRI] ${item.name}`
-            }else  if(item.enhancement === 18){
+        }else  if(item.enhancement === 18){
                 item.enhancement -= 1;
                 item.newName === `[DUO] ${item.name}`
-            }else  if(item.enhancement === 19){
+        }else  if(item.enhancement === 19){
                 item.enhancement -= 1;
                 item.newName === `[TRI] ${item.name}`
-            }else  if(item.enhancement === 20){
+        }else  if(item.enhancement === 20){
                 item.enhancement -= 1;
                 item.newName === `[TET] ${item.name}`
             }
         }
-     }
+     return item;
  }
   
 const repair = (item) =>{
-    const newItemObj = {
+    newItem = {
         name: item.name,
         newName: item.newName,
-        type : item.type,
-        durability: item.durability,
+        type: item.type,
+        durability: 100,
         enhancement: item.enhancement
     }
-    return newItemObj;
-    console.log(newItemObj);
+   return newItem;
 }
   
        
