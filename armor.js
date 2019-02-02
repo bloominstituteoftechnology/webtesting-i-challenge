@@ -1,4 +1,5 @@
 Mark_VI = {
+    origName: "Mark_VI",
     name: "Mark_VI",
     type: "armor",
     durability: 100,
@@ -6,6 +7,7 @@ Mark_VI = {
   };
   
    CQB = {
+    origName: "CQB",
     name: "CQB",
     type: "armor",
     durability: 100,
@@ -13,13 +15,15 @@ Mark_VI = {
   };
   
    EVA = {
-    name: "EVA",
+    origName: "EVA",
+    name: "[DUO] EVA",
     type: "armor",
     durability: 100,
-    enhancement: 0
+    enhancement: "DUO"
   };
   
    EOD = {
+    origName: "EOD",   
     name: "EOD",
     type: "armor",
     durability: 100,
@@ -27,6 +31,7 @@ Mark_VI = {
   };
   
    Hayabusa = {
+    origName: "Hayabusa",   
     name: "Hayabusa",
     type: "armor",
     durability: 100,
@@ -34,6 +39,7 @@ Mark_VI = {
   };
   
    Katana = {
+    origName: "Katana",
     name: "Katana",
     type: "armor",
     durability: 100,
@@ -41,6 +47,7 @@ Mark_VI = {
   };
   
    Bungie = {
+    origName: "Bungie",
     name: "Bungie",
     type: "armor",
     durability: 100,
@@ -48,6 +55,7 @@ Mark_VI = {
   };
   
    Security = {
+    origName: "Security",
     name: "Security",
     type: "armor",
     durability: 100,
@@ -55,6 +63,7 @@ Mark_VI = {
   };
   
    Recon = {
+    origName: "Recon",
     name: "Recon",
     type: "armor",
     durability: 100,
@@ -62,6 +71,7 @@ Mark_VI = {
   };
   
    Scout = {
+    origName: "Scout",
     name: "Scout",
     type: "armor",
     durability: 100,
@@ -69,6 +79,7 @@ Mark_VI = {
   };
   
    ODST = {
+    origName: "ODST",
     name: "ODST",
     type: "armor",
     durability: 100,
@@ -76,6 +87,7 @@ Mark_VI = {
   };
   
    Mark = {
+    origName: "Mark",
     name: "Mark",
     type: "armor",
     durability: 100,
@@ -83,6 +95,7 @@ Mark_VI = {
   };
   
    Rogue = {
+    origName: "Rogue",
     name: "Rogue",
     type: "armor",
     durability: 100,
@@ -90,6 +103,7 @@ Mark_VI = {
   };
   
    Combat = {
+    origName: "Combat",
     name: "Combat",
     type: "armor",
     durability: 100,
@@ -97,6 +111,7 @@ Mark_VI = {
   };
   
    Assault = {
+    origName: "Assault",
     name: "Assault",
     type: "armor",
     durability: 100,
@@ -104,6 +119,7 @@ Mark_VI = {
   };
   
    Flight = {
+    origName: "Flight",
     name: "Flight",
     type: "armor",
     durability: 100,
@@ -111,6 +127,7 @@ Mark_VI = {
   };
   
    Ascetic = {
+    origName: "Ascetic",
     name: "Ascetic",
     type: "armor",
     durability: 100,
@@ -118,6 +135,7 @@ Mark_VI = {
   };
   
    Commando = {
+    origName: "Commando",
     name: "Commando",
     type: "armor",
     durability: 100,
