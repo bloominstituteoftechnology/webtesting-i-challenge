@@ -35,6 +35,7 @@ const {
 describe("GAME TEST SUITE", () => {
     describe("SUCCESS METHOD", () => {
         const expectedArmor = {
+            origName: "EOD",
             name: "[+1] EOD",
             type: "armor",
             durability: 100,
@@ -57,6 +58,7 @@ describe("GAME TEST SUITE", () => {
         });
 
     const expectedWeapon = {
+        origName: "energy_sword",
         name: "[+1] energy_sword",
         type: "weapon",
         durability: 100,

@@ -19,7 +19,7 @@ Mark_VI = {
     name: "[DUO] EVA",
     type: "armor",
     durability: 100,
-    enhancement: "DUO"
+    enhancement: "17"
   };
   
    EOD = {
