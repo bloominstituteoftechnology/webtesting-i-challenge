@@ -2,7 +2,7 @@ const chain = {
   name: 'Chain',
   type: 'armor',
   durability: 100,
-  enhancement: 'TRI'
+  enhancement: 15
 }
 
 const helm = {
