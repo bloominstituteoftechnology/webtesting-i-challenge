@@ -49,22 +49,25 @@ const fail = item => {
     modItem.durability -= 5;
     setName(modItem);
     return modItem;
-  } 
-  modItem.durability -= 10;
-  modItem.enhancement =
-    enhancement > 16 ? modItem.enhancement - 1 : modItem.enhancement;
+  }
+  if (modItem.durability >= 10) {
+    modItem.durability -= 10;
+    modItem.enhancement =
+      enhancement > 16 ? modItem.enhancement - 1 : modItem.enhancement;
+  }
   setName(modItem);
-  cl(modItem)
   return modItem;
 };
 
 const repair = item => {
   const modItem = Object.assign({}, item);
+  modItem.durability = 100;
   return modItem;
 };
 
 const setName = item => {
   item.name = `${enhTree[item.enhancement]}${item.blandName}`;
+  return item.name;
 };
 
 // const sword = {
@@ -86,5 +89,6 @@ const setName = item => {
 module.exports = {
   success,
   fail,
-  repair
+  repair,
+  setName
 };
