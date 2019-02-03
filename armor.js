@@ -4,145 +4,145 @@ Mark_VI = {
     type: "armor",
     durability: 100,
     enhancement: 0
-  };
+};
   
-   CQB = {
+CQB = {
     origName: "CQB",
     name: "CQB",
     type: "armor",
     durability: 100,
     enhancement: 0
-  };
+};
   
-   EVA = {
+EVA = {
     origName: "EVA",
     name: "[DUO] EVA",
     type: "armor",
     durability: 100,
-    enhancement: "17"
-  };
+    enhancement: 17
+};
   
-   EOD = {
-    origName: "EOD",   
+EOD = {
+    origName: "EOD",
     name: "EOD",
     type: "armor",
     durability: 100,
     enhancement: 0
-  };
+};
   
-   Hayabusa = {
-    origName: "Hayabusa",   
+Hayabusa = {
+    origName: "Hayabusa",
     name: "Hayabusa",
     type: "armor",
     durability: 100,
-    enhancement: 0
-  };
+    enhancement: 8
+};
   
-   Katana = {
+Katana = {
     origName: "Katana",
     name: "Katana",
     type: "armor",
     durability: 100,
     enhancement: 0
-  };
+};
   
-   Bungie = {
+Bungie = {
     origName: "Bungie",
     name: "Bungie",
     type: "armor",
     durability: 100,
-    enhancement: 0
-  };
+    enhancement: 15
+};
   
-   Security = {
+Security = {
     origName: "Security",
     name: "Security",
     type: "armor",
     durability: 100,
     enhancement: 0
-  };
+};
   
-   Recon = {
+Recon = {
     origName: "Recon",
     name: "Recon",
     type: "armor",
     durability: 100,
     enhancement: 0
-  };
+};
   
-   Scout = {
+Scout = {
     origName: "Scout",
     name: "Scout",
     type: "armor",
     durability: 100,
     enhancement: 0
-  };
+};
   
-   ODST = {
+ODST = {
     origName: "ODST",
     name: "ODST",
     type: "armor",
     durability: 100,
     enhancement: 0
-  };
+};
   
-   Mark = {
+Mark = {
     origName: "Mark",
     name: "Mark",
     type: "armor",
     durability: 100,
     enhancement: 0
-  };
+};
   
-   Rogue = {
+Rogue = {
     origName: "Rogue",
     name: "Rogue",
     type: "armor",
     durability: 100,
     enhancement: 0
-  };
+};
   
-   Combat = {
+Combat = {
     origName: "Combat",
     name: "Combat",
     type: "armor",
     durability: 100,
     enhancement: 0
-  };
+};
   
-   Assault = {
+Assault = {
     origName: "Assault",
     name: "Assault",
     type: "armor",
     durability: 100,
     enhancement: 0
-  };
+};
   
-   Flight = {
+Flight = {
     origName: "Flight",
     name: "Flight",
     type: "armor",
     durability: 100,
     enhancement: 0
-  };
+};
   
-   Ascetic = {
+Ascetic = {
     origName: "Ascetic",
     name: "Ascetic",
     type: "armor",
     durability: 100,
-    enhancement: 0
-  };
+    enhancement: 3
+};
   
-   Commando = {
+Commando = {
     origName: "Commando",
-    name: "Commando",
+    name: "[DUO] Commando",
     type: "armor",
     durability: 100,
-    enhancement: 0
-  };
+    enhancement: 17
+};
   
-   module.exports = {
+module.exports = {
     Mark_VI,
     CQB,
     EVA,
@@ -161,4 +161,4 @@ Mark_VI = {
     Flight,
     Ascetic,
     Commando
-  };
+};  
