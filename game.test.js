@@ -138,8 +138,10 @@ describe('Checks My Failures Method', () => {
  
 });
 
-describe('Checks My Enhancement Method', () => {
-   test('Enhancement', () => {
-
+describe('Repairs the items', () => {
+   test('It should restore durability to 100', () => {
+       const item = mace;
+       const newItem = game.repair(item);
+       expect(newItem.durability).toBe(100);
    });
 });

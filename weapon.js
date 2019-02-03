@@ -16,7 +16,7 @@ const dagger = {
 const mace = {
   name: 'mace',
   type: 'weapon',
-  durability: 100,
+  durability: 81,
   enhancement: 3
 }
 

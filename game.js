@@ -79,15 +79,17 @@ module.exports = {
           break;  
        
     }
-      
-      if(item.message) {
-        newItem = {...item, name: newName, enhancement: value, message: item.message, durability: durability };
-      } else {
-        newItem = {...item, name: newName, enhancement: value ,durability:durability};
-      }
-      return newItem;
+         if(item.message) {
+            newItem = {...item, name: newName, enhancement: value, message: item.message, durability: durability };
+          } else {
+            newItem = {...item, name: newName, enhancement: value ,durability:durability};
+          }
+          return newItem;
    },
-   repair: (item) => {
 
+   repair: (item) => {
+      const newItem = item;
+      newItem.durability = 100;
+      return newItem;
    }
 }
