@@ -30,7 +30,7 @@ const cover = {
   name: 'bross-cover',
   type: 'armor',
   durability: 100,
-  enhancement: 1
+  enhancement: 0
 }
 
 module.exports = {

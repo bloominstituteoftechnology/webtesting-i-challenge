@@ -2,7 +2,8 @@ const spear = {
   name: 'war-1 spear',
   type: 'weapon',
   durability: 100,
-  enhancement: 14
+  enhancement: 14,
+  
 }
 
 const dagger = {
