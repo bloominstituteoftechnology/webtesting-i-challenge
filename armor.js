@@ -23,7 +23,7 @@ const jacket = {
   name: 'jacket-iron',
   type: 'armor',
   durability: 100,
-  enhancement: 'PEN'
+  enhancement: 23
 }
 
 const cover = {

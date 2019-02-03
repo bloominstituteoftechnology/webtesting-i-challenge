@@ -84,7 +84,7 @@ describe('Checks My Failures Method', () => {
            //Arrange - set up the world here
            const item = helm;
            //Act -- wll execute your code here.
-           const newItem = game.fail(maxItem);
+           const newItem = game.fail(item);
            // Assert -- check your code here
            expect(newItem.enhancement).toBeLessThan(15);
            expect(newItem.durability).toEqual(95);
@@ -95,7 +95,7 @@ describe('Checks My Failures Method', () => {
            //Arrange - set up the world here
            const item = chain;
            //Act -- wll execute your code here.
-           const newItem = game.fail(maxItem);
+           const newItem = game.fail(item);
            // Assert -- check your code here
            expect(newItem.enhancement).toBeLessThan(16);
            expect(newItem.durability).toEqual(90);
@@ -104,14 +104,37 @@ describe('Checks My Failures Method', () => {
 
   test('If the items enhancement level is greater than 16, the enhancement level should decreases by 1' , () => {
             //Arrange - set up the world here
-            const item = chain;
+            const item = jacket;
             //Act -- wll execute your code here.
-            const newItem = game.fail(maxItem);
+            const newItem = game.fail(item);
             // Assert -- check your code here
-            expect(newItem.enhancement).toBeLessThan(16);
-            expect(newItem.durability).toEqual(90);
+            // expect(newItem.enhancement).toBeGreaterThan(16);
+            expect(newItem.enhancement).toBe(22);
 
   });
+
+      test('It should not enhance the item if enhancement <= 14 && durability < 25' , () => {
+        //Arrange - set up the world here
+        const item = {name: "AK8", type: "armor", enhancement: 8, durability: 24 };
+        //Act -- wll execute your code here.
+        const newItem = game.fail(item);
+        // Assert -- check your code here
+        expect(newItem.enhancement).toBeLessThan(15);
+        expect(newItem.durability).toBeLessThan(25);
+        expect(newItem.message).toEqual(`This item cannot be enhanced`);
+        
+    });
+    
+    test('It should not enhance the item if enhancement >= 15 && durability < 10' , () => {
+      //Arrange - set up the world here
+      const item = {name: "steel_pins", type: "armor", enhancement: 30, durability: 5};
+      //Act -- wll execute your code here.
+      const newItem = game.fail(item);
+      // Assert -- check your code here
+      expect(newItem.enhancement).toBeGreaterThan(15);
+      expect(newItem.durability).toBeLessThan(10);
+      expect(newItem.message).toEqual(`This item cannot be enhanced`);
+    });
  
 });
 
