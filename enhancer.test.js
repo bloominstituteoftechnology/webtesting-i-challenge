@@ -6,13 +6,27 @@ describe("enhancer object", () => {
     describe("success function", () => {
 
         test("item's enhancement throws error on invalid type", () => {
+            let item = {
+                name: 'Weapon',
+                type: 'weapon',
+                durability: 100,
+                enhancement: 0
+            }
+
             expect(() => {
-                enhancer.success(items.invalidEnhancementType)
+                enhancer.success(item)
             }).toThrowError(TypeError);
         });
 
         test("item's enhancement increases by 1 through series", () => {
-            let item = enhancer.success(items.minWeapon);
+            let item = {
+                name: 'Weapon',
+                type: 'weapon',
+                durability: 100,
+                enhancement: '0'
+            }
+
+            item = enhancer.success(item);
             expect(item.enhancement).toBe('+1');
             item = enhancer.success(item);
             expect(item.enhancement).toBe('+2');
@@ -55,17 +69,38 @@ describe("enhancer object", () => {
         });
 
         test("item's enhancement does not go over max", () => {
-            expect(enhancer.success(items.maxWeapon).enhancement).toBe('PEN');
+            let item = {
+                name: '[PEN] Weapon',
+                type: 'weapon',
+                durability: 100,
+                enhancement: 'PEN'
+            }
+
+            expect(enhancer.success(item).enhancement).toBe('PEN');
         });
 
         test("item's name throws error on invalid type", () => {
+            let item = {
+                name: 0,
+                type: 'weapon',
+                durability: 100,
+                enhancement: '0'
+            }
+
             expect(() => {
-                enhancer.success(items.invalidNameType)
+                enhancer.success(item)
             }).toThrowError(TypeError);
         });
         
         test("item's name changes correctly through series", () => {
-            let item = enhancer.success(items.minWeapon);
+            let item = {
+                name: 'Weapon',
+                type: 'weapon',
+                durability: 100,
+                enhancement: '0'
+            }
+
+            item = enhancer.success(item);
             expect(item.name).toBe('[+1] Weapon');
             item = enhancer.success(item);
             expect(item.name).toBe('[+2] Weapon');
