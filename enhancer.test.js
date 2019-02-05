@@ -142,17 +142,148 @@ describe("enhancer object", () => {
             expect(item.name).toBe('[PEN] Weapon');
         });
 
+        test("cannot be enhanced when durability below 25 and enhancement 14 or lower", () => {
+            let item = {
+                name: "[+14] Weapon",
+                type: 'weapon',
+                durability: 24,
+                enhancement: '+14'
+            }
+
+            expect(() => {
+                enhancer.fail(item)
+            }).toThrow();
+        });
+
+        test("cannot be enhanced when durability below 10 and enhancement 15 or higher", () => {
+            let item = {
+                name: "[+15] Weapon",
+                type: 'weapon',
+                durability: 9,
+                enhancement: '+15'
+            }
+
+            expect(() => {
+                enhancer.fail(item)
+            }).toThrow();
+        });
+
+
+
     });
 
     describe("fail function", () => {
 
-        
+        test("unable to fail if enhancement 5 or under for armor type", () => {
+            let item = {
+                name: "[+5] Armor",
+                type: 'armor',
+                durability: 100,
+                enhancement: '+5'
+            }
+
+            expect(() => {
+                enhancer.fail(item)
+            }).toThrow();
+        });
+
+        test("unable to fail if enhancement 7 or under for weapon type", () => {
+            let item = {
+                name: "[+7] Weapon",
+                type: 'weapon',
+                durability: 100,
+                enhancement: '+7'
+            }
+
+            expect(() => {
+                enhancer.fail(item)
+            }).toThrow();
+        });
+
+        test("decreases durability by 5 when enhancement under 15", () => {
+            let item = {
+                name: '[+14] Weapon',
+                type: 'weapon',
+                durability: 100,
+                enhancement: '+14'
+            }
+
+            expect(enhancer.fail(item).durability).toBe(95);
+        });
+
+        test("decreases durability by 10 when enhancement over or equal to 15", () => {
+            let item = {
+                name: '[+15] Weapon',
+                type: 'weapon',
+                durability: 100,
+                enhancement: '+15'
+            }
+
+            expect(enhancer.fail(item).durability).toBe(90);
+        });
+
+        test("doesn't decrease durability below 0", () => {
+            let item = {
+                name: '[+15] Weapon',
+                type: 'weapon',
+                durability: 0,
+                enhancement: '+15'
+            }
+
+            expect(enhancer.fail(item).durability).toBe(0);
+        });
+
+        test("decreases enhancement by 1 for PRI, DUO, TRI, TET, PEN", () => {
+            let item = {
+                name: '[PEN] Weapon',
+                type: 'weapon',
+                durability: 100,
+                enhancement: 'PEN'
+            }
+
+            item = enhancer.fail(item);
+            expect(item.enhancement).toBe('TET');
+            expect(item.name).toBe('[TET] Weapon');
+            item = enhancer.fail(item);
+            expect(item.enhancement).toBe('TRI');
+            expect(item.name).toBe('[TRI] Weapon');
+            item = enhancer.fail(item);
+            expect(item.enhancement).toBe('DUO');
+            expect(item.name).toBe('[DUO] Weapon');
+            item = enhancer.fail(item);
+            expect(item.enhancement).toBe('PRI');
+            expect(item.name).toBe('[PRI] Weapon');
+            item = enhancer.fail(item);
+            expect(item.enhancement).toBe('+15');
+            expect(item.name).toBe('[+15] Weapon');
+        });
+
+        test("doesn't decrease enhancement below 15", () => {
+            let item = {
+                name: '[+15] Weapon',
+                type: 'weapon',
+                durability: 100,
+                enhancement: '+15'
+            }
+
+            expect(enhancer.fail(item).enhancement).toBe('+15');
+            expect(enhancer.fail(item).name).toBe('[+15] Weapon');
+        });
 
     });
 
     describe("repair function", () => {
 
-        
+        test("repairs durability to 100", () => {
+            let item = {
+                name: 'Weapon',
+                type: 'weapon',
+                durability: 0,
+                enhancement: '0'
+            }
+
+            expect(enhancer.repair(item).durability).toBe(100);
+        });
 
     });
 });
