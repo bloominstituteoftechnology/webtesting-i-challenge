@@ -1,5 +1,4 @@
 const enhancer = require('./enhancer');
-const items = require('./items');
 
 describe("enhancer object", () => {
 
@@ -151,7 +150,7 @@ describe("enhancer object", () => {
             }
 
             expect(() => {
-                enhancer.fail(item)
+                enhancer.success(item)
             }).toThrow();
         });
 
@@ -164,7 +163,7 @@ describe("enhancer object", () => {
             }
 
             expect(() => {
-                enhancer.fail(item)
+                enhancer.success(item)
             }).toThrow();
         });
 
