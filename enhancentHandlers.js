@@ -74,7 +74,6 @@ module.exports = {
 
             if(item.enhancement === '+15') {
                 newItem.enhancement = 'PRI';
-                console.log()
                 newItem.name = displayName(newItem);
                 return newItem;
             }
@@ -89,32 +88,40 @@ module.exports = {
     // },
 
     fail: (item) => {
-        if (item.enhancement <= 14) {
-          if (item.durability < 25) {
-            return Object.assign({}, item);
-          } else {
-            return Object.assign({}, item, { durability: item.durability - 5 });
-          }
-        } else {
-          if (item.enhancement > 16) {
-            item.name = item.name
-              .split("")
-              .splice(6, item.name.length)
-              .join("");
-            let number = levels[item.enhancement - 1];
-    
-            let name = `[${number}] ${item.name}`;
-            return Object.assign({}, item, {
-              enhancement: item.enhancement - 1,
-              name
-            });
-          }
-          if (item.durability < 10) {
-            return Object.assign({}, item);
-          } else {
-            return Object.assign({}, item, { durability: item.durability - 10 });
-          }
-        }
+        const newItem = {};
+        newItem.name = item.name;
+        newItem.type = item.type;
+        newItem.durability = item.durability;
+        newItem.enhancement = item.enhancement;
+
+        if(item.enhancement < 15) {
+            newItem.durability = newItem.durability - 5;
+            return newItem;
+        };
+
+        if(item.enhancement === '+15' || item.enhancement === 'PEN' || item.enhancement === 'TET' || 
+            item.enhancement === 'TRI' || item.enhancement === 'DUO' || item.enhancement === 'PRI') {
+                newItem.durability = newItem.durability - 10;
+                
+                        if(item.enhancement === 'TET') {
+                            newItem.enhancement = 'TRI';
+                            newItem.name = displayName(newItem);
+                            return newItem;
+                        }
+                
+                        if(item.enhancement === 'TRI') {
+                            newItem.enhancement = 'DUO';
+                            newItem.name = displayName(newItem);
+                            return newItem;
+                        }
+                
+                        if(item.enhancement === 'DUO') {
+                            newItem.enhancement = 'PRI';
+                            newItem.name = displayName(newItem);
+                            return newItem;
+                        }
+                return newItem;
+        };
       },
 
 // - The durability of the item is decreased by 5 if the item's `enhancement` is between 0 and 14.

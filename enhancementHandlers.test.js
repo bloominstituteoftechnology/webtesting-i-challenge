@@ -68,7 +68,32 @@ describe('the enhance object', () => {
     });
 
     describe('the fail function', () => {
+        it('Drops durability of item 14 or lower by 5', () => {
+            const result = game.fail(dagger);
+            console.log(result);
+            expect(result.durability).toEqual(95);
+        });
 
+        it('Drops item enhancement 15 and higher by 10 durability', () => {
+            const result = game.fail(lvl19);
+            console.log(result);
+            expect(result.durability).toEqual(90);
+        });
+
+        it('Drops TET by 1 level on fail', () => {
+            const result = game.fail(lvl19);
+            expect(result.enhancement).toEqual('TRI');
+        })
+
+        it('Drops TRI by 1 level on fail', () => {
+            const result = game.fail(lvl18);
+            expect(result.enhancement).toEqual('DUO');
+        });
+
+        it('Drops DUO by 1 level on fail', () => {
+            const result = game.fail(lvl17);
+            expect(result.enhancement).toEqual('PRI');
+        });
     });
 
     describe('the repair function', () => {
