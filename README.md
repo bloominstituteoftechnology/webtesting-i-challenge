@@ -46,7 +46,7 @@ After a set of interviews with the potential users of the solution, we gathered 
 
 - a `success(item)` method that accepts an `item` object and returns a new `item` object modified according to the rules defined by the client for enhancement success.
 - a `fail(item)` method that accepts an `item` object and returns a new `item` object modified according to the rules defined by the client for enhancement failure.
-- a `repair(item)` method that accepts an `item` object and returns a new `item` with the durability restored to 100.
+- a `repair(item)` method that accepts an `item` object and returns a new `item` with the durability restored to 100. This method is the simplest of the three and would be a good starting point on this project. 
 
 Not all the information provided by our client is relevant to the design of the solution, but it's included to help understand how the enhancing system works.
 
@@ -56,6 +56,7 @@ The following sections list information provided by the client about `items` and
 
 - Items have `name`, `type`, `durability` and `enhancement`. **Add any extra properties needed** to implement the client's requirements.
 - The item's `type` can be _weapon_ or _armor_.
+- The item's `enhancement` can be a number 0 through 20.
 - The maximum _durability_ of an item is 100.
 - The durability of an item starts at 100.
 - The enhancement level of an item starts at 0 and can reach a maximum of PEN.
