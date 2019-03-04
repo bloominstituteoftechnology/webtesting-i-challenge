@@ -1,0 +1,118 @@
+const success = item => {
+    if (typeof item.name !== "string"
+        || typeof item.durability !== "number"
+        || typeof item.enhancement !== "number"
+        || item.enhancement > 20
+        || item.enhancement < 0
+        || item.durability > 100
+        || item.durability < 0
+        || (item.type !== "weapon" && item.type !== "armor")) {
+        return {error: "Malformed item data"};
+    } else if (item.enhancement === 20) {
+        return {error: "Cannot enhance an item above level 20 (PEN)"};
+    }
+
+    let newItem = item;
+
+    newItem.enhancement++;
+
+    //get name without enhancement number prefix
+    let baseName = "";
+    if (item.name.charAt(0) === "[") {
+        nameArr = item.name.split(" ");
+        for (let i = 1; i < nameArr.length; i++) {
+            baseName += nameArr[i];
+            if (i !== nameArr.length - 1) {
+                baseName += " ";
+            }
+        }
+    } else {
+        baseName = item.name;
+    }
+
+    if (newItem.enhancement <= 15) {
+        newItem.name = `[+${newItem.enhancement}] ` + baseName;
+    } else {
+        let titleArr = ["PRI", "DUO", "TRI", "TET", "PEN"];
+        newItem.name = `[${titleArr[newItem.enhancement-16]}] ` + baseName;
+    }
+
+    return newItem;
+};
+
+const fail = item => {
+    if (typeof item.name !== "string"
+        || typeof item.durability !== "number"
+        || typeof item.enhancement !== "number"
+        || item.enhancement > 20
+        || item.enhancement < 0
+        || item.durability > 100
+        || item.durability < 0
+        || (item.type !== "weapon" && item.type !== "armor")) {
+        return {error: "Malformed item data"};
+    }
+
+    let newItem = item;
+
+    if (item.enhancement <= 14) {
+        newItem.durability -= 5;
+        if (newItem.durability < 20)
+            newItem.durability = 20;
+    } else {
+        newItem.durability -= 10;
+        if (newItem.durability < 0)
+            newItem.durability = 0;
+        if (newItem.enhancement > 16) {
+            newItem.enhancement--;
+
+            //get name without enhancement number prefix
+            let baseName = "";
+            if (item.name.charAt(0) === "[") {
+                nameArr = item.name.split(" ");
+                for (let i = 1; i < nameArr.length; i++) {
+                    baseName += nameArr[i];
+                    if (i !== nameArr.length - 1) {
+                        baseName += " ";
+                    }
+                }
+            } else {
+                baseName = item.name;
+            }
+
+            //set new item name
+            if (newItem.enhancement <= 15) {
+                newItem.name = `[+${newItem.enhancement}] ` + baseName;
+            } else {
+                let titleArr = ["PRI", "DUO", "TRI", "TET", "PEN"];
+                newItem.name = `[${titleArr[newItem.enhancement-16]}] ` + baseName;
+            }
+        }
+    }
+
+    return newItem;
+};
+
+const repair = item => {
+    if (typeof item.name !== "string"
+        || typeof item.durability !== "number"
+        || typeof item.enhancement !== "number"
+        || item.enhancement > 20
+        || item.enhancement < 0
+        || item.durability > 100
+        || item.durability < 0
+        || (item.type !== "weapon" && item.type !== "armor")) {
+        return {error: "Malformed item data"};
+    } else if (item.durability === 100) {
+        return {error: "Item already fully repaired"};
+    }
+
+    let newItem = item;
+    
+    newItem.durability = 100;
+
+    return newItem;
+};
+
+module.exports = {
+    success, fail, repair
+}
