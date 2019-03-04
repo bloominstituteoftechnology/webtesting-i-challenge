@@ -85,7 +85,7 @@ The following sections list information provided by the client about `items` and
 
 ### When enhancement fails
 
-- The durability of the item is decreased by 5 if the item's `enhancement` is between 0 and 14.
+- The durability of the item is decreased by 5 if the item's `enhancement` is between 0 and 14 inclusive.
 - The durability of the item is decreased by 10 if the item's `enhancement` is greater than 14.
 - If the item's enhancement level is greater than 16 (DUO, TRI, TET), the enhancement level decreases by 1 (a DUO item would go back to PRI on failure).
 - The name is updated to reflect the new enhancement level if it was decreased.
