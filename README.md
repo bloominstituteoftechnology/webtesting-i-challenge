@@ -37,7 +37,7 @@ Follow these steps to setup your git _fork_ and _branch_.
 Follow these steps for completing your project.
 
 - [ ] Submit a Pull-Request to merge the `<firstName-lastName>` branch into the master branch on your fork. **Please don't merge your own pull request**
-- [ ] Use GitHub's webiste to add your project manager as a reviewer on the pull-request.
+- [ ] Use GitHub's website to add your project manager as a reviewer on the pull-request.
 - [ ] Your project manager will count the project as complete by merging the branch back into the master branch of your forked repository.
 
 ## Minimum Viable Product
@@ -54,7 +54,7 @@ The following sections list information provided by the client about `items` and
 
 ### Items.
 
-- Items have `name`, `type`, `durability` and `enhancement`. Add any other properties you need to implement the client's requirements.
+- Items have `name`, `type`, `durability` and `enhancement`. **Add any extra properties needed** to implement the client's requirements.
 - The item's `type` can be _weapon_ or _armor_.
 - The maximum _durability_ of an item is 100.
 - The durability of an item starts at 100.
@@ -65,13 +65,13 @@ The following sections list information provided by the client about `items` and
 ### Enhancement
 
 - The enhancement level of an item starts at 0.
-- The maximun enhancement possible is PEN.
-- Enhacing an armor up to 5 cannot fail.
-- Enhacing a weapon up to 7 cannot fail.
+- The maximum enhancement possible is PEN.
+- Enhancing an armor up to 5 cannot fail.
+- Enhancing a weapon up to 7 cannot fail.
 - Enhancement level is displayed as a string with a plus sign ( + ) before the number for levels 1 to 15.
 - Enhancement level of 0 is not displayed.
 - when an item is enhanced, the `name` should be modified to include the enhancement level between square brackets before the item's `name`. Example: the new name of a "Elven Sword" enhanced to 7 would be _"[+7] Elven Sword"_, at DUO would be _"[DUO] Elven Sword"_.
-- From +0 to +15 the enhacement is displayed using Arabic Numerals.
+- From +0 to +15 the enhancement is displayed using Arabic Numerals.
 - After +15 the display for the enhancing level follows the table below:
 
 | Level | Display |
@@ -82,7 +82,7 @@ The following sections list information provided by the client about `items` and
 |  19   |   TET   |
 |  20   |   PEN   |
 
-### When enhacement fails
+### When enhancement fails
 
 - The durability of the item is decreased by 5 if the item's `enhancement` is between 0 and 14.
 - The durability of the item is decreased by 10 if the item's `enhancement` is greater than 14.
