@@ -21,7 +21,7 @@ Please push your code often and use descriptive commit messages, this helps you 
 
 ## Project Description
 
-In this project, you will **write unit tests and the implementation code** for a module that helps gamers see the results of a _success_ or _failure_ when trying to enhance their in-game items. The requirements are listed under the _Minimum Viable Product_ section below.
+In this project, you will **write unit tests and the implementation code** for a module that helps players see the results of a _success_ or _failure_ when trying to enhance their in-game items. The requirements are listed under the _Minimum Viable Product_ section below.
 
 ## Project Set Up
 
@@ -46,7 +46,7 @@ After a set of interviews with the potential users of the solution, we gathered 
 
 - a `success(item)` method that accepts an `item` object and returns a new `item` object modified according to the rules defined by the client for enhancement success.
 - a `fail(item)` method that accepts an `item` object and returns a new `item` object modified according to the rules defined by the client for enhancement failure.
-- a `repair(item)` method that accepts an `item` object and returns a new `item` with the durability restored to 100. This method is the simplest of the three and would be a good starting point on this project. 
+- a `repair(item)` method that accepts an `item` object and returns a new `item` with the durability restored to 100. This method is the simplest of the three and would be a **good starting point** on this project.
 
 Not all the information provided by our client is relevant to the design of the solution, but it's included to help understand how the enhancing system works.
 
@@ -71,8 +71,8 @@ The following sections list information provided by the client about `items` and
 - Enhancing a weapon up to 7 cannot fail.
 - Enhancement level is displayed as a string with a plus sign ( + ) before the number for levels 1 to 15.
 - Enhancement level of 0 is not displayed.
-- when an item is enhanced, the `name` should be modified to include the enhancement level between square brackets before the item's `name`. Example: the new name of a "Elven Sword" enhanced to 7 would be _"[+7] Elven Sword"_, at DUO would be _"[DUO] Elven Sword"_.
-- From +0 to +15 the enhancement is displayed using Arabic Numerals.
+- when an item is enhanced, the `name` should be modified to include the enhancement level between square brackets before the item's `name`. Example: the new name of a "Iron Sword" enhanced to 7 would be _"[+7] Iron Sword"_, at DUO would be _"[DUO] Iron Sword"_.
+- From +0 to +15 the enhancement is displayed using _Arabic Numerals_.
 - After +15 the display for the enhancing level follows the table below:
 
 | Level | Display |
