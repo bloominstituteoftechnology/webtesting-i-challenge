@@ -5,10 +5,22 @@
 // }
 
 exports.success = item => {
-  if (typeof item === "object") {
-    return "happy";
+  if (typeof item === "object" && item.name) {
+    let { name, type, durability, enhancement } = { ...item };
+    if (
+      (enhancement < 15 && durability < 25) ||
+      (enhancement > 14 && durability < 10) ||
+      (enhancement === 20)
+    ) {
+      return null; // returns null value for items that cannot be enhanced
+    }
+    return {
+      ...item,
+      name: `${levelnames[enhancement + 1]} ${name}`,
+      enhancement: enhancement + 1,
+    }
   } else {
-    return null;
+    return null; // returns null value if item is not an object with the property name
   }
 };
 
