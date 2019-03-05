@@ -26,14 +26,16 @@ const { success, fail, repair } = require("./itemskills.js");
 //   });
 // });
 
-describe("Enchancer", () => {
-    describe("success()", () => {
+describe("Enhancer", () => {
+    // describe("success()", () => {
 
-    })
-    describe("fail()", () => {
+    // })
+    // describe("fail()", () => {
 
-    })
-    describe("reapir()", () => {
-
+    // })
+    describe("repair()", () => {
+        it('repair() should return null when argument is not an object', () => {
+            expect(repair({"3"})).toBeNull()
+        })
     })
 })

@@ -4,18 +4,27 @@
 //     repair
 // }
 
-exports.success = (item) => {
+exports.success = item => {
+  if (typeof item === "object") {
+  } else {
+    return null;
+  }
+};
 
+exports.fail = item => {;
+if (typeof item === "object") {
+} else {
+  return null;
 }
-
-exports.fail = (item) => {
-    
 }
 
 exports.repair = (item) => {
-    
+  if (typeof item === "object") {
     return {
-        ...item,
-        durability: 100
-    }
-}
+      ...item,
+      durability: 100
+    };
+  } else {
+    return null;
+  }
+};
