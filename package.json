@@ -1,0 +1,23 @@
+{
+  "name": "testing-i",
+  "version": "1.0.0",
+  "description": "In this project, you will demonstrate proficiency by writing unit tests and production code to satisfy the _Minimum Viable Product_ described below.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yannafaith/testing-i.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yannafaith/testing-i/issues"
+  },
+  "homepage": "https://github.com/yannafaith/testing-i#readme",
+  "devDependencies": {
+    "jest": "^24.1.0"
+  }
+}
