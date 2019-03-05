@@ -35,7 +35,7 @@ describe("Enhancer", () => {
     // })
     describe("repair()", () => {
         it('repair() should return null when argument is not an object', () => {
-            expect(repair({"3"})).toBeNull()
+            expect(repair("3")).toBeNull()
         })
     })
 })
