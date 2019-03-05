@@ -1,4 +1,4 @@
-const { success, fail, repair } = require("./math.js");
+const { success, fail, repair } = require("./itemskills.js");
 
 // describe("math.js,", () => {
 //   describe("add", () => {
@@ -25,3 +25,15 @@ const { success, fail, repair } = require("./math.js");
 //     });
 //   });
 // });
+
+describe("Enchancer", () => {
+    describe("success()", () => {
+
+    })
+    describe("fail()", () => {
+
+    })
+    describe("reapir()", () => {
+
+    })
+})
