@@ -8,7 +8,7 @@
 
 exports.success = item => {
   if (typeof item === "object" && item.name) {
-    let { name, type, durability, enhancement } = { ...item };
+    let { name, durability, enhancement } = { ...item };
     if (
       (enhancement < 15 && durability < 25) ||
       (enhancement > 14 && durability < 10) ||

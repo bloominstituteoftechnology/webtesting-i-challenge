@@ -52,6 +52,17 @@ describe("Enhancer", () => {
     it("success() should return null when argument is an object with an enhancement value of 20", () => {
       expect(success({ enhancement: 20, name: "sword" })).toBeNull();
     });
+    it("success() should return null when argument is an object with a enhancement value over 14 and a durability less than 10", () => {
+        expect(success({ enhancement: 16, name: "sword", durability: 9 })).toBeNull();
+      });
+    it("success should return an object with a name property that contains the new enhancement level in its string", () => {
+        expect(success({ name: "rake", enhancement: 16 })).toMatchObject({enhancement: 17})
+    })
+    it("success should return an object with a name property that contains the old name in its string", () => {
+        expect(success({ name: "rake", enhancement: 16 })).toEqual(expect.objectContaining({
+            name: expect.stringMatching(/rake/)
+        }))
+    })
   });
   describe("fail()", () => {
     it("fail() should return null when argument has a type value of armor with enhancement under 6", () => {
@@ -93,5 +104,8 @@ describe("Enhancer", () => {
     it("repair() should return null when argument is not an object with a property of name", () => {
       expect(repair("3")).toBeNull();
     });
+    it("repair should increase the durability value of an object to 100", () => {
+        expect(repair({name: "Broken Hammer", durability: 1})).toMatchObject({durability: 100})
+    })
   });
 });
