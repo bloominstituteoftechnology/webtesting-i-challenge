@@ -1,0 +1,22 @@
+{
+	"name": "testing-i",
+	"version": "1.0.0",
+	"description": "In this project, you will demonstrate proficiency by writing unit tests and production code to satisfy the _Minimum Viable Product_ described below.",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest --watch --verbose"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mlanders/testing-i.git"
+	},
+	"author": "mike landers",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/mlanders/testing-i/issues"
+	},
+	"homepage": "https://github.com/mlanders/testing-i#readme",
+	"devDependencies": {
+		"jest": "^24.1.0"
+	}
+}
