@@ -1,4 +1,26 @@
-const { success, fail, repair, levelnames } = require("./itemskills.js");
+const { success, fail, repair } = require("./itemskills.js");
+const levelnames = {
+  1: "[+1]",
+  2: "[+2]",
+  3: "[+3]",
+  4: "[+4]",
+  5: "[+5]",
+  6: "[+6]",
+  7: "[+7]",
+  8: "[+8]",
+  9: "[+9]",
+  10: "[+10]",
+  11: "[+11]",
+  12: "[+12]",
+  13: "[+13]",
+  14: "[+14]",
+  15: "[+15]",
+  16: "[PRI]",
+  17: "[DUO]",
+  18: "[TRI]",
+  19: "[TET]",
+  20: "[PEN]"
+};
 
 // describe("math.js,", () => {
 //   describe("add", () => {
@@ -37,6 +59,11 @@ describe("Enhancer", () => {
         fail({ type: "armor", enhancement: 5, name: "greaves" })
       ).toBeNull();
     });
+    it("fail() should return null when argument is an object with enhancement value under 15 and durability value under 25", () => {
+      expect(
+        fail({ name: "null sword", enhancement: 12, durability: 24 })
+      ).toBeNull();
+    });
     it("fail() should return an object of enhancement value 15 with a like object with a durability value 10 less", () => {
       const failingFlail = {
         name: "[+15] Flail",
@@ -45,8 +72,20 @@ describe("Enhancer", () => {
         enhancement: 15
       };
       expect(fail(failingFlail)).toMatchObject({
-        ...failingFlail,
         durability: failingFlail.durability - 10
+      });
+    });
+    it("fail() should return an object that has the name property indexed value from levelnames reference that matches its new value for the enhancement property", () => {
+      const depreciatingRake = {
+        name: "Rake",
+        type: "weapon",
+        durability: 65,
+        enhancement: 17
+      };
+      expect(fail(depreciatingRake)).toMatchObject({
+        name: `${levelnames[depreciatingRake.enhancement - 1]} ${
+          depreciatingRake.name
+        }`
       });
     });
   });
