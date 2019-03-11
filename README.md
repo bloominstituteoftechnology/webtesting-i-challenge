@@ -53,7 +53,7 @@ The following sections list information provided by the client about `items` and
 
 ### Items.
 
-- Items have `durability` and `enhancement`.
+- Items have `name`, `durability` and `enhancement`.
 - The item's `enhancement` it's a number from 0 to 20.
 - The item's `durability` it's a number from 0 to 100.
 
