@@ -49,8 +49,6 @@ After a set of interviews with the potential users of the solution, we gathered 
 - a `fail(item)` method that accepts an `item` object and **returns a new item** object modified according to the rules defined by the client for enhancement failure.
 - a `get()` method for use when working on the stretch problem.
 
-Not all the information provided by our client is relevant to the design of the solution, but it's included to help understand how the enhancing system works.
-
 The following sections list information provided by the client about `items` and the game's enhancing system.
 
 ### Items.
