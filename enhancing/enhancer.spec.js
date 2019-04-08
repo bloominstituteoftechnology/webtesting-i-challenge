@@ -4,31 +4,23 @@ const { repair } = require('./enhancer');
 describe('enhancer', () => {
   describe('fail()', () => {
     it('durability decreases by 5 if enhancement is between 0 and 14', () => {
-      //arrange
       const item = {
         enhancement: 14,
-        durability: 85
+        durability: 55
       };
-
-      //act
       const actual = enhancer.fail(item);
-
-      //assert
-      expect(actual.durability).toBe(80);
+      expect(actual.durability).toBe(50);
     });
 
     it('durability decreases by 10 if enhancement is greater than 14', () => {
-      //arrange
       const item = {
         enhancement: 15,
-        durability: 85
+        durability: 55
       };
 
-      //act
       const actual = enhancer.fail(item);
 
-      //assert
-      expect(actual.durability).toBe(75);
+      expect(actual.durability).toBe(45);
     });
 
     it('If enhancement is 14 or lower, the item cannot be enhanced if the durability is below 25', () => {
@@ -52,25 +44,25 @@ describe('enhancer', () => {
   });
 
   describe('success()', () => {
-    it('should increase enhancement by 1', () => {
+    it('Adds enhancement by +1', () => {
       const item = {
-        enhancement: 18
+        enhancement: 16
       };
 
       const actual = enhancer.success(item);
 
-      expect(actual.enhancement).toBe(19);
+      expect(actual.enhancement).toBe(17);
     });
   });
-});
+  describe('repair()', () => {
+    it('returns durabilty to 100', () => {
+      const item = {
+        name: 'Bo jangles',
+        type: 'dwarf',
+        durability: 98
+      };
 
-it('repairs to full durability', () => {
-  const item = {
-    name: 'Lambda Shield',
-    type: 'armor',
-    durability: 98,
-    displayName: '[+3] Lambda Shield'
-  };
-
-  expect(repair(item).durability).toEqual(100);
+      expect(repair(item).durability).toEqual(100);
+    });
+  });
 });
