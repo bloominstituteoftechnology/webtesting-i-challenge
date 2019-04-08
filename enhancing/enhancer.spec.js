@@ -1,4 +1,5 @@
 const enhancer = require('./enhancer');
+const { repair } = require('./enhancer');
 
 describe('enhancer', () => {
   describe('fail()', () => {
@@ -61,4 +62,15 @@ describe('enhancer', () => {
       expect(actual.enhancement).toBe(19);
     });
   });
+});
+
+it('repairs to full durability', () => {
+  const item = {
+    name: 'Lambda Shield',
+    type: 'armor',
+    durability: 98,
+    displayName: '[+3] Lambda Shield'
+  };
+
+  expect(repair(item).durability).toEqual(100);
 });
