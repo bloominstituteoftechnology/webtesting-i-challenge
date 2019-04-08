@@ -147,4 +147,39 @@ describe("Item Enhancement Tests", () => {
       expect(newItem).toEqual(expected);
     });
   });
+
+  describe("Get Item Tests", () => {
+    it("Should return an unmodified item", () => {
+      const item = {
+        name: "The Cow",
+        durability: 5,
+        enhancement: 0
+      };
+
+      const newItem = mockFuncs.get(item);
+
+      expect(mockFuncs.get).toBeCalled();
+      expect(mockFuncs.get).toBeCalledWith(item);
+      expect(newItem).toEqual(item);
+    });
+
+    it("Should return an item with enhancement + name", () => {
+      const item = {
+        name: "The Cow",
+        durability: 5,
+        enhancement: 5
+      };
+      const expected = {
+        name: "[+5] The Cow",
+        durability: 5,
+        enhancement: 5
+      };
+
+      const newItem = mockFuncs.get(item);
+
+      expect(mockFuncs.get).toBeCalled();
+      expect(mockFuncs.get).toBeCalledWith(item);
+      expect(newItem).toEqual(expected);
+    });
+  });
 });
