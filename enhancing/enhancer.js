@@ -1,7 +1,8 @@
 module.exports = {
   success,
   fail,
-  repair
+  repair,
+  get
 };
 
 function fail(item) {
@@ -34,6 +35,8 @@ function repair(item) {
   }
 }
 
-// function get(item) {
-//   return { ...item };
-// }
+function get(item) {
+  const name =
+    item.enhancement < 1 ? item.name : item.name + [item.enhancement];
+  return { ...item, name };
+}

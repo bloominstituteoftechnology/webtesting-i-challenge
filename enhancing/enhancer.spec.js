@@ -75,4 +75,16 @@ describe('enhancer', () => {
       expect(repair(item).durability).toEqual(100);
     });
   });
+
+  describe('get()', () => {
+    it('returns a moded name', () => {
+      const item = {
+        name: 'Bo jangles',
+        type: 'dwarf',
+        enhancement: 0
+      };
+
+      expect(enhancer.get(item).name).toEqual('Bo jangles');
+    });
+  });
 });
