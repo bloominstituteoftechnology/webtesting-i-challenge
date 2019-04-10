@@ -18,6 +18,24 @@ describe('test module', () =>{
     });
   });
   
+  describe('succeed test', () =>{
+
+    it('The items enhancement increases by 1.', () =>{ 
+
+      const item = {
+        enhancement: 16
+      };
+      expect(enhancer.succeed(item).enhancement).toBe(17);
+    });
+    it('If the item enhancement level is 20, the enhancement level is not changed.', () =>{ 
+      const item = {
+        enhancement: 20
+      };
+      expect(enhancer.succeed(item).enhancement).toBe(20);
+    });
+  });
+
+ 
   });
 
 
