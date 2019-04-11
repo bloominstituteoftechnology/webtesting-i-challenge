@@ -1,4 +1,11 @@
 {
+  "name": "webtesting",
+  "version": "1.0.0",
+  "description": "Web Testing One Challenge",
+  "main": "enhancer.js",
+  "scripts": {
+    "test" : "jest"
+  },
   "devDependencies": {
     "jest": "^24.7.1"
   }

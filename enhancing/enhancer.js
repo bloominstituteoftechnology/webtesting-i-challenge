@@ -5,7 +5,18 @@ module.exports = {
   get,
 };
 
+let item = {
+  name: "Rusty Sword",
+  enhancement: 0,
+  durability: 10
+}
+
 function succeed(item) {
+  if(item.enhancement === 20) {
+    item.enhancement = 20;
+  } else {
+    item.enhancement += 1;
+  }
   return { ...item };
 }
 
@@ -14,6 +25,7 @@ function fail(item) {
 }
 
 function repair(item) {
+  item.durability = 100;
   return { ...item };
 }
 
