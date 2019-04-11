@@ -1,5 +1,14 @@
 {
   "devDependencies": {
     "jest": "^24.7.1"
-  }
+  },
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "name": "webtesting-i-challenge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/theiseja/webtesting-i-challenge",
+  "author": "Jesse Theisen <theiseja@gmail.com>",
+  "license": "MIT"
 }
