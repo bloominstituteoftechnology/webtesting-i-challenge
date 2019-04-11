@@ -8,8 +8,8 @@ describe('repair()', () => {
         type: 'sword',
         durability: 98
       };
-
-      expect(repair(item).durability).toEqual(100);
+      const repair = enhancer.repair(item);
+      expect(repair.durability).toBe(100);
     });
   });
 describe('success()', () => {
