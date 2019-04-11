@@ -1,13 +1,18 @@
 module.exports = {
-  succeed,
+  success,
   fail,
   repair,
   get,
 };
 
-function succeed(item) {
-  return { ...item };
-}
+function success(item) {
+  const enhancement = item.enhancement;
+  if (item.enhancement > 19) {
+    return { ...item, enhancement: enhancement };
+  } else {
+    return { ...item, enhancement: enhancement + 1 };
+  }
+};
 
 function fail(item) {
   return { ...item };
