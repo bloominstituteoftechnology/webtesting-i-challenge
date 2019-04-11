@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "jest": "^24.7.1"
+  },
+  "name": "webtesting-i-challenge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "repository": "https://github.com/dlimla/webtesting-i-challenge.git",
+  "author": "dlimla <danielhlim1990@gmail.com>",
+  "license": "MIT"
+}
