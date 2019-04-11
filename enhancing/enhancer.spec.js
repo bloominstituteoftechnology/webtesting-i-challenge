@@ -1,6 +1,17 @@
 const enhancer = require('./enhancer.js');
 // test away!
 
+describe('repair()', () => {
+    it('returns durabilty to 100', () => {
+      const item = {
+        name: 'Gladius',
+        type: 'sword',
+        durability: 98
+      };
+
+      expect(repair(item).durability).toEqual(100);
+    });
+  });
 describe('success()', () => {
     it('Adds enhancement by +1', () => {
         const item = {
