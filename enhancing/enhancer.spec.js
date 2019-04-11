@@ -37,4 +37,15 @@ describe('the enhancer', () => {
             expect(fail.enhancement).toBe(6)
         })
     })
+
+    describe('the repair status', () => {
+        it('should repaire the durabilty of the item', () => {
+            const item = {
+                name: 'sword',
+                durability: 2
+            };
+            const repair = enhancer.repair(item)
+            expect(repair.durability).toBe(100)
+        })
+    })
 })

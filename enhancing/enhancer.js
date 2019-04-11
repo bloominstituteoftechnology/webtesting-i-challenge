@@ -25,7 +25,6 @@ function fail(item) {
 }
 
 function repair(item) {
-  const durability = item.durability
   return { ...item, durability: 100 };
 }
 
