@@ -18,17 +18,17 @@ function fail(item) {
     return {
       ...item,
       enhancement: item.enhancement - 1,
-      durability: Math.max(0, item.durability - 10)
+      durability: item.durability - 10
     };
   } else if (item.enhancement >= 15) {
     return {
       ...item,
-      durability: Math.max(0, item.durability - 10)
+      durability: item.durability - 10
     };
   } else {
     return {
       ...item,
-      durability: Math.max(0, item.durability - 5)
+      durability: item.durability - 5
     };
   };
 };
