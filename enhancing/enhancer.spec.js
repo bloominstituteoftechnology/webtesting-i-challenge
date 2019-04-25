@@ -60,6 +60,12 @@ describe('enhancer module', () => {
 
     describe('repair function', () => {
 
-    });
+        it('Items durability should return to 100 after it has been repaired', () => {
 
+            const expected = makeSword(enhancement = 20, durability = 100);
+            const item = makeSword(enhancement = 20, durability = 30);
+
+            expect(repair(item)).toEqual(expected);
+        });
+    });
 });
