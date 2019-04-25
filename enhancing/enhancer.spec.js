@@ -1,4 +1,6 @@
 const enhancer = require('./enhancer.js');
+const { repair, fail, succeed } = require('./enhancer.js');
+
 // test away!
 
 describe('enhancer module', () => {
@@ -16,7 +18,7 @@ describe('enhancer module', () => {
             const expected = makeSword(enhancement = 14);
             const item = makeSword(enhancement = 13);
 
-            expect(succeed(item)).toBe(expected);
+            expect(succeed(item)).toEqual(expected);
 
         });
 
@@ -25,7 +27,7 @@ describe('enhancer module', () => {
             const expected = makeSword(enhancement = 20);
             const item = makeSword(enhancement = 20);
 
-            expect(succeed(item)).toBe(expected);
+            expect(succeed(item)).toEqual(expected);
 
         });
     });
