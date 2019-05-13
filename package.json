@@ -1,0 +1,9 @@
+{
+  "name": "webtesting-i-challenge",
+  "version": "1.0.0",
+  "description": "In this project, you will demonstrate proficiency by writing unit tests and production code to satisfy the _Minimum Viable Product_ described below.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch"
+  }
+}
