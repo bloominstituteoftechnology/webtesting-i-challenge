@@ -45,13 +45,22 @@ describe("enhancer.js", () => {
     })
   })
 
-  // describe('fail()', () => {
-  //   it("decrease enhancement if fails", () => {
-  //     const expected = {
-  //       name: "Sarah",
-  //       durability: 95,
-  //       enhancement: 
-  //     }
-  //   })
-  // })
+  describe('fail()', () => {
+    it("decrease enhancement if fails", () => {
+      const item = {
+        name: "Sarah",
+        durability: 50,
+        enhancement: 14
+      }
+
+      const expected = {
+        name: "Sarah",
+        durability: 45,
+        enhancement: 14
+      }
+
+      const failItem = fail(item);
+      expect(failItem).toEqual(expected);
+    })
+  })
 });
