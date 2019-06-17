@@ -27,3 +27,16 @@ describe("enhancer.js", () => {
   });
   it.todo("should have a max of 20 for enhancement");
 });
+
+// fail test
+
+describe("enhancer.js", () => {
+  describe("fail()", () => {
+    it("fail item", () => {
+      expect(
+        enhancer.fail({ enhancement: 17, durability: 20 }).enhancement
+      ).toBe(16);
+    });
+  });
+  it.todo("should go down by one");
+});
