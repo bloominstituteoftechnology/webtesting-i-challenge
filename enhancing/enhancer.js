@@ -6,6 +6,7 @@ module.exports = {
 };
 
 function succeed(item) {
+  item.enhancement += 1;
   return { ...item };
 }
 
