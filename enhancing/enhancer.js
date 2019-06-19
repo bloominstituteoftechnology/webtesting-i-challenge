@@ -9,7 +9,7 @@ function succeed(item) {
   const result = { ...item }
 
   result.enhancement !== 20 ? result.enhancement = item.enhancement + 1
-                            : null 
+                            : null; 
 
   return result;
 }
@@ -37,5 +37,10 @@ function repair(item) {
 }
 
 function get(item) {
-  return { ...item };
+  const result = { ...item }
+
+  result.enhancement !== 0 ? result.name = `[+${result.enhancement}] ${result.name}`
+                           : null;
+
+  return result;
 }

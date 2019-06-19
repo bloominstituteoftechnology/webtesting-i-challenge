@@ -112,4 +112,45 @@ describe("Enhancer Test Suite", () => {
             expect(testItem2.enhancement).toBe(0);
         });
     });
+
+    describe("Get()", () => {
+        //Get should not modify the name property if enhancement = 0
+        //Get should modify the name property to be " [+{enhancement value}] Name Of Item "
+        it('should accept an object and return a new object', () => {
+            const testItem = enhancer.fail(items[0]);
+
+            expect(testItem).not.toBe(items[0]);
+        });
+
+        it('should modify the name property if enhancement > 0', () => {
+            const testItem1 = enhancer.get(items[0]);
+            const testItem2 = enhancer.get(items[3]);
+            const testItem3 = enhancer.get(items[4]);
+
+            expect(testItem1.name).toBe("[+16] Buster Sword I");
+            expect(testItem2.name).toBe("[+20] Buster Sword IV");
+            expect(testItem3.name).toBe("[+6] Buster Sword V");
+        });
+
+        it('shoud not modify the name if enhancement = 0', () => {
+            const testItem = enhancer.get(items[2]);
+
+            expect(testItem.name).toBe("Buster Sword III");
+        });
+
+        it('should not alter values other than name', () => {
+            const testItem1 = enhancer.get(items[1]);
+            const testItem2 = enhancer.get(items[2]);
+            const testItem3 = enhancer.get(items[3]);
+
+            expect(testItem1.enhancement).toBe(16);
+            expect(testItem1.durability).toBe(0);
+
+            expect(testItem2.enhancement).toBe(0);
+            expect(testItem2.durability).toBe(97);
+
+            expect(testItem3.enhancement).toBe(20);
+            expect(testItem3.durability).toBe(97);
+        });
+    });
 });
