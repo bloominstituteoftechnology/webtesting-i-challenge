@@ -19,4 +19,14 @@ module.exports = [
         durability: 97,
         enhancement: 20
     },
+        {
+        name: "Buster Sword V",
+        durability: 97,
+        enhancement: 6
+    },
+    {
+        name: "Buster Sword VI",
+        durability: 97,
+        enhancement: 15
+    },
 ]
