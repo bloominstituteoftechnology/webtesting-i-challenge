@@ -1,0 +1,22 @@
+{
+  "name": "webtesting-i-challenge",
+  "version": "1.0.0",
+  "description": "Unit Testing Suite",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Trip4077/webtesting-i-challenge.git"
+  },
+  "author": "Bernard Johnson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Trip4077/webtesting-i-challenge/issues"
+  },
+  "homepage": "https://github.com/Trip4077/webtesting-i-challenge#readme",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}

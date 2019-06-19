@@ -1,2 +1,4 @@
-const enhancer = require('./enhancer.js');
-// test away!
+const enhancer = require('./enhancer');
+const items = require('../items');
+
+
