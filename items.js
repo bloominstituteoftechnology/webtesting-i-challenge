@@ -14,4 +14,9 @@ module.exports = [
         durability: 97,
         enhancement: 0
     },
+    {
+        name: "Buster Sword IV",
+        durability: 97,
+        enhancement: 20
+    },
 ]

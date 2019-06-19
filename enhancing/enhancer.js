@@ -6,7 +6,12 @@ module.exports = {
 };
 
 function succeed(item) {
-  return { ...item };
+  const result = { ...item }
+
+  result.enhancement !== 20 ? result.enhancement = item.enhancement + 1
+                            : null 
+
+  return result;
 }
 
 function fail(item) {
