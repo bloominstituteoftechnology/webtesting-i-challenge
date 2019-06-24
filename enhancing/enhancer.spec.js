@@ -81,13 +81,31 @@ describe("enhancer.js", function() {
       expect(actual).toEqual(expected);
     });
   });
+
+  describe("get()", () => {
+    it("should not modify the name at all if the enhancement level is zero", () => {
+      const item = { name: "broadsword", enhancement: 0, durability: 80 };
+      const expected = {
+        name: "broadsword",
+        enhancement: 0,
+        durability: 80
+      };
+
+      const actual = enhancer.get(item);
+
+      expect(actual).toEqual(expected);
+    });
+    it("if enhancement is greater than zero should add [+n] to the name where n is the ehnhancement level  ", () => {
+      const item = { name: "broadsword", enhancement: 1, durability: 80 };
+      const expected = {
+        name: "[+1] broadsword",
+        enhancement: 1,
+        durability: 80
+      };
+
+      const actual = enhancer.get(item);
+
+      expect(actual).toEqual(expected);
+    });
+  });
 });
-
-// function makeItem(name, durability) {
-//   return {
-//     name,
-//     durability
-//   };
-// }
-
-// enhancer.repair should make durability 100

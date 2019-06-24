@@ -32,7 +32,14 @@ function repair(item) {
 }
 
 function get(item) {
-  return { ...item };
+  const itemCopy = { ...item };
+  if (item.enhancement === 0) {
+    return itemCopy;
+  }
+  if (item.enhancement > 0) {
+    itemCopy.name = `[+${item.enhancement}] ${item.name}`;
+  }
+  return itemCopy;
 }
 
 //red, green refactor, commit
