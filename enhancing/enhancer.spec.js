@@ -17,14 +17,39 @@ describe("enhancer.js", function() {
     });
   });
 
-  it.todo("should have a max of 100 for durability");
+  describe("succeed()", () => {
+    it("should increase the enhancement by one if less than 20", () => {
+      // arrange
+      const item = {
+        durability: 100,
+        enahncement: 3
+      };
+      // act
+
+      expect(enhancer.succeed({ enhancement: 15 }).enhancement).toBe(16);
+    });
+
+    it("should not change the enhancement level if it is 20", () => {
+      const item = { enhancement: 20, durability: 80 };
+      const expected = {
+        enhancement: 20,
+        durability: 80
+      };
+
+      const actual = enhancer.succeed(item);
+
+      expect(actual).toEqual(expected);
+    });
+  });
+
+  describe("fail()", () => {});
 });
 
-function makeItem(name, durability) {
-  return {
-    name,
-    durability
-  };
-}
+// function makeItem(name, durability) {
+//   return {
+//     name,
+//     durability
+//   };
+// }
 
 // enhancer.repair should make durability 100
