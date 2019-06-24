@@ -13,7 +13,17 @@ function succeed(item) {
 }
 
 function fail(item) {
-  return { ...item };
+  let itemCopy = { ...item };
+  if (item.enhancement < 15) {
+    itemCopy.durability -= 5;
+  }
+  if (item.enhancement > 15) {
+    itemCopy.durability -= 10;
+  }
+  if (item.enhancement > 16) {
+    itemCopy.enhancement -= 1;
+  }
+  return itemCopy;
 }
 
 function repair(item) {

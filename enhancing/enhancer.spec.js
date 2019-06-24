@@ -42,7 +42,45 @@ describe("enhancer.js", function() {
     });
   });
 
-  describe("fail()", () => {});
+  describe("fail()", () => {
+    it("should decrease the durability of an item by 5 if the enhancement is less than 15", () => {
+      const item = { name: "broadsword", enhancement: 14, durability: 80 };
+      const expected = {
+        name: "broadsword",
+        enhancement: 14,
+        durability: 75
+      };
+      const actual = enhancer.fail(item);
+
+      expect(actual).toEqual(expected);
+    });
+
+    it("should decrease the durability of the item by 10 if the enhancement is 15 or more", () => {
+      const item = { name: "broadsword", enhancement: 16, durability: 80 };
+      const expected = {
+        name: "broadsword",
+        enhancement: 16,
+        durability: 70
+      };
+
+      const actual = enhancer.fail(item);
+
+      expect(actual).toEqual(expected);
+    });
+
+    it("decreases the enhancement level by one if the enhancement level is greater than 16 and durability by 10", () => {
+      const item = { name: "broadsword", enhancement: 17, durability: 80 };
+      const expected = {
+        name: "broadsword",
+        enhancement: 16,
+        durability: 70
+      };
+
+      const actual = enhancer.fail(item);
+
+      expect(actual).toEqual(expected);
+    });
+  });
 });
 
 // function makeItem(name, durability) {
