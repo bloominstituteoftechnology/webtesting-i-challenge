@@ -8,7 +8,7 @@ module.exports = {
 function succeed({name, enhancement, durability}) {
   return {
     name,
-    enhancement: Math.min(enhancement, 20),
+    enhancement: Math.min(enhancement + 1, 20),
     durability
   };
 }
