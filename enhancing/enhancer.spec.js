@@ -6,5 +6,13 @@ describe('enhancer', () => {
       const test = { name: 'daggers' }
       expect(test).toHaveProperty('name')
     })
+    it('has a durability value', () => {
+      const test = { durability: 5 }
+      expect(test).toHaveProperty('durability')
+    })
+    it('has a enhancement value', () => {
+      const test = { enhancement: 10 }
+      expect(test).toHaveProperty('enhancement')
+    })
   })
 })
