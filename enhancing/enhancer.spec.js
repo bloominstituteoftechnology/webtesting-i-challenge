@@ -93,16 +93,35 @@ describe('succeed() method', () => {
     const test1 = succeed(item);
     expect(test1).toEqual(expected)
   })
-  it.todo('if enhancement is lvl 20 do not change lvl')
-  it.todo('does not change item.durability')
+  it('if enhancement is lvl 20 do not change lvl', () => {
+    const item = { enhancement: 18 }
+    const expected = { enhancement: 19 }
+    const test1 = succeed(item);
+    expect(test1).toEqual(expected)
+    const item2 = { enhancement: 20 }
+    const expected2 = { enhancement: 20 }
+    const test2 = succeed(item2);
+    expect(test2).toEqual(expected2)
+  })
+  it('does not change item.durability', () => {
+    const item = { enhancement: 0, durability: 100 };
+    const expected = { enhancement: 1, durability: 100 };
+    const test1 = succeed(item);
+    expect(test1).toEqual(expected);
+  })
 })
 
+describe('fail() method', () => {
+  it.todo(' if item.enhancement is less than 15 durabiltity decreased by 5')
+  it.todo(' if item.enhancement is 15 or more durabiltity decreased by 10')
+  it.todo(' If the items enhancement level is greater than 16, the enhancement level decreases by 1')
+})
 
-// test('numeric ranges', () => {
-//   expect(150).toBeWithinRange(90, 110);
-//   expect(101).not.toBeWithinRange(0, 100);
-//   expect({apples: 6, bananas: 3}).toEqual({
-//     apples: expect.toBeWithinRange(1, 10),
-//     bananas: expect.not.toBeWithinRange(11, 20),
-//   });
-// });
+test('numeric ranges', () => {
+  expect(99).toBeWithinRange(90, 110);
+  expect(101).not.toBeWithinRange(0, 100);
+  expect({apples: 6, bananas: 3}).toEqual({
+    apples: expect.toBeWithinRange(1, 10),
+    bananas: expect.not.toBeWithinRange(11, 20),
+  });
+});

@@ -10,11 +10,16 @@ function repair(item) {
 }
 
 function fail(item) {
-  return { ...item };
+  const enhancement = item.enhancement >= 16
+      ? item.enhancement - 1
+      : item.enhancement;
+  const durability = item.enhancement >= 15
+      ? item.durability - 10
+      : item.durability - 5;
+  return { ...item, enhancement, durability };
 }
-
 function succeed(item) {
-  const enhancement = item.enhancement === 20 ? 20 : ++item.enhancement;
+  const enhancement = item.enhancement === 20 ? item.enhancement = 20 : ++item.enhancement;
   return { ...item, enhancement };
 }
 
