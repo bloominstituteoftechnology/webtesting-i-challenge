@@ -1,23 +1,23 @@
 const { succeed, fail, repair, get } = require("./enhancer");
 
 const item = {
-  name: "",
+  name: "sword",
   durability: 0,
   enhancement: 0,
 };
 const maxItem = {
-  name: "",
+  name: "sword",
   durability: 100,
   enhancement: 20,
 };
 const fourteenEnhanceditem = {
-  name: "",
+  name: "sword",
   durability: 50,
   enhancement: 14,
 };
 
 const sixteenEnhanceditem = {
-  name: "",
+  name: "sword",
   durability: 50,
   enhancement: 16,
 };
@@ -33,6 +33,12 @@ describe("enhancer.js", function () {
     it("should accept an item object and return a new item with the durability restored to 100", function () {
       repair(item);
       expect(item.durability).toBe(100);
+    });
+  });
+  describe("get()", function () {
+    it("should return the item's name plus enhancement level in square brackets if the enhancement level is more than 0", function () {
+      get(maxItem);
+      expect(maxItem.name).toBe("sword[20]");
     });
   });
 
