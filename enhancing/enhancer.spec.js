@@ -112,10 +112,45 @@ describe('succeed() method', () => {
 })
 
 describe('fail() method', () => {
-  it.todo(' if item.enhancement is less than 15 durabiltity decreased by 5')
-  it.todo(' if item.enhancement is 15 or more durabiltity decreased by 10')
-  it.todo(' If the items enhancement level is greater than 16, the enhancement level decreases by 1')
+  it(' if item.enhancement is less than 15 durabiltity decreased by 5', () => {
+    const item1 = { enhancement: 10, durability: 5 };
+    const expected1 = { enhancement: 10, durability: 0 };
+    const test1 = fail(item1);
+    expect(test1).toEqual(expected1);
+    const item2 = { enhancement: 14, durability: 10 };
+    const expected2 = { enhancement: 14, durability: 5 };
+    const test2 = fail(item2);
+    expect(test2).toEqual(expected2);
+  })
+  it(' if item.enhancement is 15 or more durabiltity decreased by 10', () => {
+    const item1 = { enhancement: 15, durability: 15 };
+    const expected1 = { enhancement: 15, durability: 5 };
+    const test1 = fail(item1);
+    expect(test1).toEqual(expected1);
+  })
+  it(' If the items enhancement level is greater than 16, the enhancement level decreases by 1', () => {
+    const item1 = { enhancement: 17, durability: 15 };
+    const expected1 = { enhancement: 16, durability: 5 };
+    const test1 = fail(item1);
+    expect(test1).toEqual(expected1);
+    const item2 = { enhancement: 19, durability: 10 };
+    const expected2 = { enhancement: 18, durability: 0 };
+    const test2 = fail(item2);
+    expect(test2).toEqual(expected2);
+  })
 })
+
+describe('get() method', () => {
+  it('stretch', () => {
+      const item = {
+        name: 'daggers',
+        durability: 0,
+        enhancement: 5
+      }
+      get(item)
+      expect(item.name).toBe('[5] + daggers')
+  })
+});
 
 test('numeric ranges', () => {
   expect(99).toBeWithinRange(90, 110);

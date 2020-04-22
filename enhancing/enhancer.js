@@ -24,5 +24,8 @@ function succeed(item) {
 }
 
 function get(item) {
-  return { ...item };
+  const enhancement = item.enhancement === 0
+    ? item.name = item.name
+    : (item.name = `[${item.enhancement}] + ${item.name}`)
+  return { ...item, enhancement };
 }
