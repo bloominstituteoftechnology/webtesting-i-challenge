@@ -141,14 +141,14 @@ describe('fail() method', () => {
 })
 
 describe('get() method', () => {
-  it('stretch', () => {
+  it('returns item with enhancement lvl prepending name inside [] with again a + sign prepending the level if the enhancements lvl is not zero', () => {
       const item = {
         name: 'daggers',
         durability: 0,
         enhancement: 5
       }
       get(item)
-      expect(item.name).toBe('[5] + daggers')
+      expect(item.name).toBe('[+5] daggers')
   })
 });
 
