@@ -29,7 +29,7 @@ function fail(item){
 
 function repair(item) {
 
-  return { ...item, ...name, durability, enhancement };
+  return { ...item,durability:100};
 }
 
 function get(item) {

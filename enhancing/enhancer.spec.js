@@ -41,5 +41,19 @@ describe("Testing enhancer", () => {
         .toEqual({...testStack[5],durability:0,enhancement:16});
     })
 
+    it("repais", function(){
+        expect(enhancer.fail(testStack[5]))
+        .toEqual({...testStack[5]});
+
+        expect(enhancer.fail({...testStack[3],durability:28}))
+        .toEqual({...testStack[3],durability:100});
+
+        expect(enhancer.fail({...testStack[6],durability:20,enhancement:10}))
+        .toEqual({...testStack[6],durability:15,enhancement:10});
+
+        expect(enhancer.fail({...testStack[1],durability:10,enhancement:17}))
+        .toEqual({...testStack[1],durability:0,enhancement:16});
+    })
+
 
 })
