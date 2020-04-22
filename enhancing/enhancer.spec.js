@@ -15,4 +15,8 @@ describe('enhancer', () => {
       expect(test).toHaveProperty('enhancement')
     })
   })
+  describe('items enhancement number is in fact a number and between 0 and 20 oooof', () => {
+    it.todo('items enhancement value is indeed a number instead of idk a string or empty objects and arrays or even just inside an array maybe who knows.... test')
+    it.todo('oof check to see if it is between0 and 20')
+  })
 })
