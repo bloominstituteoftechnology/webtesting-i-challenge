@@ -16,7 +16,7 @@ Some of the topics covered were:
 You are allowed, and encouraged, to collaborate with your peers while working on this assignment. Remember to follow the _twenty-minute rule_ and post questions to your cohort's help channel before seeking support from your PM and Instructor.
 
 ## Commits
-
+random 
 Please push your code often and use descriptive commit messages, this helps you and your project manager.
 
 ## Project Description
