@@ -25,7 +25,7 @@ function validate(item) {
 function clamp(item) {
   let copy = { ...item };
   copy.enhancement = Math.min(Math.max(item.enhancement, 0), 20);
-  copy.durability = Math.min(Math.max(item.enhancement, 0), 100);
+  copy.durability = Math.min(Math.max(item.durability, 0), 100);
   return copy
 }
 
@@ -49,13 +49,18 @@ function fail(item) {
 }
 
 function repair(item) {
-  return {
-    ...item,
-    durability: 100
-  };
+  let copy = validate(item);
+  copy.durability = 100;
+  return clamp(copy);
 }
 
 function get(item) {
-  let changed = validate(item);
-  // todo
+  let changed = clamp(validate(item));
+  if (changed.enhancement > 0) {
+    changed.display_name = `+[${changed.enhancement}] ${changed.name}`;
+    return changed;
+  } else {
+    changed.display_name = changed.name;
+    return changed;
+  }
 }
