@@ -59,7 +59,8 @@ function repair(item) {
 function get(item) {
   const { name, enhancement} = item;
 
-  if((typeof(enhancement) !== 'number') || Number.isNaN(enhancement)){
+  if((typeof(enhancement) !== 'number') || Number.isNaN(enhancement) || typeof (name) !== 'string'){
+    console.log(typeof(name), 'NAME TYPE OF')
     throw new Error('Invalid argument types')
   }else if(enhancement == 0 ){
     return {...item}
