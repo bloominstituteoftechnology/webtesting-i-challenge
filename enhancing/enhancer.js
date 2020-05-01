@@ -5,9 +5,10 @@ module.exports = {
   get,
 };
 
-function succeed(item) {
-  const {enhancement} = item;
 
+function succeed(item) {
+  const {enhancement } = item
+ 
   if((typeof(enhancement)!== 'number') || Number.isNaN(enhancement)){
     throw new Error('Invalid argument types')
 
@@ -23,7 +24,7 @@ function succeed(item) {
 }
 
 function fail(item) {
-  const {enhancement, durability} = item;
+  let {enhancement, durability} = item;
 
   if((typeof(enhancement, durability)!== 'number') || Number.isNaN(enhancement, durability)){
     throw new Error('Invalid argument types')
@@ -36,7 +37,9 @@ function fail(item) {
 
   }else if (enhancement > 16 && enhancement < 21 && durability > 10 && durability <101){
     return { ...item, enhancement: enhancement -1, durability: durability -10 }
+  }else if (durability <= 0){
 
+    return { ...item, durability: durability}
   }else {
     return "Item does not exist"
   }
