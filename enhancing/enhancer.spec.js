@@ -20,15 +20,27 @@ describe('repair()', () => {
     test('durability restored to 100', () => {
         expect(repair(cloak).durability).toBe(100);
     })
-}
-// describe('test methods', () => {
-//     describe('succeed()', () => {
-//         test('items enhancement increase by 1', (sword) => {
-//             expect(succeed(sword.enhancement + 1)).toBe(16)               
-//         })
-//     })
-   
-// })
-)
+})
 
+describe('succeed()', () => {
+    test('enhancement level up by 1', () => {
+        expect(succeed(sword).enhancement).toBe(16)
+    })
+})
+describe('fail()', () => {
+    test('decrease durability if enhancement is < 15', () => {
+        expect(fail(shield).durability).toBe(45);
+       })
+      
+})
+describe('fail()', () => {
+    test('decrease durability if enhancement is > 15', () => {
+        expect(fail(cloak).durability).toEqual(79)
+    })
+})
+describe('fail()', () => {
+    test('enhancement level decrease by 1 if enhancement level is > 16', () => {
+        expect(fail(shield).enhancement).toBe(5)
+    })
+})
 //toEqual
