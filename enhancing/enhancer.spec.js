@@ -2,118 +2,95 @@ const enhancer = require("./enhancer.js");
 // test away!
 
 describe("a repair(item) method that accepts an item object and returns a new item with the durability restored to 100", () => {
-  it("should accept an object and return 100 durability", () => {
-    expect(
-      enhancer.repair({
-        name: "Item1",
-        durability: 0,
-        enhancement: 18,
-      })
-    ).toEqual({
-      name: "Item1",
-      enhancement: 18,
-      durability: 100,
-    });
-  });
+  let ItemObj = {
+    name: "Item1",
+    durability: 10,
+    enhancement: 18,
+  };
 
-  it("should accept an object, ensures the returned value is 100, and not anythign else", () => {
-    expect(
-      enhancer.repair({
-        name: "Item1",
-        durability: 0,
-        enhancement: 18,
-      })
-    ).not.toEqual({
-      name: "Item1",
-      enhancement: 18,
-      durability: 98,
-    });
+  it("should accept an object and return 100 durability", () => {
+    let prevItem = { ...ItemObj };
+    let myItem = enhancer.repair(ItemObj);
+    expect(myItem.durability).toBe(100);
+    expect(myItem).not.toBe(ItemObj);
+    expect(prevItem).toEqual(ItemObj);
   });
 });
 
 describe("a success(item) method that accepts an item object and returns a new item object modified according to the rules defined by the client for enhancement success", () => {
+  const successObj = {
+    name: "Item2",
+    durability: 0,
+    enhancement: 3,
+  };
+  let mySuccessItem = enhancer.succeed(successObj);
+
   it("should return item's enhancement increases by 1.", () => {
-    expect(
-      enhancer.succeed({
-        name: "Item2",
-        durability: 0,
-        enhancement: 1,
-      })
-    ).toEqual({
-      name: "Item2",
-      durability: 0,
-      enhancement: 2,
-    });
+    expect(mySuccessItem.enhancement).toBe(successObj.enhancement + 1);
+    expect(mySuccessItem).not.toBe(successObj);
   });
 
   it("should return ehancement level 20 if passed in 20", () => {
-    expect(
-      enhancer.succeed({
-        name: "Item2",
-        durability: 0,
-        enhancement: 20,
-      })
-    ).toEqual({
+    let newSuccessObj = {
       name: "Item2",
       durability: 0,
       enhancement: 20,
-    });
+    };
 
-    expect(
-      enhancer.succeed({
-        name: "Item2",
-        durability: 0,
-        enhancement: 20,
-      })
-    ).not.toEqual({
-      name: "Item2",
-      durability: 0,
-      enhancement: 21,
-    });
+    let newSuccessItem = enhancer.succeed(newSuccessObj);
+    expect(newSuccessItem.enhancement).toBe(20);
+    expect(newSuccessItem).not.toBe(newSuccessObj);
   });
 });
 
 describe("a fail(item) method that accepts an item object and returns a new item object modified according to the rules defined by the client for enhancement failure.", () => {
   it("should decrease durability by 5 if enhancement is less than 15", () => {
-    expect(
-      enhancer.fail({
-        name: "item3",
-        durability: 90,
-        enhancement: 10,
-      })
-    ).toEqual({
+    let failObj = {
       name: "item3",
-      durability: 85,
+      durability: 15,
       enhancement: 10,
-    });
+    };
+
+    let failItem = enhancer.fail(failObj);
+    expect(failItem.durability).toBe(failObj.durability - 5);
+    expect(failItem).not.toBe(failObj);
+  });
+
+  it("should decrease durability to be 0 if durability is less than 0", () => {
+    let failObj = {
+      name: "item3",
+      durability: 2,
+      enhancement: 10,
+    };
+
+    let failItem = enhancer.fail(failObj);
+    expect(failItem.durability).toBe(0);
+    expect(failItem).not.toBe(failObj);
   });
 
   it("should decrease durability by 10 if enhancement is 15 or more", () => {
-    expect(
-      enhancer.fail({
-        name: "item3",
-        durability: 80,
-        enhancement: 16,
-      })
-    ).toEqual({
+    let failObj = {
       name: "item3",
-      durability: 70,
+      durability: 50,
       enhancement: 16,
-    });
+    };
+
+    let failItem = enhancer.fail(failObj);
+    expect(failItem.durability).toBe(failObj.durability - 10);
+    expect(failItem).not.toBe(failObj);
   });
 
   it("should decrease durability by 10 and decrease enhancement by 1 if enhancement is greater than 16 or more", () => {
-    expect(
-      enhancer.fail({
-        name: "item3",
-        durability: 80,
-        enhancement: 20,
-      })
-    ).toEqual({
+    let failObj = {
       name: "item3",
-      durability: 70,
-      enhancement: 19,
-    });
+      durability: 20,
+      enhancement: 17,
+    };
+
+    let failItem = enhancer.fail(failObj);
+    expect(failItem.durability).toBe(failObj.durability - 10);
+    expect(failItem.enhancement).toBe(failObj.enhancement - 1);
+    expect(failItem).not.toBe(failObj);
   });
 });
 

@@ -23,6 +23,7 @@ function fail(item) {
   let newEnhancement = item.enhancement;
   if (item.enhancement >= 0 && item.enhancement < 15) {
     newDurability = item.durability - 5;
+    newDurability < 0 ? (newDurability = 0) : (newDurability = newDurability);
     return { ...item, durability: newDurability };
   } else if (item.enhancement >= 15 && item.enhancement <= 20) {
     if (item.enhancement <= 16) {
@@ -59,7 +60,6 @@ function get(item) {
   let newName = item.name;
   if (item.enhancement > 0 && item.enhancement <= 20) {
     newName = `[+${item.enhancement}] ${item.name}`;
-    console.log("new name: ", newName);
     return { ...item, name: newName };
   } else if (item.enhancement === 0) {
     return { ...item };
@@ -67,3 +67,18 @@ function get(item) {
     return "please pass item with correct parameters";
   }
 }
+
+const someObj = {
+  foo: 1,
+  bar: "hi",
+};
+
+const someFunc = (anObj) => {
+  const foo = 2;
+  return { ...anObj, foo };
+};
+
+const result = someFunc(someObj);
+console.log(someObj, result);
+
+console.log(someObj === result);
