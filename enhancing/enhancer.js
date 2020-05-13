@@ -6,7 +6,7 @@ module.exports = {
 };
 
 function succeed(item) {
-  // return { ...item };
+  
   const { enhancement } = item;
 
   if (item.enhancement >= 0 && item.enhancement < 20) {
@@ -21,7 +21,7 @@ function succeed(item) {
 } 
 
   function fail(item) {
-  // return { ...item };
+
   let newDurability = item.durability;
   let newEnhancement = item.enhancement;
   if (item.enhancement >= 0 && item.enhancement < 15) {
@@ -47,7 +47,7 @@ function succeed(item) {
 
 
 function repair(item) {
-  // return { ...item };
+  
   if (
     item.durability <= 100 &&
     item.durability >= 0 &&
@@ -61,5 +61,15 @@ function repair(item) {
 }
 
 function get(item) {
-  return { ...item };
+  
+  let newName = item.name;
+  if (item.enhancement > 0 && item.enhancement <= 20) {
+    newName = `[+${item.enhancement}] ${item.name}`;
+    console.log("new name: ", newName);
+    return { ...item, name: newName };
+  } else if (item.enhancement === 0) {
+    return { ...item };
+  } else {
+    return "please pass item with correct parameters";
+  }
 }
