@@ -21,8 +21,30 @@ function succeed(item) {
 } 
 
   function fail(item) {
-  return { ...item };
+  // return { ...item };
+  let newDurability = item.durability;
+  let newEnhancement = item.enhancement;
+  if (item.enhancement >= 0 && item.enhancement < 15) {
+    newDurability = item.durability - 5;
+    return { ...item, durability: newDurability };
+  } else if (item.enhancement >= 15 && item.enhancement <= 20) {
+    if (item.enhancement <= 16) {
+      newDurability = item.durability - 10;
+      return { ...item, durability: newDurability };
+    } else {
+      newDurability = item.durability - 10;
+      newEnhancement = item.enhancement - 1;
+      return {
+        ...item,
+        durability: newDurability,
+        enhancement: newEnhancement,
+      };
+    }
+  } else {
+    return "please correct item parameters passed in";
+  }
 }
+
 
 function repair(item) {
   return { ...item };
