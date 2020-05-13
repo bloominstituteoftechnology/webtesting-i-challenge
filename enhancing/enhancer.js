@@ -6,6 +6,11 @@ module.exports = {
 };
 
 function succeed(item) {
+  if (item < 20) {
+    return item + 1;
+  } else if (item === 20) {
+    return item;
+  }
   return { ...item };
 }
 
