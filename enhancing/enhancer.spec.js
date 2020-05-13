@@ -72,3 +72,33 @@ describe("a success(item) method that accepts an item object and returns a new i
       });
     });
   });
+
+  describe("a fail(item) method that accepts an item object and returns a new item object modified according to the rules defined by the client for enhancement failure.", () => {
+    it("should decrease durability by 5 if enhancement is less than 15", () => {
+      expect(
+        enhancer.fail({
+          name: "item3",
+          durability: 90,
+          enhancement: 10,
+        })
+      ).toEqual({
+        name: "item3",
+        durability: 85,
+        enhancement: 10,
+      });
+    });
+  
+    it("should decrease durability by 10 if enhancement is 15 or more", () => {
+      expect(
+        enhancer.fail({
+          name: "item3",
+          durability: 80,
+          enhancement: 16,
+        })
+      ).toEqual({
+        name: "item3",
+        durability: 70,
+        enhancement: 16,
+      });
+    });
+  })
