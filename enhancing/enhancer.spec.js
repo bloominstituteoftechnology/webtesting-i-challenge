@@ -102,3 +102,33 @@ describe("a success(item) method that accepts an item object and returns a new i
       });
     });
   })
+
+  describe("Add a get() method to the enhancer object that takes an item and returns a new item with the name property modified according to the following rules:", () => {
+    it("if the enhancement level is greater than 0, change the name to include the enhancement level, preceded by a plus sign ( + ), between square brackets before the item's name. Example: the name of a Iron Sword enhanced to 7 would be [+7] Iron Sword ", () => {
+      expect(
+        enhancer.get({
+          name: "item1",
+          durability: 10,
+          enhancement: 7,
+        })
+      ).toEqual({
+        name: "[+7] item1",
+        durability: 10,
+        enhancement: 7,
+      });
+    });
+  
+    it("if the enhancement level is 0, the the name is not modified.", () => {
+      expect(
+        enhancer.get({
+          name: "item1",
+          durability: 10,
+          enhancement: 0,
+        })
+      ).toEqual({
+        name: "item1",
+        durability: 10,
+        enhancement: 0,
+      });
+    });
+  });
