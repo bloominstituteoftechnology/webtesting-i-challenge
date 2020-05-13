@@ -47,7 +47,17 @@ function succeed(item) {
 
 
 function repair(item) {
-  return { ...item };
+  // return { ...item };
+  if (
+    item.durability <= 100 &&
+    item.durability >= 0 &&
+    item.enhancement >= 0 &&
+    item.enhancement <= 20
+  ) {
+    return { ...item, durability: 100 };
+  } else {
+    return "item with wrong parameters passed";
+  }
 }
 
 function get(item) {
