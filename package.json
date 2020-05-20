@@ -1,0 +1,26 @@
+{
+  "name": "webtesting-i-challenge",
+  "version": "1.0.0",
+  "description": "In this project, you will demonstrate proficiency by writing unit tests and production code to satisfy the _Minimum Viable Product_ described below.",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jest": "^26.0.1",
+    "js-data": "^4.0.0-beta.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcdaly97/webtesting-i-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jcdaly97/webtesting-i-challenge/issues"
+  },
+  "homepage": "https://github.com/jcdaly97/webtesting-i-challenge#readme"
+}
