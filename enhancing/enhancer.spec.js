@@ -66,4 +66,26 @@ describe("enhancer", () => {
             expect(failedItem.enhancement).toBe(enchancementStat - 1)
         })
     })
+    describe("get", () => {
+        describe("should modify name with enhancement value", () => {
+            let itemName = "Buster sword"
+            let item = {
+                name: itemName,
+                durability: 90,
+                enhancement: 14
+            }
+            const getItem = get(item)
+            expect(getItem.name).toBe(`[+${getItem.enhancement}] ${itemName}`)
+        })
+        describe("should modify name with enhancement value", () => {
+            let itemName = "Buster sword"
+            let item = {
+                name: itemName,
+                durability: 90,
+                enhancement: 0
+            }
+            const getItem = get(item)
+            expect(getItem.name).toBe(itemName)
+        })
+    })
 })
