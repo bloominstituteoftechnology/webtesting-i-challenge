@@ -1,20 +1,30 @@
 const enhancer = require("./enhancer.js");
 // test away!
 
+const item = {
+	name: "sword",
+	durability: 40,
+	enhancement: 25,
+};
+
 describe("enhancer unit test", () => {
 	it("repair", () => {
-		expect(enhancer.repair()).toBe();
+		const newObj = enhancer.repair(item);
+		expect(newObj.durability).toBe(100);
 	});
 
 	it("success", () => {
-		expect(calculator.succeed()).toBe();
+		const newObj = enhancer.success(item);
+		expect(newObj.enhancement).toBe(26);
 	});
 
 	it("fail", () => {
-		expect(calculator.fail()).toBe();
+		const newObj = enhancer.fail(item);
+		expect(newObj.enhancement).toBe(25);
+		expect(newObj.durability).toBe(30);
 	});
 
-	it("get", () => {
-		expect(calculator.get()).toBe();
-	});
+	// it("get", () => {
+	// 	expect(calculator.get()).toBe();
+	// });
 });
