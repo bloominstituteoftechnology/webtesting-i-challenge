@@ -1,0 +1,23 @@
+{
+  "name": "webtesting-i-challenge",
+  "version": "1.0.0",
+  "description": "In this project, you will demonstrate proficiency by writing unit tests and production code to satisfy the _Minimum Viable Product_ described below.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frytz/webtesting-i-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Frytz/webtesting-i-challenge/issues"
+  },
+  "homepage": "https://github.com/Frytz/webtesting-i-challenge#readme",
+  "dependencies": {
+    "jest": "^26.3.0"
+  }
+}
