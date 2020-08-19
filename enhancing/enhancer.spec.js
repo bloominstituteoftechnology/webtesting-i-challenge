@@ -12,6 +12,8 @@ describe('item module', () => {
             const actualOutput = repairItem.durability
 
             expect(actualOutput).toBe(expectedOutput)
+            // This is the most relevant test for this function
+            expect(item1.durability).toBeLessThanOrEqual(actualOutput)
         })
     })
     describe('fail function', () => {
@@ -22,6 +24,7 @@ describe('item module', () => {
             const expectedDurability = failItem.durability = 40
             expect(actualDurabilityOutput).toBe(expectedDurability)
             expect(failItem).toBeDefined()
+            // This is the most relevant test for this function
             expect(failItem.durability).toBeLessThan(item2.durability)
         })
     })
@@ -33,6 +36,7 @@ describe('item module', () => {
             const actualEnhancementOutput = successItem.enhancement
             expect(expectedEnhancement).toBe(actualEnhancementOutput)
             expect(successItem).toBeDefined()
+            // This is the most relevant test for this function
             expect(successItem.enhancement).toBeGreaterThan(item2.enhancement)
         })
     })
@@ -40,6 +44,10 @@ describe('item module', () => {
         const enhancedName = enhancer.get(item2)
         console.log(enhancedName.name)
         expect(enhancedName).toBeDefined()
-    
+        expect(enhancedName).toBeDefined()
+
+        // This is the most relevant test for this function
+        expect(enhancedName.name).toContain(item2.enhancement)
+  
     })
 })
