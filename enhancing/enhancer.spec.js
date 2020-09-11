@@ -25,3 +25,10 @@ test("fail function", () => {
         enhancement: item.enhancement > 16 ? item.enhancement-1 : item.enhancement  
     })
 })
+
+test("get function", () => {
+    expect(enhancer.get(item)).toStrictEqual({
+        ...item,
+        name: `[+ ${item.enhancement}] ${item.name }`
+    })
+})
