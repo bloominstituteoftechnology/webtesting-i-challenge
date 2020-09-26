@@ -1,46 +1,22 @@
-# Testing I
+# Unit Testing Module Project
 
-In this project, you will demonstrate proficiency by writing unit tests and production code to satisfy the _Minimum Viable Product_ described below.
-
-Some of the topics covered were:
-
-- introduction to automated testing.
-- using `Jest` as a test runner.
-- writing unit tests for JavaScript functions.
-- the _Test Driven Development (TDD)_ workflow.
-
-## Instructions
-
-**Read these requirements carefully. Understand exactly what is expected _before_ starting.**
-
-You are allowed, and encouraged, to collaborate with your peers while working on this assignment. Remember to follow the _twenty-minute rule_ and post questions to your cohort's help channel before seeking support from your PM and Instructor.
-
-## Commits
-
-Please push your code often and use descriptive commit messages, this helps you and your project manager.
-
-## Project Description
+## Instroduction
 
 In this project, you will **write unit tests and the implementation code** for a module that helps players see the results of a _success_ or _failure_ when trying to enhance their in-game items. The requirements are listed under the _Minimum Viable Product_ section below.
 
-## Project Set Up
+## Instructions
 
-Follow these steps to setup your git _fork_ and _branch_.
+### Task 1: Set Up The Project With Git
 
-- [ ] Fork this repository.
-- [ ] Use GitHub's website to add your project manager as collaborator on **your fork**.
-- [ ] **Clone your forked version** of the repository (**Not Lambda's**!).
-- [ ] Create a new branch: `git checkout -b <firstName-lastName>`.
-- [ ] Commit changes to your `<firstName-lastName>` branch.
-- [ ] Push often to your branch: `git push origin <firstName-lastName>`.
+Follow these steps to set up and work on your project:
 
-Follow these steps for completing your project.
+- [ ] Create a forked copy of this project.
+- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
+- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [ ] Push commits: git push -u origin `<firstName-lastName>`.
 
-- [ ] Submit a Pull-Request to merge the `<firstName-lastName>` branch into the master branch on your fork. **Please don't merge your own pull request**
-- [ ] Use GitHub's website to add your project manager as a reviewer on the pull-request.
-- [ ] Your project manager will count the project as complete by merging the branch back into the master branch of your forked repository.
-
-## Minimum Viable Product
+### Task 2: Minimum Viable Product
 
 After a set of interviews with the potential users of the solution, we gathered the following information about the functionality of the game's enhancing system. Your job is to add tests to `./enhancing/enhancer.spec.js` and code to `./enhancing/enhancer.js` to implement the requirements; `./enhancing/enhancer.js` exports an object that has the following methods:
 
@@ -69,7 +45,7 @@ The following sections list information provided by the client about `items` and
 - If the item's enhancement is 15 or more, the durability of the item is decreased by 10.
 - If the item's enhancement level is greater than 16, the enhancement level decreases by 1 (17 goes down to 16, 18 goes down to 17).
 
-## Stretch Problem
+### Task 3: Stretch Goals
 
 This section is **optional** and not counted towards MVP. Start working on it after you're done with the main assignment.
 
@@ -78,3 +54,9 @@ This section is **optional** and not counted towards MVP. Start working on it af
   - if the enhancement level is greater than 0, change the name to include the enhancement level, preceded by a plus sign ( + ), between square brackets before the item's name. Example: the name of a "Iron Sword" enhanced to 7 would be "[+7] Iron Sword".
 - Design and build a Web Application to test the enhancing module you implemented for the MVP.
 - Work on [this repository for extra practice testing JavaScript Functions](https://github.com/LambdaSchool/Testing).
+
+## Submission format
+
+Follow these steps for completing your project.
+
+- [ ] Submit a pull request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
