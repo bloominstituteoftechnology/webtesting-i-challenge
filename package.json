@@ -1,0 +1,23 @@
+{
+	"name": "webtesting-i-challenge",
+	"version": "1.0.0",
+	"description": "## Instroduction",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest --watch"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jduncan1980/webtesting-i-challenge.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/jduncan1980/webtesting-i-challenge/issues"
+	},
+	"homepage": "https://github.com/jduncan1980/webtesting-i-challenge#readme",
+	"devDependencies": {
+		"jest": "^26.5.2"
+	}
+}
