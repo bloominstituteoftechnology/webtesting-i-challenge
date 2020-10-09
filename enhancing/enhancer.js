@@ -29,6 +29,8 @@ function fail(item) {
   let newDurability;
   let newEnhancement;
 
+  // checkItem(item)
+
   if (item.enhancement < 15) {
     newDurability = item.durability < 5 ? 0 : item.durability -= 5;
   } else if (item.enhancement >= 15) {
@@ -46,9 +48,9 @@ function fail(item) {
 }
 
 function repair(item) {
-  // const itemType = Array.isArray(item) ? "array" : typeof item;
-  // if (itemType === "object")
-  if (checkItem(item)) {
+  const itemType = Array.isArray(item) ? "array" : typeof item;
+  if (itemType === "object") {
+    // if (checkItem(item)) {
     return {
       ...item,
       durability: 100,
@@ -69,7 +71,7 @@ const checkItem = (item) => {
   const itemType = Array.isArray(item) ? "array" : typeof item;
   if (itemType !== "object") {
     throw new Error("item must be an object")
-  } else if (Object.keys(item) !== ["name", "durability", "enhancement"]) {
+  } else if (Object.keys(item) !== ["name", "enhancement", "durability"]) {
     throw new Error("item must contain 'name', 'durability', and 'enhancement' properties")
   } else if (item.enhancement < 0 || item.enhancement > 20) {
     throw new Error("enhancement must be between 0 and 20")
