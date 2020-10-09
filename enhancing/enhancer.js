@@ -1,3 +1,10 @@
+const {
+  checkItemType,
+  checkItemKeys,
+  checkEnhancementVal,
+  checkDurabilityVal
+} = require("./verifyArg");
+
 module.exports = {
   success,
   fail,
@@ -8,7 +15,8 @@ module.exports = {
 function success(item) {
   // if (itemType)
 
-  if (item.enhancement >= 0 && item.enhancement <= 20) {
+  // if (item.enhancement >= 0 && item.enhancement <= 20) {
+  if (checkEnhancementVal(item) && checkItemType(item) && checkDurabilityVal(item)) {
     let newEnhancement = item.enhancement === 20 ? item.enhancement : ++item.enhancement
     return {
       ...item,
@@ -30,10 +38,10 @@ function fail(item) {
   let newEnhancement;
 
   // checkItem(item)
-
-  if (item.enhancement < 15) {
-    newDurability = item.durability < 5 ? 0 : item.durability -= 5;
-  } else if (item.enhancement >= 15) {
+  if (checkItemType(item) && checkEnhancementVal(item) && checkDurabilityVal(item))
+    if (item.enhancement < 15) {
+      newDurability = item.durability < 5 ? 0 : item.durability -= 5;
+    } else if (item.enhancement >= 15) {
     newDurability = item.durability > 10 ? item.durability -= 10 : 0;
     if (item.enhancement > 16) {
       newEnhancement = item.enhancement -= 1;
@@ -48,15 +56,22 @@ function fail(item) {
 }
 
 function repair(item) {
-  const itemType = Array.isArray(item) ? "array" : typeof item;
-  if (itemType === "object") {
-    // if (checkItem(item)) {
+  // const itemType = Array.isArray(item) ? "array" : typeof item;
+  // if (itemType === "object") {
+  //   // if (checkItem(item)) {
+  //   return {
+  //     ...item,
+  //     durability: 100,
+  //   };
+  // } else {
+  //   throw new Error(`input was of type ${itemType}, expected type of object`);
+  // }
+
+  if (checkItemType(item) && checkEnhancementVal(item) && checkDurabilityVal(item) /*&& checkItemKeys(item)*/ ) {
     return {
       ...item,
       durability: 100,
     };
-  } else {
-    throw new Error(`input was of type ${itemType}, expected type of object`);
   }
 }
 
@@ -67,10 +82,16 @@ function get(item) {
   };
 }
 
+
+
+
+// HELPERS
+
+
 const checkItem = (item) => {
   const itemType = Array.isArray(item) ? "array" : typeof item;
   if (itemType !== "object") {
-    throw new Error("item must be an object")
+    throw new Error(`you passed a ${itemType}, item must be an object`)
   } else if (Object.keys(item) !== ["name", "enhancement", "durability"]) {
     throw new Error("item must contain 'name', 'durability', and 'enhancement' properties")
   } else if (item.enhancement < 0 || item.enhancement > 20) {

@@ -5,24 +5,27 @@ const {
 } = require("./enhancer.js");
 // test away!
 
-// we want to test that our item has name, enhancement, and durability beforeEach
-
 describe("enhancer.js", () => {
 
   describe("repair()", () => {
     it("should restore durability to 100", () => {
-      const actual = repair({
+      // const actual = repair({
+      //   name: "test",
+      //   enhancement: 5,
+      //   durability: 20
+      // });
+      const actual = {
         name: "test",
         enhancement: 5,
         durability: 20
-      });
+      };
       const expected = {
         name: "test",
         enhancement: 5,
         durability: 100
       };
 
-      expect(actual.durability).toBe(expected.durability);
+      expect(repair(actual).durability).toBe(expected.durability);
     });
     it("should throw an exception if argument is not of type object", () => {
 
@@ -102,11 +105,11 @@ describe("enhancer.js", () => {
         enhancement: 15,
         durability: 15
       }
-      expect(fail(actual).durability).toBe(5)
       // expect(fail({
       //   ...actual,
       //   enhancement: 15
-      // }).durability).toBe(5)
+      // }).durability).toBe(5);
+      expect(fail(actual).durability).toBe(5)
 
       expect(fail({
         ...actual,
