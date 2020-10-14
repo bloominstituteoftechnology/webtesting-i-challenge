@@ -45,10 +45,14 @@ The following sections list information provided by the client about `items` and
 
 ### When enhancement fails
 
-- If the item's enhancement is less than 15, the durability of the item is decreased by 5.
-- If the item's enhancement is 15 or more, the durability of the item is decreased by 10.
-- If the item's enhancement level is greater than 16, the enhancement level decreases by 1 (17 goes down to 16, 18 goes down to 17).
+- If the item's enhancement is less than 15,
+ the durability of the item is decreased by 5.
 
+- If the item's enhancement is 15 or more, 
+the durability of the item is decreased by 10.
+
+- If the item's enhancement level is greater than 16, the enhancement level decreases by 1 (17 goes down to 16, 18 goes down to 17).
+ 
 ### Task 3: Stretch Goals
 
 This section is **optional** and not counted towards MVP. Start working on it after you're done with the main assignment.

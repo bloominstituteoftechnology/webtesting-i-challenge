@@ -32,9 +32,22 @@ describe("enhancer.js", () => {
         name: "Mother of Dragons",
         durability: 80, //durability no change
         enhancement: 16,
-      }
+      };
       expect(enhancer.success(item)).toEqual(expectedItem);
-    })
+    });
+    test.todo("the items enhancement increase by 1 not 20");
+  }); // close success
+
+  
+  describe("fail()", () => {
+    it("should returns a new item defined by enhancement failure.", () => {
+      expectedItem = {
+        name: "Mother of Dragons",
+        durability: 70,
+        enhancement: 15,
+      };
+      expect(enhancer.fail(item)).toEqual(expectedItem);
+    });
     test.todo("the items enhancement increase by 1 not 20");
   });
 });
