@@ -39,8 +39,8 @@ The following sections list information provided by the client about `items` and
 
 ### When enhancement succeeds
 
-- The item's enhancement increases by 1.
-- If the item enhancement level is 20, the enhancement level is not changed.
+- The item's enhancement increases by 1.//this 2nd 
+- If the item enhancement level is 20, the enhancement level is not changed. //this logic 1st 
 - The durability of the item is not changed.
 
 ### When enhancement fails
