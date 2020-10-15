@@ -10,4 +10,13 @@ describe("testing enhancer.js", () => {
             expect(repair(damagedItem)).toEqual(item);
         })
     })
+    describe("enhancement has risen", () => {
+        it("enhancement is successful", () => {
+            const enhancedItem = { name: "Arthur", durability: 100, enhancement: 6 };
+            expect(success(item)).toEqual(enhancedItem)
+        })
+    })
+    describe("enhancement has failed to rise", () => {
+        
+    })
 })
