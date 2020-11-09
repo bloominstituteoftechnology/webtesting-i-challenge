@@ -1,0 +1,11 @@
+{
+    "private": true,
+    "scripts": {
+        "test": "jest",
+        "test:watch": "jest --watch"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "jest": "26.4.2"
+    }
+}
