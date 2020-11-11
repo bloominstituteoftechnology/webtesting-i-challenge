@@ -27,7 +27,7 @@ After a set of interviews with the potential users of the solution, we gathered 
 
 The following sections list information provided by the client about `items` and the game's enhancing system.
 
-### Items.
+### Items
 
 - Items have `name`, `durability` and `enhancement`.
 - The item's `enhancement` it's a number from 0 to 20.
@@ -59,4 +59,4 @@ This section is **optional** and not counted towards MVP. Start working on it af
 
 Follow these steps for completing your project.
 
-- [ ] Submit a pull request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
+- [ ] Submit a pull request to merge `<firstName-lastName>` Branch into master (student's  Repo). **Please don't merge your own pull request**
