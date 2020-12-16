@@ -1,10 +1,27 @@
 {
-  "name": "webtesting-i-challenge",
+  "name": "webtesting-i-project",
   "version": "1.0.0",
+  "description": "Web Testing I Project",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watchAll"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LambdaSchool/webtesting-i-project.git"
+  },
+  "keywords": [
+    "lambda",
+    "testing"
+  ],
+  "author": "Lambda School",
+  "bugs": {
+    "url": "https://github.com/LambdaSchool/webtesting-i-project/issues"
+  },
+  "homepage": "https://github.com/LambdaSchool/webtesting-i-project#readme",
   "devDependencies": {
-    "eslint": "^7.13.0"
+    "@types/jest": "^26.0.19",
+    "eslint": "^7.15.0",
+    "jest": "^26.6.3"
   }
 }
