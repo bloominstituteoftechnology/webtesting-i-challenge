@@ -7,11 +7,25 @@ module.exports = {
 
 
 function success(item) {
-  return { ...item };
+  let newEnhancer = item.enhancement;
+  if(
+    item.enhancement < 20 && item.enhancement >= 0) 
+    {++newEnhancer}
+  return { ...item, enhancement: newEnhancer };
 }
 
 function fail(item) {
-  return { ...item };
+  let newEnhancer = item.enhancement;
+  let newDurability = item.durability;
+
+  if(item.enhancement < 15) {
+    newDurability = item.durability - 5 >=0 ? newDurability - 5 : 0
+  } else {
+    newDurability -= 10
+  } if(item.enhancement > 16) {
+    --newEnhancer
+  }
+  return { ...item, enhancement: newEnhancer, durability:newDurability };
 }
 
 function repair(item) {

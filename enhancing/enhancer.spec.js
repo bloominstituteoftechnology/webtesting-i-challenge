@@ -1,22 +1,6 @@
 const enhancer = require('./enhancer.js');
 // test away!
 
-//success function
-
-describe('success function', () => {
-    test('success function exists', () => {
-        expect(enhancer.success).toBeDefined();
-    })
-});
-
-//fail test
-
-describe('fail function', () => {
-    test('fail function exists', () => {
-        expect(enhancer.fail).toBeDefined();
-    })
-});
-
 //repair test
 
 describe('repair function', () => {
@@ -38,6 +22,55 @@ describe('repair function', () => {
         expect(item.enhancement).toBe(expectedItem.enhancement);
     })
 });
+
+//success function
+
+describe('success function', () => {
+    it('Test that the success method works', () => {
+        const newItem = {
+            name: "Metroid Prime",
+            durability: 100,
+            enhancement: 9,
+        };
+        const expectedItem = {
+            name: "Metroid Prime",
+            durability: 100,
+            enhancement: 10,
+        };
+
+        const item = enhancer.success(newItem)
+
+        expect(item.name).toBe(expectedItem.name);
+        expect(item.durability).toBe(expectedItem.durability);
+        expect(item.enhancement).toBe(expectedItem.enhancement);
+    })
+});
+
+
+//fail test
+
+describe('fail function', () => {
+    it('Test that the fail method works', () => {
+        const newItem = {
+            name: "Metroid Prime",
+            durability: 100,
+            enhancement: 18,
+        };
+        const expectedItem = {
+            name: "Metroid Prime",
+            durability: 90,
+            enhancement: 17,
+        };
+
+        const item = enhancer.fail(newItem)
+
+        expect(item.name).toBe(expectedItem.name);
+        expect(item.durability).toBe(expectedItem.durability);
+        expect(item.enhancement).toBe(expectedItem.enhancement);
+    })
+});
+
+
 
 describe('get function', () => {
     test('get function exists', () => {
