@@ -46,11 +46,54 @@ describe('success function', () => {
     })
 });
 
+describe('success function', () => {
+    it('Test that the enhancment does not change at 20', () => {
+        const newItem = {
+            name: "Metroid Prime",
+            durability: 100,
+            enhancement: 20,
+        };
+        const expectedItem = {
+            name: "Metroid Prime",
+            durability: 100,
+            enhancement: 20,
+        };
+
+        const item = enhancer.success(newItem)
+
+        expect(item.name).toBe(expectedItem.name);
+        expect(item.durability).toBe(expectedItem.durability);
+        expect(item.enhancement).toBe(expectedItem.enhancement);
+    })
+});
+
 
 //fail test
 
+
 describe('fail function', () => {
-    it('Test that the fail method works', () => {
+    it('Test that the fail method works by decreasing the durability by 5', () => {
+        const newItem = {
+            name: "Metroid Prime",
+            durability: 100,
+            enhancement: 14,
+        };
+        const expectedItem = {
+            name: "Metroid Prime",
+            durability: 95,
+            enhancement: 14,
+        };
+
+        const item = enhancer.fail(newItem)
+
+        expect(item.name).toBe(expectedItem.name);
+        expect(item.durability).toBe(expectedItem.durability);
+        expect(item.enhancement).toBe(expectedItem.enhancement);
+    })
+});
+
+describe('fail function', () => {
+    it('Test that the fail method works by decreasing the durability by 10 and enhancment by 1', () => {
         const newItem = {
             name: "Metroid Prime",
             durability: 100,
@@ -69,6 +112,8 @@ describe('fail function', () => {
         expect(item.enhancement).toBe(expectedItem.enhancement);
     })
 });
+
+
 
 
 
