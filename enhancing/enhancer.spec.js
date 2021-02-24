@@ -9,7 +9,7 @@ describe('item class', () =>{
     beforeEach(() =>{
         item = {
             name: 'Sword',
-            enchantment: 5,
+            enhancement: 21,
             durability: 50
         }
     })
@@ -22,11 +22,26 @@ describe('item class', () =>{
         expect(item).toHaveProperty('name', 'Sword')
     })
 
-    it('item has an enchantment', () =>{
-        expect(item).toHaveProperty('enchantment', 5)
+    it('item has an enhancement', () =>{
+        expect(item).toHaveProperty('enhancement', 21)
     })
 
     it('item has durability', () =>{
         expect(item).toHaveProperty('durability', 50)
+    })
+
+    it('repairs/set durability to 100', () =>{
+        enhancer.repair(item)
+        expect(item.durability).toBe(100)
+    })
+
+    it('when enhancement succeeds', () =>{
+        enhancer.success(item)
+        expect(item.enhancement).toBe(22)
+    })
+
+    it('when enhancement fails', () =>{
+        enhancer.fail(item)
+        expect(item.enhancement).toBe(20)
     })
 })
