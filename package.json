@@ -2,9 +2,11 @@
   "name": "webtesting-i-challenge",
   "version": "1.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watchAll --verbose"
   },
   "devDependencies": {
-    "eslint": "^7.13.0"
+    "@types/jest": "^26.0.20",
+    "eslint": "^7.13.0",
+    "jest": "^26.6.3"
   }
 }
